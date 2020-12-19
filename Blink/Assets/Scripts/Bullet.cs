@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         lifetimer = lifetime;
+        transform.position += transform.forward * speed * Time.deltaTime;
     }
 
     // Update is called once per frame

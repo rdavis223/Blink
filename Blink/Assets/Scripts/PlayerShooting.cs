@@ -40,8 +40,9 @@ public class PlayerShooting : MonoBehaviour
     void reload(){
         reloading = false;
         if (currentAmmo >= clipSize){
-            currentAmmo -= clipSize;
-            currentClip += clipSize;
+            int toRefill = clipSize - currentClip;
+            currentAmmo -= toRefill;
+            currentClip += toRefill;
         }
         else 
         {
@@ -64,33 +65,35 @@ public class PlayerShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fireTimer > 0f){
-            fireTimer -= Time.deltaTime;
-        }
+        if (Cursor.lockState == CursorLockMode.Locked){ 
+            if (fireTimer > 0f){
+                fireTimer -= Time.deltaTime;
+            }
 
-        if (reloadTimer > 0f){
-            reloadTimer -= Time.deltaTime;
-        }
-        if (Input.GetKeyDown(KeyCode.R) && !(currentAmmo == 0 && currentClip == 0)){
-            reloadTimer = reloadSpeed;
-            reloading = true;
-            updateAmmoText("Reloading");
-        }
+            if (reloadTimer > 0f){
+                reloadTimer -= Time.deltaTime;
+            }
+            if (Input.GetKeyDown(KeyCode.R) && !(currentAmmo == 0 && currentClip == 0)){
+                reloadTimer = reloadSpeed;
+                reloading = true;
+                updateAmmoText("Reloading");
+            }
 
-        if (reloadTimer <= 0f && reloading){
-            reload();
-        }
+            if (reloadTimer <= 0f && reloading){
+                reload();
+            }
 
-        if (Input.GetMouseButton(0) && fireTimer <= 0f && reloadTimer <= 0 && currentClip > 0){
-            fireTimer = fireRate;
-            GameObject bulletObject = Instantiate(bulletPrefab);
-            bulletObject.transform.rotation = bulletPrefab.transform.rotation;
-            bulletObject.transform.localScale = new Vector3(1, 1, 1);
-            bulletObject.transform.position = playerCamera.transform.position + playerCamera.transform.forward;
-            bulletObject.transform.forward = playerCamera.transform.forward;
-            bulletObject.transform.rotation = Quaternion.LookRotation(playerCamera.transform.forward);
-            currentClip -= 1;
-            updateAmmoText(currentClip.ToString() + "/" + currentAmmo.ToString());
+            if (Input.GetMouseButton(0) && fireTimer <= 0f && reloadTimer <= 0 && currentClip > 0){
+                fireTimer = fireRate;
+                GameObject bulletObject = Instantiate(bulletPrefab);
+                bulletObject.transform.rotation = bulletPrefab.transform.rotation;
+                bulletObject.transform.localScale = new Vector3(1, 1, 1);
+                bulletObject.transform.position = playerCamera.transform.position + playerCamera.transform.forward;
+                bulletObject.transform.forward = playerCamera.transform.forward;
+                bulletObject.transform.rotation = Quaternion.LookRotation(playerCamera.transform.forward);
+                currentClip -= 1;
+                updateAmmoText(currentClip.ToString() + "/" + currentAmmo.ToString());
+            }
         }
     }
 }

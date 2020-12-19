@@ -458,7 +458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e33b26c6a6d37ef4f90adaf0fd9c400b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.08
+      value: 0.613
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e33b26c6a6d37ef4f90adaf0fd9c400b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -466,23 +466,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e33b26c6a6d37ef4f90adaf0fd9c400b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.57
+      value: 0.799
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e33b26c6a6d37ef4f90adaf0fd9c400b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.25880992
+      value: 0.08715279
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e33b26c6a6d37ef4f90adaf0fd9c400b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0021795568
+      value: 0.0007339535
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e33b26c6a6d37ef4f90adaf0fd9c400b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9658916
+      value: -0.9961594
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e33b26c6a6d37ef4f90adaf0fd9c400b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.008134215
+      value: 0.0083891135
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e33b26c6a6d37ef4f90adaf0fd9c400b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -490,7 +490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e33b26c6a6d37ef4f90adaf0fd9c400b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -150
+      value: -170
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e33b26c6a6d37ef4f90adaf0fd9c400b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -586,6 +586,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 176630, guid: 3c6265c3391baee4c93fd1c381f3d962, type: 3}
   playerCamera: {fileID: 1596989234}
+  crosshairTexture: {fileID: 2800000, guid: e81c1b06f224c284fb7b35c2bac9542f, type: 3}
+  crosshairScale: 1
 --- !u!1 &1505893511
 GameObject:
   m_ObjectHideFlags: 0

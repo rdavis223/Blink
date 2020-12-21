@@ -46,8 +46,9 @@ public class PlayerWeaponMgr : MonoBehaviour
                 currentSelectedWeapon.GetComponent<PlayerShooting>().reloading = false;
             }
             if (currentSelectedWeapon == primary){
-                primary.SetActive(false);
-                secondary.SetActive(true);
+                primary.GetComponent<Animator>().SetTrigger("Switch");
+                // primary.SetActive(false);
+                // secondary.SetActive(true);
                 currentSelectedWeapon = secondary;
             } else {
                 secondary.SetActive(false);

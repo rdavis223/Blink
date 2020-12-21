@@ -35,6 +35,8 @@ public class PlayerShooting : MonoBehaviour
 
     public string fireType;
 
+    private Animator anim;
+
 
     void updateAmmoText(string textToUpdate){
         ammoText.GetComponent<Text>().text = textToUpdate;
@@ -58,6 +60,7 @@ public class PlayerShooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
+        anim = GetComponent<Animator>();
         currentAmmo = ammo;
         reload();
     }
@@ -112,6 +115,7 @@ public class PlayerShooting : MonoBehaviour
                 bulletObject.transform.forward = playerCamera.transform.forward;
                 bulletObject.transform.rotation = Quaternion.LookRotation(playerCamera.transform.forward);
                 currentClip -= 1;
+                anim.SetTrigger("Fire");
                 updateAmmoText(currentClip.ToString() + "/" + currentAmmo.ToString());
             }
         }

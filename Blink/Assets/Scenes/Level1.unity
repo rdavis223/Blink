@@ -748,7 +748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801c4bfbcde624133850e2d5ad1108a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryPrefab: {fileID: 9025537687523542625, guid: 2d6dc774703d24562811207dfc69d150,
+  primaryPrefab: {fileID: 6571389718594232898, guid: 2d6dc774703d24562811207dfc69d150,
     type: 3}
   secondaryPrefab: {fileID: 2575858915674461748, guid: 81ebd232627664695b8c227c9c1da205,
     type: 3}

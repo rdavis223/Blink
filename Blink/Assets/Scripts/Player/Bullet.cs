@@ -21,7 +21,6 @@ public class Bullet : MonoBehaviour
     {
         //make the bullet move
         Vector3 newSpeed = transform.forward * speed * Time.deltaTime;
-        Debug.Log(newSpeed);
         transform.position += transform.forward * speed * Time.deltaTime;
         lifetimer -= Time.deltaTime;
         if (lifetimer <= 0f) {

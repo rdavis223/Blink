@@ -21,7 +21,7 @@ public class PlayerShooting : MonoBehaviour
 
     public int clipSize;
 
-    public Transform ammoText;
+    public Transform ammoText = null;
 
     private int currentAmmo = 0;
 
@@ -31,7 +31,10 @@ public class PlayerShooting : MonoBehaviour
 
     public float reloadSpeed;
 
-    private bool reloading;
+    public bool reloading = false;
+
+    public string fireType;
+
 
     void updateAmmoText(string textToUpdate){
         ammoText.GetComponent<Text>().text = textToUpdate;
@@ -58,6 +61,13 @@ public class PlayerShooting : MonoBehaviour
         currentAmmo = ammo;
         reload();
     }
+
+    void OnEnable()
+    {
+        if (ammoText != null){
+            updateAmmoText(currentClip.ToString() + "/" + currentAmmo.ToString());
+        }
+    }
     
     void OnGUI(){
         GUI.DrawTexture(new Rect((Screen.width-crosshairTexture.width*crosshairScale)/2 ,(Screen.height-crosshairTexture.height*crosshairScale)/2, crosshairTexture.width*crosshairScale, crosshairTexture.height*crosshairScale),crosshairTexture);
@@ -65,8 +75,9 @@ public class PlayerShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Cursor.lockState == CursorLockMode.Locked){ 
-            if (fireTimer > 0f){
+        
+        if (Cursor.lockState == CursorLockMode.Locked){
+            if (fireTimer > 0f && fireType == "auto"){
                 fireTimer -= Time.deltaTime;
             }
 
@@ -82,9 +93,16 @@ public class PlayerShooting : MonoBehaviour
             if (reloadTimer <= 0f && reloading){
                 reload();
             }
-
-            if (Input.GetMouseButton(0) && fireTimer <= 0f && reloadTimer <= 0 && currentClip > 0){
-                fireTimer = fireRate;
+            bool fireCondition = false;
+            if (fireType == "auto"){
+                fireCondition = Input.GetMouseButton(0);
+            } else {
+                fireCondition = Input.GetMouseButtonDown(0);
+            }
+            if (fireCondition && (fireTimer <= 0f || fireType != "auto") && !reloading && currentClip > 0){
+                if (fireType == "auto"){
+                    fireTimer = fireRate;
+                }
                 GameObject bulletObject = Instantiate(bulletPrefab);
                 bulletObject.transform.rotation = bulletPrefab.transform.rotation;
                 bulletObject.transform.localScale = new Vector3(1, 1, 1);

@@ -70,7 +70,9 @@ public class PlayerShooting : MonoBehaviour
     }
     
     void OnGUI(){
-        GUI.DrawTexture(new Rect((Screen.width-crosshairTexture.width*crosshairScale)/2 ,(Screen.height-crosshairTexture.height*crosshairScale)/2, crosshairTexture.width*crosshairScale, crosshairTexture.height*crosshairScale),crosshairTexture);
+        if (Cursor.lockState == CursorLockMode.Locked){
+            GUI.DrawTexture(new Rect((Screen.width-crosshairTexture.width*crosshairScale)/2 ,(Screen.height-crosshairTexture.height*crosshairScale)/2, crosshairTexture.width*crosshairScale, crosshairTexture.height*crosshairScale),crosshairTexture);
+        }
     }
     // Update is called once per frame
     void Update()

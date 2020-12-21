@@ -21,7 +21,6 @@ public class Damageable : MonoBehaviour
 
     public void Damage(int amount)
     {
-        print("Damaged to " + CurrentHealth.ToString() + " with damage of " + amount.ToString());
         CurrentHealth -= amount;
         if(CurrentHealth <= 0)
         {

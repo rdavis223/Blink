@@ -33,7 +33,6 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Damageable damageable = collision.gameObject.GetComponent<Damageable>();
-        print("Entered Collision");
         if (damageable)
         {
             damageable.Damage(DAMAGE);

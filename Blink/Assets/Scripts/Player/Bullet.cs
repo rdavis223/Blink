@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
 
     public float lifetime = 3f;
 
+    const int DAMAGE = 25;
+
     private float lifetimer;
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,16 @@ public class Bullet : MonoBehaviour
         lifetimer -= Time.deltaTime;
         if (lifetimer <= 0f) {
             Destroy(this.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Damageable damageable = collision.gameObject.GetComponent<Damageable>();
+        print("Entered Collision");
+        if (damageable)
+        {
+            damageable.Damage(DAMAGE);
         }
     }
 }

@@ -79,9 +79,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   lifetime: 3
+  Damage: 25
   CreatorMask:
     serializedVersion: 2
     m_Bits: 1024
+  PlayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!65 &8646576617934875331
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -11,12 +11,14 @@ public class Bullet : MonoBehaviour
     public int Damage = 25;
 
     public LayerMask CreatorMask; // Disallow self-collisions
+    public LayerMask PlayerMask;
 
 
     private float lifetimer;
     private bool HasTrailBeenFaked = false;
     private TrailRenderer BulletTrail;
     private float InitialBulletTrailTime;
+    private bool isBlinkable;
 
 
     void Start()
@@ -25,12 +27,14 @@ public class Bullet : MonoBehaviour
         InitialBulletTrailTime = BulletTrail.time;
         lifetimer = lifetime;
         transform.position += transform.forward * speed * Time.deltaTime;
+        isBlinkable = CreatorMask != PlayerMask;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (BlinkMgr.Instance.BlinkActive)
+        print(CreatorMask == PlayerMask);
+        if (isBlinkable && BlinkMgr.Instance.BlinkActive)
         {
             if (!HasTrailBeenFaked)
             {

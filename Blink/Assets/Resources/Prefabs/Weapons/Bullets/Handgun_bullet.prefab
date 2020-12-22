@@ -378,6 +378,9 @@ MonoBehaviour:
   CreatorMask:
     serializedVersion: 2
     m_Bits: 512
+  PlayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!65 &8810069007998475646
 BoxCollider:
   m_ObjectHideFlags: 0

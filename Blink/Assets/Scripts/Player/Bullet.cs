@@ -27,18 +27,19 @@ public class Bullet : MonoBehaviour
         Vector3 newSpeed = transform.forward * speed * Time.deltaTime;
         transform.position += transform.forward * speed * Time.deltaTime;
         lifetimer -= Time.deltaTime;
-        if (lifetimer <= 0f) {
+        if (lifetimer <= 0f)
+        {
             Destroy(this.gameObject);
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Damageable damageable = collision.gameObject.GetComponent<Damageable>();
+        Damageable damageable = other.gameObject.GetComponent<Damageable>();
         if (damageable)
         {
-            LayerMask OtherMask = 1 << collision.gameObject.layer;
-            if((CreatorMask & OtherMask) == CreatorMask)
+            LayerMask OtherMask = 1 << other.gameObject.layer;
+            if ((CreatorMask & OtherMask) == CreatorMask)
             {
                 return;
             }

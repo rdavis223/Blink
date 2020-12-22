@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
 
     const int DAMAGE = 25;
 
+    public LayerMask CreatorMask; // Disallow self-collisions
+
     private float lifetimer;
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,11 @@ public class Bullet : MonoBehaviour
         Damageable damageable = collision.gameObject.GetComponent<Damageable>();
         if (damageable)
         {
+            LayerMask OtherMask = 1 << collision.gameObject.layer;
+            if((CreatorMask & OtherMask) == CreatorMask)
+            {
+                return;
+            }
             damageable.Damage(DAMAGE);
         }
     }

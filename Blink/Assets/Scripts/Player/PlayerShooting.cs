@@ -35,6 +35,8 @@ public class PlayerShooting : MonoBehaviour
 
     public string fireType;
 
+    private AudioSource source;
+
 
     void updateAmmoText(string textToUpdate){
         ammoText.GetComponent<Text>().text = textToUpdate;
@@ -58,6 +60,7 @@ public class PlayerShooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
+        source = GetComponent<AudioSource>();
         currentAmmo = ammo;
         reload();
     }
@@ -105,6 +108,7 @@ public class PlayerShooting : MonoBehaviour
                 if (fireType == "auto"){
                     fireTimer = fireRate;
                 }
+                source.Play();
                 GameObject bulletObject = Instantiate(bulletPrefab);
                 bulletObject.transform.rotation = bulletPrefab.transform.rotation;
                 bulletObject.transform.localScale = new Vector3(1, 1, 1);
@@ -112,6 +116,7 @@ public class PlayerShooting : MonoBehaviour
                 bulletObject.transform.forward = playerCamera.transform.forward;
                 bulletObject.transform.rotation = Quaternion.LookRotation(playerCamera.transform.forward);
                 currentClip -= 1;
+                
                 updateAmmoText(currentClip.ToString() + "/" + currentAmmo.ToString());
             }
         }

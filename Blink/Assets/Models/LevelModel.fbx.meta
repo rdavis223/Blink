@@ -14,6 +14,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Neon
     second: {fileID: 2100000, guid: d4245547ba6fd4c2780b584657f07607, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Platforms
+    second: {fileID: 2100000, guid: ab8115cb688094e9fa475454d0f60709, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Walls
+    second: {fileID: 2100000, guid: 14dd6efead75340fc85b57baac8c7493, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

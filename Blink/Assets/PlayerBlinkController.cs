@@ -21,7 +21,7 @@ public class PlayerBlinkController : MonoBehaviour
         }
         if (BlinkMgr.Instance.BlinkActive){
             BlinkMgr.Instance.BlinkTimer -= Time.deltaTime;
-        } else {
+        } else if (BlinkMgr.Instance.BlinkTimer < 3f){
             BlinkMgr.Instance.BlinkTimer += Time.deltaTime*0.2f;
         }
     }

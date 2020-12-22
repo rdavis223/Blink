@@ -235,9 +235,9 @@ public class Sight : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            //Attack code here
-            Debug.Log("Attack");
-            Debug.Log(transform.forward);
+            // Attack code here
+            //Debug.Log("Attack");
+            //Debug.Log(transform.forward);
             GameObject bulletObject = Instantiate(projectile);
             bulletObject.transform.rotation = projectile.transform.rotation;
             bulletObject.transform.position = agent.transform.position + agent.transform.forward;

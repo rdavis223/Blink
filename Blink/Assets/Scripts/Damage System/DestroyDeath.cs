@@ -11,7 +11,7 @@ public class DestroyDeath : MonoBehaviour
         GameObject deathEffect = Instantiate(effect);
         deathEffect.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y + 1.3f, gameObject.transform.position.z);
         Destroy(gameObject);
-        Debug.Log("Death");
+        //Debug.Log("Death");
         Destroy(deathEffect, 2);
     }
 }

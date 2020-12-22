@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
 
     public float lifetime = 3f;
 
-    const int DAMAGE = 25;
+    public int Damage = 25;
 
     public LayerMask CreatorMask; // Disallow self-collisions
 
@@ -68,7 +68,7 @@ public class Bullet : MonoBehaviour
             {
                 return;
             }
-            damageable.Damage(DAMAGE);
+            damageable.Damage(Damage);
         }
     }
 }

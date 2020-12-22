@@ -31,7 +31,11 @@ public class MovingPlatform : MonoBehaviour
     // Must use FixedUpdate otherwise Character Controller won't track with platform
     void FixedUpdate()
     {
-        SnappingDistance = Time.deltaTime * Speed; // Snaps if next step overshoots target
+        if (BlinkMgr.Instance.BlinkActive)
+        {
+            return;
+        }
+            SnappingDistance = Time.deltaTime * Speed; // Snaps if next step overshoots target
         if (Points.Length <= 0) // No points, therefore static platform
         {
             return;

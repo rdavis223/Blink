@@ -17,14 +17,9 @@ public class PlayerMovement : MonoBehaviour
 
     bool isGrounded;
 
+    public AudioSource runningAudio; // For future iterations
+    public AudioSource jumpingAudio;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
 
@@ -42,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * speed * Time.deltaTime);
         if(Input.GetButtonDown("Jump") && isGrounded) {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            jumpingAudio.Play();
         }
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);

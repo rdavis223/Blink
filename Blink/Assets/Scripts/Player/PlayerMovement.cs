@@ -22,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
+        BlinkMgr.Instance.BlinkTimer = 3f;
     }
 
     void Update()

@@ -10,6 +10,7 @@ public class Sight : MonoBehaviour
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
     public float health;
+    public GameObject effect;
 
     //// AI sighting behaviours
     //public float fieldOfViewAngle = 110f;
@@ -256,6 +257,7 @@ public class Sight : MonoBehaviour
 
     private void DestroyEnemy()
     {
+
         Destroy(gameObject);
     }
 

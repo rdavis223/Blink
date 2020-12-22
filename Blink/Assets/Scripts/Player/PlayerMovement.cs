@@ -20,6 +20,12 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource runningAudio; // For future iterations
     public AudioSource jumpingAudio;
 
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
+    }
+
     void Update()
     {
 

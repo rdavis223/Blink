@@ -108,13 +108,12 @@ public class HealthManager : MonoBehaviour
     public void Die()
     {
         // Fade to game over screen
+        Cursor.lockState = CursorLockMode.None;
         fadeTimer += Time.deltaTime;
         gameOverScreen.alpha = fadeTimer / fadeDuration;
 
         if (fadeTimer > fadeDuration + displayImageDuration)
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
             gameOverOptions.blocksRaycasts = true;
             gameOverOptions.alpha = 1; // Show game over menu
         }

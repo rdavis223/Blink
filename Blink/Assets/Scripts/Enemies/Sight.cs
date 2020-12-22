@@ -240,7 +240,6 @@ public class Sight : MonoBehaviour
             Debug.Log(transform.forward);
             GameObject bulletObject = Instantiate(projectile);
             bulletObject.transform.rotation = projectile.transform.rotation;
-            bulletObject.transform.localScale = new Vector3(1, 1, 1);
             bulletObject.transform.position = agent.transform.position + agent.transform.forward;
             bulletObject.transform.forward = agent.transform.forward;            
             alreadyAttacked = true;

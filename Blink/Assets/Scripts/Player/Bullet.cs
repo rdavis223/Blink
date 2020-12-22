@@ -12,10 +12,17 @@ public class Bullet : MonoBehaviour
 
     public LayerMask CreatorMask; // Disallow self-collisions
 
+
     private float lifetimer;
-    // Start is called before the first frame update
+    private bool HasTrailBeenFaked = false;
+    private TrailRenderer BulletTrail;
+    private float InitialBulletTrailTime;
+
+
     void Start()
     {
+        BulletTrail = GetComponent<TrailRenderer>();
+        InitialBulletTrailTime = BulletTrail.time;
         lifetimer = lifetime;
         transform.position += transform.forward * speed * Time.deltaTime;
     }
@@ -23,6 +30,24 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (BlinkMgr.Instance.BlinkActive)
+        {
+            if (!HasTrailBeenFaked)
+            {
+                transform.position += transform.forward * speed * Time.deltaTime * 4;
+                HasTrailBeenFaked = true;
+            }
+            if (BulletTrail)
+            {
+                BulletTrail.time += Time.deltaTime;
+            }
+            return;
+        }
+        if (BulletTrail)
+        {
+            BulletTrail.time = InitialBulletTrailTime;
+        }
+        HasTrailBeenFaked = false;
         //make the bullet move
         Vector3 newSpeed = transform.forward * speed * Time.deltaTime;
         transform.position += transform.forward * speed * Time.deltaTime;

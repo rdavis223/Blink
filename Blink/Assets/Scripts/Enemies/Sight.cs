@@ -69,29 +69,31 @@ public class Sight : MonoBehaviour
         //    animator.SetBool(hash.playerInSightBool, false);
         //}
         // Check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        if (!BlinkMgr.Instance.BlinkActive){
+            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange)
-        {
-            animator.SetBool("Patrolling", true);
-            animator.SetBool("Spotted", false);
-            animator.SetBool("Shooting", false);
-            Patrolling();
-        }
-        if (playerInSightRange && !playerInAttackRange)
-        {
-            animator.SetBool("Patrolling", false);
-            animator.SetBool("Spotted", true);
-            animator.SetBool("Shooting", false);
-            ChasePlayer();
-        }
-        if (playerInSightRange && playerInAttackRange)
-        {
-            animator.SetBool("Patrolling", false);
-            animator.SetBool("Spotted", false);
-            animator.SetBool("Shooting", true);
-            AttackPlayer();
+            if (!playerInSightRange && !playerInAttackRange)
+            {
+                animator.SetBool("Patrolling", true);
+                animator.SetBool("Spotted", false);
+                animator.SetBool("Shooting", false);
+                Patrolling();
+            }
+            if (playerInSightRange && !playerInAttackRange)
+            {
+                animator.SetBool("Patrolling", false);
+                animator.SetBool("Spotted", true);
+                animator.SetBool("Shooting", false);
+                ChasePlayer();
+            }
+            if (playerInSightRange && playerInAttackRange)
+            {
+                animator.SetBool("Patrolling", false);
+                animator.SetBool("Spotted", false);
+                animator.SetBool("Shooting", true);
+                AttackPlayer();
+            }
         }
 
         //if (!playerInSight && !playerInAttackRange)

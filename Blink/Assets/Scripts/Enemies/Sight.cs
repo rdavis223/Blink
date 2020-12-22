@@ -71,6 +71,8 @@ public class Sight : MonoBehaviour
         //}
         // Check for sight and attack range
         if (!BlinkMgr.Instance.BlinkActive){
+            agent.enabled = true;
+            animator.enabled = true;
             playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
             playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
@@ -95,6 +97,9 @@ public class Sight : MonoBehaviour
                 animator.SetBool("Shooting", true);
                 AttackPlayer();
             }
+        } else {
+            agent.enabled= false;
+            animator.enabled = false;
         }
 
         //if (!playerInSight && !playerInAttackRange)

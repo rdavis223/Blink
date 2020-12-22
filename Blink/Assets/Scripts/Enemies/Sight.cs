@@ -225,15 +225,18 @@ public class Sight : MonoBehaviour
     {
         agent.SetDestination(transform.position);
         transform.LookAt(player);
+        agent.transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
             //Attack code here
             Debug.Log("Attack");
             Debug.Log(transform.forward);
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            GameObject bulletObject = Instantiate(projectile);
+            bulletObject.transform.rotation = projectile.transform.rotation;
+            bulletObject.transform.localScale = new Vector3(1, 1, 1);
+            bulletObject.transform.position = agent.transform.position + agent.transform.forward;
+            bulletObject.transform.forward = agent.transform.forward;            
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }

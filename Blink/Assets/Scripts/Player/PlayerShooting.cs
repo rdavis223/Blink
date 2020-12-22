@@ -35,7 +35,8 @@ public class PlayerShooting : MonoBehaviour
 
     public string fireType;
 
-    private AudioSource source;
+    private AudioSource shootSound;
+    private AudioSource reloadSound;
 
 
     void updateAmmoText(string textToUpdate){
@@ -60,7 +61,9 @@ public class PlayerShooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
-        source = GetComponent<AudioSource>();
+        AudioSource[] sources = GetComponents<AudioSource>();
+        shootSound = sources[0];
+        reloadSound = sources[1];
         currentAmmo = ammo;
         reload();
     }
@@ -92,6 +95,7 @@ public class PlayerShooting : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R) && !(currentAmmo == 0 && currentClip == 0)){
                 reloadTimer = reloadSpeed;
                 reloading = true;
+                reloadSound.Play();
                 updateAmmoText("Reloading");
             }
 
@@ -108,7 +112,7 @@ public class PlayerShooting : MonoBehaviour
                 if (fireType == "auto"){
                     fireTimer = fireRate;
                 }
-                source.Play();
+                shootSound.Play();
                 GameObject bulletObject = Instantiate(bulletPrefab);
                 bulletObject.transform.rotation = bulletPrefab.transform.rotation;
                 bulletObject.transform.localScale = new Vector3(1, 1, 1);

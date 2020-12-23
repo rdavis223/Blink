@@ -19,7 +19,7 @@ public class PlayerBlinkController : MonoBehaviour
             BlinkMgr.Instance.BlinkActive = false;
             blinkOverlay.SetActive(false);
         }
-        if (Input.GetKeyDown(KeyCode.Q)){
+        if (Input.GetKeyDown(KeyCode.Q) && !BlinkMgr.Instance.pauseMenuActive){
             blinkOverlay.SetActive(!BlinkMgr.Instance.BlinkActive);
             BlinkMgr.Instance.BlinkActive = !BlinkMgr.Instance.BlinkActive;
         }

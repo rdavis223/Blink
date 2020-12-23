@@ -7,6 +7,8 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pausePannel;
 
+    public GameObject blinkOverlay;
+
     private bool isPaused = false;
     // Start is called before the first frame update
     void Start()
@@ -26,9 +28,17 @@ public class PauseMenu : MonoBehaviour
         isPaused = !isPaused;
         pausePannel.SetActive(isPaused);
         if (isPaused){
+            BlinkMgr.Instance.pauseMenuActive = true;
+            if (BlinkMgr.Instance.BlinkActive){
+                blinkOverlay.SetActive(false);
+            }
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
         } else {
+            BlinkMgr.Instance.pauseMenuActive = false;
+            if (BlinkMgr.Instance.BlinkActive){
+                blinkOverlay.SetActive(true);
+            }
             Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1;
         }

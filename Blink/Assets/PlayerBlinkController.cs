@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerBlinkController : MonoBehaviour
 {
+
+    public GameObject blinkOverlay;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +17,10 @@ public class PlayerBlinkController : MonoBehaviour
     {
         if (BlinkMgr.Instance.BlinkTimer <= 0){
             BlinkMgr.Instance.BlinkActive = false;
+            blinkOverlay.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Q)){
+            blinkOverlay.SetActive(!BlinkMgr.Instance.BlinkActive);
             BlinkMgr.Instance.BlinkActive = !BlinkMgr.Instance.BlinkActive;
         }
         if (BlinkMgr.Instance.BlinkActive){

@@ -4009,6 +4009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePannel: {fileID: 568916125}
+  blinkOverlay: {fileID: 60884406}
 --- !u!4 &1193922332
 Transform:
   m_ObjectHideFlags: 0

@@ -95,7 +95,7 @@ public class PlayerShooting : MonoBehaviour
             if (reloadTimer > 0f){
                 reloadTimer -= Time.deltaTime;
             }
-            if (Input.GetKeyDown(KeyCode.R) && !(currentAmmo == 0 && currentClip == 0)){
+            if (Input.GetKeyDown(KeyCode.R) && !(currentAmmo == 0 && currentClip == 0) && currentClip != clipSize){
                 reloadTimer = reloadSpeed;
                 reloading = true;
                 reloadSound.Play();

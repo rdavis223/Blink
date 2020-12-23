@@ -9,7 +9,9 @@ public class PlayerBlinkController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        BlinkMgr.Instance.BlinkTimer = 3f;
+        BlinkMgr.Instance.BlinkActive = false;
+        BlinkMgr.Instance.pauseMenuActive = false;
     }
 
     // Update is called once per frame

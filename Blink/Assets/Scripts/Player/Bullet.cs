@@ -33,7 +33,6 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(CreatorMask == PlayerMask);
         if (isBlinkable && BlinkMgr.Instance.BlinkActive)
         {
             if (!HasTrailBeenFaked)

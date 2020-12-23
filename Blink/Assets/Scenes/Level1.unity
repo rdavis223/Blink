@@ -5267,7 +5267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c746bc4e3ab01a4095eea95ceead347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reducedHeight: 1
+  reducedHeight: 8
 --- !u!136 &1469974121
 CapsuleCollider:
   m_ObjectHideFlags: 0

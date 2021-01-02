@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
     public float speed = 12f;
+    public float sprintSpeed = 50f;
+
     Vector3 velocity;
 
     public float jumpHeight = 3f;
@@ -39,8 +41,12 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
-        
-        controller.Move(move * speed * Time.deltaTime);
+        if (Input.GetKey(KeyCode.LeftShift)){    
+            controller.Move(move * sprintSpeed * Time.deltaTime);
+        } else{
+            controller.Move(move * speed * Time.deltaTime);
+        }
+
         if(Input.GetButtonDown("Jump") && isGrounded) {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             jumpingAudio.Play();

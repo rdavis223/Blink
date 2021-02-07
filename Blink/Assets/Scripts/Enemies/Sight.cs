@@ -230,18 +230,20 @@ public class Sight : MonoBehaviour
     private void AttackPlayer()
     {
         agent.SetDestination(transform.position);
-        transform.LookAt(player);
-        agent.transform.LookAt(player);
+
+        transform.LookAt(new Vector3(player.position.x, 0, player.position.z));
+        agent.transform.LookAt(new Vector3(player.position.x, 0, player.position.z));
 
         if (!alreadyAttacked)
         {
             // Attack code here
             //Debug.Log("Attack");
             //Debug.Log(transform.forward);
+            Vector3 aim = (player.position - transform.position).normalized;
             GameObject bulletObject = Instantiate(projectile);
             bulletObject.transform.rotation = projectile.transform.rotation;
-            bulletObject.transform.position = agent.transform.position + agent.transform.forward;
-            bulletObject.transform.forward = agent.transform.forward;            
+            bulletObject.transform.position = agent.transform.position + aim;
+            bulletObject.transform.forward = aim;          
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }

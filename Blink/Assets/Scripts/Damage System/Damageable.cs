@@ -28,4 +28,9 @@ public class Damageable : MonoBehaviour
             OnDeath.Invoke();
         }
     }
+
+    public void InstantDeath()
+    {
+        OnDeath.Invoke();
+    }
 }

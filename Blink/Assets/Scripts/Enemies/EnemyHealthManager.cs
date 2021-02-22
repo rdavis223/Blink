@@ -24,16 +24,17 @@ public class EnemyHealthManager : MonoBehaviour
 
     void Update()
     {
+        // Update enemy health bar
         healthBarSlider.value = currentHealth / maxHealth;
 
-        if (currentHealth < maxHealth)
+        if (currentHealth < maxHealth) // Set healthbar active when you damage enemy
         {
             healthBarUI.SetActive(true);
         }
     }
     public void HurtEnemy(int damage)
     {
-        Debug.Log("hurt enemy");
+        // Hurt the enemy, decrease health
         currentHealth -= damage; // Decrease health
         if (currentHealth <= 0)
         {
@@ -43,7 +44,7 @@ public class EnemyHealthManager : MonoBehaviour
 
     public void InstantDeath()
     {
-        Debug.Log("instant death");
+        // Instant death
         Destroy();
     }
 

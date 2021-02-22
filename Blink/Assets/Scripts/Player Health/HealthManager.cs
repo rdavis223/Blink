@@ -97,6 +97,11 @@ public class HealthManager : MonoBehaviour
         }
     }
 
+    public void InstantDeath()
+    {
+        StartCoroutine(DeathDelayCoroutine()); 
+    }
+
     private IEnumerator DamageEffectCoroutine() // Show the damage effect
     {
         fadeIn = true;

@@ -43,7 +43,7 @@ public class Star : MonoBehaviour
         if (other.tag == "Enemy")
         {
             other.GetComponent<EnemyHealthManager>().HurtEnemy(damage, "death_from_front", 4.33f);
-        }
+        } else
 
         if (other.tag =="EnemyHead")
         {

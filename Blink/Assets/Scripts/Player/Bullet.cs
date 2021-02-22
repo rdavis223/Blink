@@ -86,7 +86,7 @@ public class Bullet : MonoBehaviour
             other.transform.parent.parent.GetComponent<EnemyHealthManager>().InstantDeath("head_shot", 2.83f);
         }
 
-        // Enemy Back damage
+        // Enemy Back damage (Not in use, just example of what more we can do...)
         if (other.tag == "EnemyBack")
         {
             LayerMask OtherMask = 1 << other.gameObject.layer;

@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class EnemyHealthManager : MonoBehaviour
 {
-    public int maxHealth;
-    public int currentHealth;
+    public float maxHealth;
+    public float currentHealth;
 
     public GameObject healthBarUI;
     public Slider healthBarSlider;
 
-    public GameObject deathEffect;
+    public GameObject effect;
 
     void Start()
     {
@@ -49,11 +49,10 @@ public class EnemyHealthManager : MonoBehaviour
 
     public void Destroy()
     {
-        Instantiate(deathEffect);
+        GameObject deathEffect = Instantiate(effect);
         deathEffect.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y + 1.3f, gameObject.transform.position.z);
         Destroy(gameObject);
         //Debug.Log("Death");
         Destroy(deathEffect, 2);
     }
-
 }

@@ -65,7 +65,7 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Enemy general body damage
-        if (other.tag == "EnemyBody")
+        if (other.tag == "Enemy")
         {
             LayerMask OtherMask = 1 << other.gameObject.layer;
             if ((CreatorMask & OtherMask) == CreatorMask)
@@ -83,21 +83,21 @@ public class Bullet : MonoBehaviour
             {
                 return;
             }
-            other.transform.root.GetComponent<EnemyHealthManager>().InstantDeath();
+            other.transform.parent.parent.GetComponent<EnemyHealthManager>().InstantDeath();
         }
 
         // Enemy Back damage
-        if (other.tag == "enemyBack")
+        if (other.tag == "EnemyBack")
         {
             LayerMask OtherMask = 1 << other.gameObject.layer;
             if ((CreatorMask & OtherMask) == CreatorMask)
             {
                 return;
             }
-            other.transform.root.GetComponent<EnemyHealthManager>().HurtEnemy(backDamage);
+            other.transform.parent.parent.GetComponent<EnemyHealthManager>().HurtEnemy(backDamage);
         }
 
         // ADD MORE IF STATEMENTS ACCORDINGLY FOR EACH DIFFERENT DAMAGE, TAG COLLIDER WITH A DESCRIPTIVE NAME
-        // other.transform.root gets root parent in order to find the enemy health manager script
+        // other.transform.parent.parent gets enemy object in order to find the enemy health manager script
     }
 }

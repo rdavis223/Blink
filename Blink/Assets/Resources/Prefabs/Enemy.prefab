@@ -351,7 +351,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.18
+  m_Radius: 0.33
   m_Height: 0.47
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -978,7 +978,7 @@ GameObject:
   - component: {fileID: 466121120873315521}
   m_Layer: 10
   m_Name: Enemy
-  m_TagString: EnemyBody
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1058,7 +1058,7 @@ MonoBehaviour:
   timeBetweenAttacks: 1
   projectile: {fileID: 55615933790556961, guid: be32fa1c1e8e1408fb049c84faaad1d9,
     type: 3}
-  sightRange: 30
+  sightRange: 25
   attackRange: 20
   playerInSightRange: 0
   playerInAttackRange: 0
@@ -1094,7 +1094,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.29
+  m_Radius: 0.45
   m_Height: 2.122677
   m_Direction: 1
   m_Center: {x: 0, y: 1.0752305, z: 0}
@@ -1114,8 +1114,7 @@ MonoBehaviour:
   currentHealth: 0
   healthBarUI: {fileID: 3681164925943176072}
   healthBarSlider: {fileID: 1844965686}
-  deathEffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c,
-    type: 3}
+  effect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
 --- !u!1 &8331590005564436380
 GameObject:
   m_ObjectHideFlags: 0

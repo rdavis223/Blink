@@ -72,7 +72,7 @@ public class Bullet : MonoBehaviour
             {
                 return;
             }
-            other.GetComponent<EnemyHealthManager>().HurtEnemy(bodyDamage);
+            other.GetComponent<EnemyHealthManager>().HurtEnemy(bodyDamage, "death_from_front", 4.33f);
         }
 
         // Enemy HeadShot
@@ -83,7 +83,7 @@ public class Bullet : MonoBehaviour
             {
                 return;
             }
-            other.transform.parent.parent.GetComponent<EnemyHealthManager>().InstantDeath();
+            other.transform.parent.parent.GetComponent<EnemyHealthManager>().InstantDeath("head_shot", 2.83f);
         }
 
         // Enemy Back damage
@@ -94,7 +94,7 @@ public class Bullet : MonoBehaviour
             {
                 return;
             }
-            other.transform.parent.parent.GetComponent<EnemyHealthManager>().HurtEnemy(backDamage);
+            other.transform.parent.parent.GetComponent<EnemyHealthManager>().HurtEnemy(backDamage, "death_from_back", 2.96f);
         }
 
         // ADD MORE IF STATEMENTS ACCORDINGLY FOR EACH DIFFERENT DAMAGE, TAG COLLIDER WITH A DESCRIPTIVE NAME

@@ -13,7 +13,7 @@ public class PlayerWeaponMgr : MonoBehaviour
 
     public Camera playerCamera;
 
-    private GameObject currentSelectedWeapon;
+    public GameObject currentSelectedWeapon;
 
     public Transform ammoText;
 

@@ -15,6 +15,10 @@ public class EnemyHealthManager : MonoBehaviour
     public GameObject effect;
 
     private Animator anim;
+
+    public GameObject healthbox;
+
+    public GameObject ammobox; 
   
     void Start()
     {
@@ -59,6 +63,7 @@ public class EnemyHealthManager : MonoBehaviour
     {
         GameObject deathEffect = Instantiate(effect);
         deathEffect.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y + 0.5f, gameObject.transform.position.z);
+        DropItems(gameObject.transform.position);
         Destroy(gameObject);
         //Debug.Log("Death");
         Destroy(deathEffect, 2);
@@ -68,5 +73,16 @@ public class EnemyHealthManager : MonoBehaviour
     {
         yield return new WaitForSeconds(deathAnimTime);
         Destroy();
+    }
+    private void DropItems(Vector3 position){
+        float chance = Random.Range(1f,100f);
+        Debug.Log(chance);
+        if (chance <= 25f){
+            GameObject box = Instantiate(healthbox);
+            box.transform.position = new Vector3(position.x, healthbox.transform.position.y, position.z);
+        } else if (chance > 25f && chance <= 50f){
+            GameObject box = Instantiate(ammobox);
+            box.transform.position = new Vector3(position.x, ammobox.transform.position.y, position.z);
+        }
     }
 }

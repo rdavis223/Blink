@@ -1558,6 +1558,18 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 466121120873315521, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: ammobox
+      value: 
+      objectReference: {fileID: 5048250108046825381, guid: 5ae8e5ff29f08427e9ec404cf33a7b5f,
+        type: 3}
+    - target: {fileID: 466121120873315521, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: healthbox
+      value: 
+      objectReference: {fileID: 1130069014666292499, guid: 4d1ce7da682834fb78ca269f83fb2a35,
+        type: 3}
     - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: player
@@ -3734,7 +3746,7 @@ GameObject:
   - component: {fileID: 1041736673}
   - component: {fileID: 1041736674}
   m_Layer: 0
-  m_Name: Health Manager
+  m_Name: HealthManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

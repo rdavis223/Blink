@@ -1534,8 +1534,8 @@ PrefabInstance:
       propertyPath: meleeTarget
       value: 
       objectReference: {fileID: 1469974116}
-    m_RemovedComponents: [{fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9,
-        type: 3}]
+    m_RemovedComponents:
+    - {fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
 --- !u!4 &368666078 stripped
 Transform:
@@ -1578,15 +1578,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380370321}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.423, y: -1.88, z: 9.624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 284490259}
   - {fileID: 19832030}
   - {fileID: 1698390931}
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 1469974116}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &384532976
 PrefabInstance:
@@ -1748,8 +1748,8 @@ PrefabInstance:
       propertyPath: targetMask.m_Bits
       value: 512
       objectReference: {fileID: 0}
-    m_RemovedComponents: [{fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9,
-        type: 3}]
+    m_RemovedComponents:
+    - {fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
 --- !u!4 &384532977 stripped
 Transform:
@@ -2067,7 +2067,7 @@ Transform:
   m_LocalScale: {x: 137.22137, y: 19.637419, z: 136.07755}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &481198612
 MonoBehaviour:
@@ -2278,8 +2278,8 @@ PrefabInstance:
       propertyPath: meleeTarget
       value: 
       objectReference: {fileID: 1469974116}
-    m_RemovedComponents: [{fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9,
-        type: 3}]
+    m_RemovedComponents:
+    - {fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
 --- !u!4 &508867665 stripped
 Transform:
@@ -2522,8 +2522,8 @@ PrefabInstance:
       propertyPath: meleeTarget
       value: 
       objectReference: {fileID: 1469974116}
-    m_RemovedComponents: [{fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9,
-        type: 3}]
+    m_RemovedComponents:
+    - {fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
 --- !u!4 &595255667 stripped
 Transform:
@@ -2531,6 +2531,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 595255666}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &595255668 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+    type: 3}
+  m_PrefabInstance: {fileID: 595255666}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9f63bf6435df34fb3dac68d19910b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &639760191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2546,7 +2558,7 @@ PrefabInstance:
     - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
         type: 3}
@@ -2600,18 +2612,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621, type: 3}
---- !u!114 &595255668 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
-    type: 3}
-  m_PrefabInstance: {fileID: 595255666}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb9f63bf6435df34fb3dac68d19910b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &647011283
 GameObject:
   m_ObjectHideFlags: 0
@@ -3591,8 +3591,8 @@ PrefabInstance:
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: [{fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9,
-        type: 3}]
+    m_RemovedComponents:
+    - {fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
 --- !u!4 &938829260 stripped
 Transform:
@@ -3907,8 +3907,8 @@ PrefabInstance:
       propertyPath: meleeTarget
       value: 
       objectReference: {fileID: 1469974116}
-    m_RemovedComponents: [{fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9,
-        type: 3}]
+    m_RemovedComponents:
+    - {fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
 --- !u!4 &978292668 stripped
 Transform:
@@ -4223,7 +4223,7 @@ MonoBehaviour:
   damageEffectFadeSpeed: 5
   waitForDamageFade: 0.5
   damageScreenEffect: {fileID: 447545431}
-  GodMode: 1
+  GodMode: 0
 --- !u!1 &1043802352
 GameObject:
   m_ObjectHideFlags: 0
@@ -6107,6 +6107,7 @@ Transform:
   - {fileID: 1596989231}
   - {fileID: 1885557132}
   - {fileID: 704730741}
+  - {fileID: 380370322}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6848,8 +6849,8 @@ PrefabInstance:
       propertyPath: meleeTarget
       value: 
       objectReference: {fileID: 1469974116}
-    m_RemovedComponents: [{fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9,
-        type: 3}]
+    m_RemovedComponents:
+    - {fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
 --- !u!114 &1561516459 stripped
 MonoBehaviour:
@@ -7798,8 +7799,8 @@ PrefabInstance:
       propertyPath: meleeTarget
       value: 
       objectReference: {fileID: 1469974116}
-    m_RemovedComponents: [{fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9,
-        type: 3}]
+    m_RemovedComponents:
+    - {fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
 --- !u!4 &1913354220 stripped
 Transform:

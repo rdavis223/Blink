@@ -46,12 +46,13 @@ public class PlayerMovement : MonoBehaviour
         {    
             StaminaBar.instance.UseStamina(true);
             controller.Move(move * sprintSpeed * Time.deltaTime);
+            runningAudio.enabled = true;
         } 
-        
         else
         {
             StaminaBar.instance.UseStamina(false);
             controller.Move(move * speed * Time.deltaTime);
+            runningAudio.enabled = false;
         }
 
         if(Input.GetButtonDown("Jump") && isGrounded) {

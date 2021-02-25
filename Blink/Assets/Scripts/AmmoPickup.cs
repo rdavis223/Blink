@@ -19,7 +19,7 @@ public class AmmoPickup : MonoBehaviour
     }
     void OnTriggerEnter(Collider other){
         if (other.gameObject.name == "PlayerController"){
-            GameObject currentWeapon = WeaponHandler.GetComponent<PlayerWeaponMgr>().primary;
+            GameObject currentWeapon = WeaponHandler.GetComponent<PlayerWeaponMgr>().currentSelectedWeapon;
             currentWeapon.GetComponent<PlayerShooting>().currentAmmo += AmmoToAdd;
             if (currentWeapon.GetComponent<PlayerShooting>().currentAmmo > currentWeapon.GetComponent<PlayerShooting>().ammo) {
                 currentWeapon.GetComponent<PlayerShooting>().currentAmmo = currentWeapon.GetComponent<PlayerShooting>().ammo;

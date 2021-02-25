@@ -45,6 +45,7 @@ public class HealthManager : MonoBehaviour
         if (GodMode){
             currentHealth = maxHealth;
         }
+        healthBar.SetHealth(currentHealth);
         if (playerIsDead) 
         {
             Die();

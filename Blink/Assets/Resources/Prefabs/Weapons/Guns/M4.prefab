@@ -63,6 +63,8 @@ MonoBehaviour:
   fireStyle: straight
   numBullets: 1
   accuracy: 1
+  dropObject: {fileID: 8300886131810434992, guid: 716452d7f4ff440d6acb46659237f9aa,
+    type: 3}
 --- !u!82 &6055766769859423166
 AudioSource:
   m_ObjectHideFlags: 0

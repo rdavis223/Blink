@@ -2005,6 +2005,7 @@ MonoBehaviour:
   primary: {fileID: 0}
   secondary: {fileID: 0}
   playerCamera: {fileID: 1596989234}
+  currentSelectedWeapon: {fileID: 0}
   ammoText: {fileID: 1297444098}
 --- !u!1001 &508867664
 PrefabInstance:
@@ -5691,7 +5692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1469974118}
   speed: 12
-  sprintSpeed: 50
+  sprintSpeed: 25
   jumpHeight: 3
   gravity: -15.81
   groundCheck: {fileID: 1885557132}

@@ -114,6 +114,8 @@ MonoBehaviour:
   fireStyle: spread
   numBullets: 8
   accuracy: 5
+  dropObject: {fileID: 3922390454280212001, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+    type: 3}
 --- !u!82 &-4039347305220096865
 AudioSource:
   m_ObjectHideFlags: 0

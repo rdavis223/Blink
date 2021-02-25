@@ -1998,7 +1998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801c4bfbcde624133850e2d5ad1108a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryPrefab: {fileID: 8374078941434947280, guid: 3f7c29d25dc80469f8d0bc2b003fd5c1,
+  primaryPrefab: {fileID: 2975543995807575520, guid: 9f5ab874b09514be29989135d432b5b3,
     type: 3}
   secondaryPrefab: {fileID: 2575858915674461748, guid: 81ebd232627664695b8c227c9c1da205,
     type: 3}
@@ -2311,6 +2311,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 595255666}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &639760191
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3922390454280212001, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_Name
+      value: Shotgun_pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.602
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.609
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.727
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621, type: 3}
 --- !u!1 &647011283
 GameObject:
   m_ObjectHideFlags: 0
@@ -3791,7 +3860,7 @@ MonoBehaviour:
   damageEffectFadeSpeed: 5
   waitForDamageFade: 0.5
   damageScreenEffect: {fileID: 447545431}
-  GodMode: 0
+  GodMode: 1
 --- !u!1 &1043802352
 GameObject:
   m_ObjectHideFlags: 0

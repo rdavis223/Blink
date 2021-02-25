@@ -27,7 +27,7 @@ public class PlayerShooting : MonoBehaviour
 
     public int currentAmmo = 0;
 
-    private int currentClip = 0; 
+    public int currentClip = 0; 
 
     private float reloadTimer;
 
@@ -42,6 +42,12 @@ public class PlayerShooting : MonoBehaviour
     public int numBullets = 1;
 
     public float accuracy = 1f;
+
+    public int manuallySetAmmo = -1;
+
+    public int manuallySetClip = -1;
+
+    public GameObject dropObject;
 
 
     private AudioSource shootSound;
@@ -91,6 +97,16 @@ public class PlayerShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (manuallySetAmmo != -1){
+            Debug.Log(manuallySetAmmo);
+            currentAmmo = manuallySetAmmo; 
+            manuallySetAmmo = -1;
+        }
+        if (manuallySetClip != -1){
+            currentClip = manuallySetClip;
+            manuallySetClip = -1;
+        }
         if (!reloading){
             updateAmmoText(currentClip.ToString() + "/" + currentAmmo.ToString());
         }

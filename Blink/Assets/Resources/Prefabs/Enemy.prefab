@@ -971,11 +971,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8331590005564339194}
   - component: {fileID: 8331590005555043366}
-  - component: {fileID: 8331590005029714371}
   - component: {fileID: 8331590005029714370}
   - component: {fileID: 8331590005029714369}
   - component: {fileID: 198364655}
   - component: {fileID: 466121120873315521}
+  - component: {fileID: 8749290114473733901}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -1011,7 +1011,7 @@ Animator:
   m_GameObject: {fileID: 8331590005564436378}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
-  m_Controller: {fileID: 9100000, guid: f6a4686323df36942907d9d20d3f5520, type: 2}
+  m_Controller: {fileID: 9100000, guid: a8af1e2c2dc120e4ea05307d8d4be849, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1020,18 +1020,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8331590005029714371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8331590005564436378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e55e8d1fb7ebd4899f3487ec0df8f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8331590005029714370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1058,10 +1046,14 @@ MonoBehaviour:
   timeBetweenAttacks: 1
   projectile: {fileID: 55615933790556961, guid: be32fa1c1e8e1408fb049c84faaad1d9,
     type: 3}
-  sightRange: 25
+  meleeDamage: 30
+  attackDelay: 2.167
+  sightRange: 0
   attackRange: 20
+  meleeRange: 3
   playerInSightRange: 0
   playerInAttackRange: 0
+  playerInMeleeRange: 0
 --- !u!195 &8331590005029714369
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1115,6 +1107,29 @@ MonoBehaviour:
   healthBarUI: {fileID: 3681164925943176072}
   healthBarSlider: {fileID: 1844965686}
   effect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
+--- !u!114 &8749290114473733901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8331590005564436378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e84b76069ff2445afc6b4a2a8e8168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 25
+  viewAngle: 60
+  meleeTarget: {fileID: 0}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 512
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  enemy: {fileID: 8331590005029714370}
+  enemyHealth: {fileID: 466121120873315521}
 --- !u!1 &8331590005564436380
 GameObject:
   m_ObjectHideFlags: 0

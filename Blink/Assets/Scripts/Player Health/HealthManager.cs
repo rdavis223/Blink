@@ -101,6 +101,18 @@ public class HealthManager : MonoBehaviour
         }
     }
 
+    public void MeleeDamage(int damage)
+    {
+        if (!isInvincible)
+        {
+            currentHealth -= damage;
+            if (currentHealth <= 0)
+            {
+                StartCoroutine(DeathDelayCoroutine());
+            }
+        }
+    }
+
     public void InstantDeath()
     {
         StartCoroutine(DeathDelayCoroutine()); 

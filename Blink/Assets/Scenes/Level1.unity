@@ -3702,7 +3702,7 @@ MonoBehaviour:
   damageEffectFadeSpeed: 5
   waitForDamageFade: 0.5
   damageScreenEffect: {fileID: 447545431}
-  GodMode: 1
+  GodMode: 0
 --- !u!1 &1051473727
 GameObject:
   m_ObjectHideFlags: 0

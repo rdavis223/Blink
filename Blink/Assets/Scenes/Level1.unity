@@ -1911,7 +1911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801c4bfbcde624133850e2d5ad1108a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryPrefab: {fileID: 2975543995807575520, guid: 9f5ab874b09514be29989135d432b5b3,
+  primaryPrefab: {fileID: 8374078941434947280, guid: 3f7c29d25dc80469f8d0bc2b003fd5c1,
     type: 3}
   secondaryPrefab: {fileID: 2575858915674461748, guid: 81ebd232627664695b8c227c9c1da205,
     type: 3}
@@ -3702,6 +3702,7 @@ MonoBehaviour:
   damageEffectFadeSpeed: 5
   waitForDamageFade: 0.5
   damageScreenEffect: {fileID: 447545431}
+  GodMode: 1
 --- !u!1 &1051473727
 GameObject:
   m_ObjectHideFlags: 0

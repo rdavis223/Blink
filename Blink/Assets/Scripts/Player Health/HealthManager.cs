@@ -30,6 +30,7 @@ public class HealthManager : MonoBehaviour
     public Image damageScreenEffect;
     private bool fadeIn;
     private bool fadeOut;
+    public bool GodMode = false;
 
     void Start()
     {
@@ -41,6 +42,9 @@ public class HealthManager : MonoBehaviour
 
     void Update()
     {
+        if (GodMode){
+            currentHealth = maxHealth;
+        }
         if (playerIsDead) 
         {
             Die();

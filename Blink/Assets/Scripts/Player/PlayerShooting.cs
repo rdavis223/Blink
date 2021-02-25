@@ -25,7 +25,7 @@ public class PlayerShooting : MonoBehaviour
 
     public Transform ammoText = null;
 
-    private int currentAmmo = 0;
+    public int currentAmmo = 0;
 
     private int currentClip = 0; 
 
@@ -36,6 +36,12 @@ public class PlayerShooting : MonoBehaviour
     public bool reloading = false;
 
     public string fireType;
+
+    public string fireStyle = "straight";
+
+    public int numBullets = 1;
+
+    public float accuracy = 1f;
 
 
     private AudioSource shootSound;
@@ -59,7 +65,6 @@ public class PlayerShooting : MonoBehaviour
             currentAmmo = 0;
         }
         fireTimer = 0f;
-        updateAmmoText(currentClip.ToString() + "/" + currentAmmo.ToString());
     }
     // Start is called before the first frame update
     void Start()
@@ -86,7 +91,9 @@ public class PlayerShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!reloading){
+            updateAmmoText(currentClip.ToString() + "/" + currentAmmo.ToString());
+        }
         if (Cursor.lockState == CursorLockMode.Locked){
             if (fireTimer > 0f && fireType == "auto"){
                 fireTimer -= Time.deltaTime;
@@ -116,13 +123,26 @@ public class PlayerShooting : MonoBehaviour
                     fireTimer = fireRate;
                 }
                 shootSound.Play();
-                GameObject bulletObject = Instantiate(bulletPrefab);
-                bulletObject.transform.position = ShootPosition.transform.position;
-                bulletObject.transform.forward = ShootPosition.transform.forward;
-                bulletObject.transform.rotation = Quaternion.LookRotation(playerCamera.transform.forward);
+                if (fireStyle == "spread"){
+                    int i = 0;
+                    while (i < numBullets){
+                        GameObject bulletObject = Instantiate(bulletPrefab);
+                        bulletObject.transform.position = playerCamera.transform.position;
+                        bulletObject.transform.forward = playerCamera.transform.forward;
+                        Vector3 offset = new Vector3(Random.Range(-accuracy, accuracy), Random.Range(-accuracy, accuracy), Random.Range(-accuracy, accuracy));
+                        Vector3 rotationVector = playerCamera.transform.eulerAngles + offset;
+                        bulletObject.transform.rotation = Quaternion.Euler(rotationVector);
+                        i++;
+                    }
+                } else {
+                    GameObject bulletObject = Instantiate(bulletPrefab);
+                    bulletObject.transform.position = ShootPosition.transform.position;
+                    bulletObject.transform.forward = ShootPosition.transform.forward;
+                    bulletObject.transform.rotation = Quaternion.LookRotation(playerCamera.transform.forward);
+                }
                 currentClip -= 1;
-                
-                updateAmmoText(currentClip.ToString() + "/" + currentAmmo.ToString());
+
+                                
             }
         }
     }

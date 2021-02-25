@@ -1416,8 +1416,13 @@ PrefabInstance:
       objectReference: {fileID: 1469974116}
     - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
       propertyPath: sightRange
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -1434,6 +1439,31 @@ PrefabInstance:
       propertyPath: walkPoint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: damage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005555043366, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a8af1e2c2dc120e4ea05307d8d4be849, type: 2}
     - target: {fileID: 8331590005564339194, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: m_RootOrder
@@ -1494,7 +1524,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: sight
+      value: 
+      objectReference: {fileID: 368666079}
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: meleeTarget
+      value: 
+      objectReference: {fileID: 1469974116}
+    m_RemovedComponents:
+    - {fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
 --- !u!4 &368666078 stripped
 Transform:
@@ -1502,6 +1543,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 368666077}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &368666079 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+    type: 3}
+  m_PrefabInstance: {fileID: 368666077}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9f63bf6435df34fb3dac68d19910b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &380370321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,11 +1611,68 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 466121120873315521, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: ammobox
+      value: 
+      objectReference: {fileID: 5048250108046825381, guid: 5ae8e5ff29f08427e9ec404cf33a7b5f,
+        type: 3}
+    - target: {fileID: 466121120873315521, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: healthbox
+      value: 
+      objectReference: {fileID: 1130069014666292499, guid: 4d1ce7da682834fb78ca269f83fb2a35,
+        type: 3}
     - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: meleeRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: sightRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackDelay
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: damage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005555043366, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a8af1e2c2dc120e4ea05307d8d4be849, type: 2}
     - target: {fileID: 8331590005564339194, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: m_RootOrder
@@ -1623,7 +1733,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: sight
+      value: 
+      objectReference: {fileID: 384532978}
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: meleeTarget
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: targetMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
 --- !u!4 &384532977 stripped
 Transform:
@@ -1631,6 +1757,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 384532976}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &384532978 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+    type: 3}
+  m_PrefabInstance: {fileID: 384532976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9f63bf6435df34fb3dac68d19910b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &444300458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1986,13 +2124,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801c4bfbcde624133850e2d5ad1108a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryPrefab: {fileID: 8374078941434947280, guid: 3f7c29d25dc80469f8d0bc2b003fd5c1,
+  primaryPrefab: {fileID: 2975543995807575520, guid: 9f5ab874b09514be29989135d432b5b3,
     type: 3}
   secondaryPrefab: {fileID: 2575858915674461748, guid: 81ebd232627664695b8c227c9c1da205,
     type: 3}
   primary: {fileID: 0}
   secondary: {fileID: 0}
   playerCamera: {fileID: 1596989234}
+  currentSelectedWeapon: {fileID: 0}
   ammoText: {fileID: 1297444098}
 --- !u!1001 &508867664
 PrefabInstance:
@@ -2016,8 +2155,13 @@ PrefabInstance:
       objectReference: {fileID: 1469974116}
     - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
       propertyPath: sightRange
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -2039,6 +2183,31 @@ PrefabInstance:
       propertyPath: walkPoint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: damage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005555043366, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a8af1e2c2dc120e4ea05307d8d4be849, type: 2}
     - target: {fileID: 8331590005564339194, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: m_RootOrder
@@ -2099,7 +2268,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: sight
+      value: 
+      objectReference: {fileID: 508867666}
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: meleeTarget
+      value: 
+      objectReference: {fileID: 1469974116}
+    m_RemovedComponents:
+    - {fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
 --- !u!4 &508867665 stripped
 Transform:
@@ -2107,6 +2287,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 508867664}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &508867666 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+    type: 3}
+  m_PrefabInstance: {fileID: 508867664}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9f63bf6435df34fb3dac68d19910b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &568916125
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,8 +2399,13 @@ PrefabInstance:
       objectReference: {fileID: 1469974116}
     - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
       propertyPath: sightRange
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -2230,6 +2427,31 @@ PrefabInstance:
       propertyPath: walkPoint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: damage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005555043366, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a8af1e2c2dc120e4ea05307d8d4be849, type: 2}
     - target: {fileID: 8331590005564339194, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: m_RootOrder
@@ -2290,7 +2512,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: sight
+      value: 
+      objectReference: {fileID: 595255668}
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: meleeTarget
+      value: 
+      objectReference: {fileID: 1469974116}
+    m_RemovedComponents:
+    - {fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
 --- !u!4 &595255667 stripped
 Transform:
@@ -2298,6 +2531,90 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 595255666}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+--- !u!114 &595255668 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+    type: 3}
+  m_PrefabInstance: {fileID: 595255666}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9f63bf6435df34fb3dac68d19910b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+=======
+--- !u!1001 &639760191
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3922390454280212001, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_Name
+      value: Shotgun_pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.602
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.609
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.727
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922390454280573441, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8dd8ef4b7c15543d7ae1fa1181a1e621, type: 3}
+>>>>>>> ryan_new
 --- !u!1 &647011283
 GameObject:
   m_ObjectHideFlags: 0
@@ -3099,8 +3416,23 @@ PrefabInstance:
       objectReference: {fileID: 1469974116}
     - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
       propertyPath: sightRange
-      value: 25
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: meleeDamage
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -3117,6 +3449,41 @@ PrefabInstance:
       propertyPath: walkPoint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: lastAttackTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: meleeAttackRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: damage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005555043366, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a8af1e2c2dc120e4ea05307d8d4be849, type: 2}
     - target: {fileID: 8331590005564339194, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: m_RootOrder
@@ -3177,6 +3544,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: sight
+      value: 
+      objectReference: {fileID: 938829261}
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: viewRadius
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: meleeTarget
+      value: 
+      objectReference: {fileID: 1469974116}
     - target: {fileID: 9144408074054808311, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.size
@@ -3212,7 +3594,8 @@ PrefabInstance:
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
 --- !u!4 &938829260 stripped
 Transform:
@@ -3220,6 +3603,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 938829259}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &938829261 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+    type: 3}
+  m_PrefabInstance: {fileID: 938829259}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9f63bf6435df34fb3dac68d19910b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &959393411
 GameObject:
   m_ObjectHideFlags: 0
@@ -3397,8 +3792,13 @@ PrefabInstance:
       objectReference: {fileID: 1469974116}
     - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
       propertyPath: sightRange
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -3415,6 +3815,31 @@ PrefabInstance:
       propertyPath: walkPoint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: damage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005555043366, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a8af1e2c2dc120e4ea05307d8d4be849, type: 2}
     - target: {fileID: 8331590005564339194, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: m_RootOrder
@@ -3475,7 +3900,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (11)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: sight
+      value: 
+      objectReference: {fileID: 978292669}
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: meleeTarget
+      value: 
+      objectReference: {fileID: 1469974116}
+    m_RemovedComponents:
+    - {fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
 --- !u!4 &978292668 stripped
 Transform:
@@ -3483,6 +3919,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 978292667}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &978292669 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+    type: 3}
+  m_PrefabInstance: {fileID: 978292667}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9f63bf6435df34fb3dac68d19910b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &989026863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3734,7 +4182,7 @@ GameObject:
   - component: {fileID: 1041736673}
   - component: {fileID: 1041736674}
   m_Layer: 0
-  m_Name: Health Manager
+  m_Name: HealthManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3778,6 +4226,7 @@ MonoBehaviour:
   damageEffectFadeSpeed: 5
   waitForDamageFade: 0.5
   damageScreenEffect: {fileID: 447545431}
+  GodMode: 1
 --- !u!1 &1043802352
 GameObject:
   m_ObjectHideFlags: 0
@@ -3853,7 +4302,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043802352}
   m_CullTransparentMesh: 0
-  GodMode: 0
 --- !u!1 &1051473727
 GameObject:
   m_ObjectHideFlags: 0
@@ -5679,7 +6127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1469974118}
   speed: 12
-  sprintSpeed: 50
+  sprintSpeed: 25
   jumpHeight: 3
   gravity: -15.81
   groundCheck: {fileID: 1885557132}
@@ -6285,8 +6733,13 @@ PrefabInstance:
       objectReference: {fileID: 1469974116}
     - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
       propertyPath: sightRange
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -6303,6 +6756,31 @@ PrefabInstance:
       propertyPath: walkPoint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: damage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005555043366, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a8af1e2c2dc120e4ea05307d8d4be849, type: 2}
     - target: {fileID: 8331590005564339194, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: m_RootOrder
@@ -6363,8 +6841,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: sight
+      value: 
+      objectReference: {fileID: 1561516459}
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: meleeTarget
+      value: 
+      objectReference: {fileID: 1469974116}
+    m_RemovedComponents:
+    - {fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
+--- !u!114 &1561516459 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1561516458}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9f63bf6435df34fb3dac68d19910b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1596989230
 GameObject:
   m_ObjectHideFlags: 0
@@ -7167,8 +7668,18 @@ PrefabInstance:
       objectReference: {fileID: 1469974116}
     - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: meleeRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
       propertyPath: sightRange
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -7190,6 +7701,36 @@ PrefabInstance:
       propertyPath: walkPoint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: lastAttackTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: damage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1469974116}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005029714371, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005555043366, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a8af1e2c2dc120e4ea05307d8d4be849, type: 2}
     - target: {fileID: 8331590005564339194, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: m_RootOrder
@@ -7250,7 +7791,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: sight
+      value: 
+      objectReference: {fileID: 1913354221}
+    - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: meleeTarget
+      value: 
+      objectReference: {fileID: 1469974116}
+    m_RemovedComponents:
+    - {fileID: 3959285705520138927, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47d24e2008a864f1faef45975cd51cd9, type: 3}
 --- !u!4 &1913354220 stripped
 Transform:
@@ -7258,6 +7810,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1913354219}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1913354221 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8331590005029714370, guid: 47d24e2008a864f1faef45975cd51cd9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1913354219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9f63bf6435df34fb3dac68d19910b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1914817371
 GameObject:
   m_ObjectHideFlags: 0

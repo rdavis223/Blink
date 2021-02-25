@@ -41,9 +41,16 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
-        if (Input.GetKey(KeyCode.LeftShift)){    
+
+        if (Input.GetKey(KeyCode.LeftShift) && StaminaBar.instance.GetCurrentStamina() > 0)
+        {    
+            StaminaBar.instance.UseStamina(true);
             controller.Move(move * sprintSpeed * Time.deltaTime);
-        } else{
+        } 
+        
+        else
+        {
+            StaminaBar.instance.UseStamina(false);
             controller.Move(move * speed * Time.deltaTime);
         }
 

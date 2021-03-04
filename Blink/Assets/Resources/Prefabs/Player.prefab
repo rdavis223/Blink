@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198982516281882049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.05, z: 0.518}
+  m_LocalPosition: {x: 0, y: -0.121, z: 0.518}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9046096373160528187}
@@ -217,7 +217,6 @@ GameObject:
   - component: {fileID: 9046096373031686253}
   - component: {fileID: 9046096373031686254}
   - component: {fileID: 9046096373031686255}
-  - component: {fileID: 6012580789376686040}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -307,25 +306,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   playerBody: {fileID: 9046096373160528187}
---- !u!95 &6012580789376686040
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9046096373031686257}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 20d1d8dbba13ec14f8ea32b9f315735f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9046096373160528188
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,7 +317,6 @@ GameObject:
   - component: {fileID: 9046096373160528187}
   - component: {fileID: 8697294105719673021}
   - component: {fileID: 9046096373160528186}
-  - component: {fileID: 9046096373160528183}
   - component: {fileID: 9046096373160528182}
   - component: {fileID: 9046096373160528184}
   m_Layer: 9
@@ -380,7 +359,7 @@ Rigidbody:
   m_Mass: 1.5
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
@@ -397,20 +376,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431f2d19301a0443493a79f8ff705776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3500
-  counterMovement: 0.175
-  sprintSpeed: 5
-  airbourneSpeed: 0.5
-  jumpHeight: 440
-  slideJumpHeight: 6
-  gravity: -9.81
+  speed: 6
+  airSpeed: 100
+  gravity: 20
+  sprintMultiplier: 2.6
+  jumpHeight: 750
+  jumpCooldown: 0.8
   groundCheck: {fileID: 9046096373624315603}
-  groundDistance: -0.4
-  slopeCheckHeight: 0.5
-  airDragPercent: 0.1
-  groundDragPercent: 0.8
-  slopeDragPercent: 0
-  groundStickiness: 10
+  groundDistance: 0.4
   timeToVault: 2
   timeToClimb: 4
   runningAudio: {fileID: 9046096373401496779}
@@ -418,24 +391,11 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  cam: {fileID: 9046096373031686253}
   vaultHeight: {fileID: 1401520724816578945}
   climbHeight: {fileID: 50598378641330915}
-  cam: {fileID: 9046096373031686253}
-  vaultTo: {x: 0, y: 1, z: 3}
-  climbTo: {x: 0, y: 3, z: 1}
---- !u!114 &9046096373160528183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9046096373160528188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c746bc4e3ab01a4095eea95ceead347, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reducedHeight: 1
+  vaultTo: {x: 0, y: 0.11, z: 1}
+  climbTo: {x: 0, y: 2.5, z: 0.2}
 --- !u!136 &9046096373160528182
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -797,6 +757,7 @@ MonoBehaviour:
   primary: {fileID: 0}
   secondary: {fileID: 0}
   playerCamera: {fileID: 9046096373031686253}
+  currentSelectedWeapon: {fileID: 0}
   ammoText: {fileID: 9046096372736303709}
 --- !u!1 &9046096374326729003
 GameObject:
@@ -998,7 +959,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9144429216406224902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.315, z: 0.52}
+  m_LocalPosition: {x: 0, y: 1.63, z: 0.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9046096373160528187}

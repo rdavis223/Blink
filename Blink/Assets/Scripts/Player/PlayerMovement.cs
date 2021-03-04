@@ -5,50 +5,39 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rb;
-    public float speed = 35;
-    public float counterMovement = 0.175f;
-    public float sprintMultiplier = 3f;
-    public float airbourneSpeed = 0.5f;
+    public float speed;
+    public float airSpeed;
+    public float gravity;
+    public float sprintMultiplier;
 
     Vector3 velocity;
 
-    public float jumpHeight = 580f;
-    private float jumpCooldown = 0.25f;
-    public float slideJumpHeight = 6f;
-    public float gravity = -9.81f;
+    public float jumpHeight;
+    public float jumpCooldown;
 
     public Transform groundCheck;
-    public float groundDistance = -0.4f;
+    public float groundDistance;
 
     private bool isOnSlope = false;
     private Vector3 feetPos;
-    public float slopeCheckHeight = 0.5f;
     private Vector3 slopeDirection;
-    public float airDragPercent = 0.1f;
-    public float groundDragPercent = 0.8f;
-    public float slopeDragPercent = 0f;
-    private Vector3 input_movement;
-    private float maxWalkSpeed = 20;
-    private float maxRunSpeed = 40;
-    private float maxSlideSpeed = 50;
-    private float maxAirSpeed = 40;
-    private float maxSpeed = 20;
+    private float maxVelocityChange = 10f;
     private Vector3 slopeNormal;
-    [SerializeField] private float timeToVault = 2f;
-    [SerializeField] private float timeToClimb = 4f;
+    [SerializeField] private float timeToVault;
+    [SerializeField] private float timeToClimb;
     private float t_parkour = 0f;
-    public Animator cameraAnimator;
+    // public Animator animator;
 
-    private float x, y;
-    private bool isCrouching, isGrounded, isJumping;
+    private float x, z;
+    private bool isCrouching, isGrounded, isJumping, isSprinting;
 
     public AudioSource runningAudio; // For future iterations
     public AudioSource jumpingAudio;
 
     public LayerMask whatIsGround;
+    [SerializeField] private Camera cam;
     [SerializeField] private Transform vaultHeight;
     [SerializeField] private Transform climbHeight;
-    [SerializeField] private Camera cam;
     [SerializeField] Vector3 vaultTo;
     [SerializeField] Vector3 climbTo;
     private bool isClimbing = false, isVaulting = false;
@@ -59,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canVault = false;
     private bool canClimb = false;
     private bool canJump = true;
+    private bool movementOverride = false;
 
     private float slopeAngle;
 
@@ -67,108 +57,219 @@ public class PlayerMovement : MonoBehaviour
         Time.timeScale = 1;
         BlinkMgr.Instance.BlinkTimer = 3f;
         rb = GetComponent<Rigidbody>();
-        cameraAnimator = cam.GetComponent<Animator>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        print(isGrounded);
+        x = Input.GetAxis("Horizontal");
+        z = Input.GetAxis("Vertical");
+        isCrouching = Input.GetKey(KeyCode.LeftControl);
+        isSprinting = Input.GetKey(KeyCode.LeftShift);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, whatIsGround);
+        isJumping = Input.GetKey(KeyCode.Space);
         CheckSlopes();
         CheckParkourRays();
         Move();
-        if (canClimb || canVault)
-        {
-            Parkour();
-        }
+        Parkour();
+        Slide();
+        Jump();
     }
     private void Move()
     {
-        x = Input.GetAxisRaw("Horizontal");
-        y = Input.GetAxisRaw("Vertical");
-        isCrouching = Input.GetKey(KeyCode.LeftControl);
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, whatIsGround);
-        isJumping = Input.GetKey(KeyCode.Space);
-        Vector2 magnitude = FindVelRelativeToCam();
-        float xMag, yMag;
-        xMag = magnitude.x;
-        yMag = magnitude.y;
-        CounterMovement(xMag, yMag, magnitude);
-        if (!isGrounded)
-        {
-            rb.AddForce(Vector3.down * 2f); // More gravity
-        }
-        if (isGrounded && isJumping && !isVaulting)
-        {
-            Jump();
-        }
-        if (isCrouching && isOnSlope)
-        {
-            rb.AddForce(slopeDirection * slopeAngle * 3);
-        }
-        if (isCrouching && isGrounded && canJump)
-        {
-            rb.AddForce(Vector3.down * 2500 * Time.deltaTime);
-            return; //Skip max speed while going down ramps
-        }
-        if (x > 0 && xMag > maxSpeed) x = 0;
-        if (x < 0 && xMag < -maxSpeed) x = 0;
-        if (y > 0 && yMag > maxSpeed) y = 0;
-        if (y < 0 && yMag < -maxSpeed) y = 0;
+        if (movementOverride) return;
 
-        float forwardSpeedMultiplier = 1f;
-        float speedMultipler = 1f;
-
-        if (!isGrounded)
+        var targetVel = new Vector3(x, 0, z);
+        targetVel = transform.TransformDirection(targetVel);
+        targetVel *= speed;
+        if (isSprinting && z > 0) // Only apply sprint when moving forward, not back or strafing
         {
-            forwardSpeedMultiplier /= 2;
-            speedMultipler /= 2;
+            targetVel.z *= sprintMultiplier;
         }
-        if (isGrounded && isCrouching)
+        var deltaVel = targetVel - rb.velocity;
+        deltaVel.x = Mathf.Clamp(deltaVel.x, -maxVelocityChange, maxVelocityChange);
+        deltaVel.z = Mathf.Clamp(deltaVel.z, -maxVelocityChange, maxVelocityChange);
+        deltaVel.y = 0;
+        if (isGrounded)
         {
-            forwardSpeedMultiplier = 0f;
-        }
-
-        if(Input.GetKey(KeyCode.LeftShift) && StaminaBar.instance.GetCurrentStamina() > 0)
-        {
-            StaminaBar.instance.UseStamina(true);
-            speedMultipler = speedMultipler * sprintMultiplier;
-            runningAudio.enabled = true;
+            rb.AddForce(deltaVel, ForceMode.VelocityChange);
         }
         else
         {
-            runningAudio.enabled = false;
+            rb.AddRelativeForce(targetVel * airSpeed * Time.deltaTime);
         }
-        rb.AddForce(transform.forward * y * speed * Time.deltaTime * speedMultipler * forwardSpeedMultiplier);
-        rb.AddForce(transform.right * x * speed * Time.deltaTime * speedMultipler);
+        
+        rb.AddForce(new Vector3(0, -gravity * rb.mass, 0));
+        if (Input.GetKey(KeyCode.V)){
+            rb.AddRelativeForce(new Vector3(0, 0, 4000));
+        }
     }
-    private void CounterMovement(float x, float y, Vector2 mag)
-    {
-        float threshold = 0.01f;
-        if (!isGrounded) return;
 
-        if (isCrouching)
+    private void Slide()
+    {
+        if (isCrouching && isOnSlope)
         {
-            rb.AddForce(speed * Time.deltaTime * -rb.velocity.normalized * 0.2f);
+            
+            rb.AddRelativeForce(Vector3.forward * 4);
+            rb.AddForce(new Vector3(0, -10, 0)); // Force player onto ground
+            rb.AddForce(slopeDirection * Mathf.Sqrt(slopeAngle) * 50);
+            movementOverride = true;
+        }
+        else
+        {
+            movementOverride = false;
+        }
+    }
+
+    private void Jump()
+    {
+        if (isJumping && isGrounded && canJump)
+        {
+            canJump = false;
+            //Vector3 jumpForce = (Mathf.Sqrt(2 * jumpHeight * gravity)) * slopeNormal;
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); // Remove all negative y acceleration from sliding
+            Vector3 jumpForce = jumpHeight * slopeNormal;
+            rb.AddForce(jumpForce, ForceMode.Acceleration);
+            jumpingAudio.Play();
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
+    }
+
+    private void ResetJump()
+    {
+        canJump = true;
+    }
+
+    private void Parkour()
+    {
+        if (canVault && isJumping)
+        {
+            from = transform.position;
+            to = transform.position + transform.TransformDirection(vaultTo);
+            canVault = false;
+            isVaulting = true;
+            rb.isKinematic = true;
+            movementOverride = true;
+            t_parkour = 0;
+        }
+
+        if (canClimb && x > 0)
+        {
+            from = transform.position;
+            to = transform.position + transform.TransformDirection(climbTo);
+            canClimb = false;
+            isClimbing = true;
+            rb.isKinematic = true;
+            movementOverride = true;
+            t_parkour = 0;
+        }
+        while (isVaulting)
+        {
+            //animator.CrossFade("Vault", 0.1f);
+            t_parkour += Time.deltaTime / timeToVault;
+            if (t_parkour >= 1f)
+            {
+                isVaulting = false;
+                rb.isKinematic = false;
+                movementOverride = false;
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
+            transform.position = Vector3.Lerp(from, to, t_parkour);
+        }
+        while (isClimbing)
+        {
+            print("climbing");
+            //animator.CrossFade("Climb", 0.1f);
+            t_parkour += Time.deltaTime / timeToClimb;
+            if (t_parkour >= 1f)
+            {
+                isClimbing = false;
+                rb.isKinematic = false;
+                movementOverride = false;
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
+            else
+            {
+                transform.position = Vector3.Lerp(from, to, t_parkour);
+            }
+        }
+    }
+
+    private void CheckSlopes()
+    {
+        if (!isGrounded)
+        {
+            isOnSlope = false;
             return;
         }
-
-        if (!(Mathf.Abs(mag.x) > threshold && Mathf.Abs(x) < 0.05f) || (mag.x < -threshold && x > 0) || (mag.x > threshold && x < 0))
+        Debug.DrawLine(feetPos, feetPos + Vector3.down * groundDistance, Color.yellow);
+        Debug.DrawLine(feetPos, feetPos + slopeDirection * slopeAngle, Color.magenta);
+        CapsuleCollider collide = GetComponent<CapsuleCollider>();
+        feetPos = transform.position - new Vector3(0, collide.height / 2, 0);
+        feetPos.y += 0.05f;
+        if (Physics.Raycast(feetPos, Vector3.down, out RaycastHit slopeHit, groundDistance, whatIsGround))
         {
-            rb.AddForce(speed * transform.right * Time.deltaTime * -mag.x * counterMovement);
+            slopeNormal = slopeHit.normal;
+            slopeAngle = Vector3.Angle(slopeHit.normal, Vector3.up);
+            if (slopeAngle == 0)
+            {
+                isOnSlope = false;
+                return;
+            }
+            else
+            {
+                isOnSlope = true;
+                Vector3 temp = Vector3.Cross(slopeHit.normal, Vector3.down);
+                slopeDirection = Vector3.Cross(temp, slopeHit.normal);
+            }
         }
-        if (!(Mathf.Abs(mag.y) > threshold && Mathf.Abs(y) < 0.05f) || (mag.y < -threshold && y > 0) || (mag.y > threshold && y < 0))
+        else
         {
-            rb.AddForce(speed * transform.forward * Time.deltaTime * -mag.y * counterMovement);
-        }
-        if (Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2))) > maxSpeed)
-        {
-            float fallspeed = rb.velocity.y;
-            Vector3 n = rb.velocity.normalized * maxSpeed;
-            rb.velocity = new Vector3(n.x, fallspeed, n.z);
+            isOnSlope = false;
+            return;
         }
     }
 
+    private void CheckParkourRays()
+    {
+        Vector3 dir = cam.transform.forward;
+        Vector3 pos = climbHeight.position;
+        Vector3 obstruction_pos = new Vector3(pos.x, pos.y + .4f, pos.z);
+        dir.y = 0;
+        Debug.DrawLine(pos, pos + dir * 0.65f, Color.red);
+        if (Physics.Raycast(pos, dir, out RaycastHit hit, 0.65f, whatIsGround) && !Physics.Raycast(obstruction_pos, dir, out RaycastHit obstructionHit, 0.65f, whatIsGround))
+        {
+            if (!isClimbing)
+            {
+                canClimb = true;
+            }
+        }
+        pos = vaultHeight.position;
+        obstruction_pos = new Vector3(pos.x, pos.y + .4f, pos.z);
+        Debug.DrawLine(pos, pos + dir * 0.65f, Color.red);
+        if (!canClimb && Physics.Raycast(pos, dir, out hit, 0.65f, whatIsGround) && !Physics.Raycast(obstruction_pos, dir, out obstructionHit, 0.65f, whatIsGround))
+        {
+            if (!isVaulting)
+            {
+                canVault = true;
+            }
+        }
+    }
 
+    /*
+        private void CounterMovement(Vector3 axis)
+        {
+            float drag = 200f;
+            if (!isGrounded) drag = 100f;
+            else if (isCrouching) drag = 10f;
+            Vector3 counterForce = rb.velocity * -1 * drag * Time.deltaTime;
+            counterForce.x *= Mathf.Abs(axis.x);
+            counterForce.y *= Mathf.Abs(axis.y);
+            counterForce.z *= Mathf.Abs(axis.z);
+            rb.AddForce(counterForce);
+        }
+    */
+
+    /*
     private Vector2 FindVelRelativeToCam()
     {
         float lookAngle = transform.eulerAngles.y;
@@ -177,68 +278,15 @@ public class PlayerMovement : MonoBehaviour
         float u = Mathf.DeltaAngle(lookAngle, moveAngle);
         float v = 90 - u;
 
-        float magnitue = rb.velocity.magnitude;
-        float yMag = magnitue * Mathf.Cos(u * Mathf.Deg2Rad);
-        float xMag = magnitue * Mathf.Cos(v * Mathf.Deg2Rad);
+        float magnitude = rb.velocity.magnitude;
+        float yMag = magnitude * Mathf.Cos(u * Mathf.Deg2Rad);
+        float xMag = magnitude * Mathf.Cos(v * Mathf.Deg2Rad);
 
         return new Vector2(xMag, yMag);
     }
+    */
 
-    private void Parkour()
-    {
-        if (canVault)
-        {
-            if (!(Input.GetKey(KeyCode.Space)))
-            {
-                return;
-            }
-            from = transform.position;
-            to = transform.position + transform.TransformDirection(vaultTo);
-            canVault = false;
-            isVaulting = true;
-            rb.isKinematic = true;
-            t_parkour = 0;
-        }
 
-        if (canClimb)
-        {
-            if (!(Input.GetAxisRaw("Vertical") > 0))
-            {
-                return;
-            }
-            from = transform.position;
-            to = transform.position + transform.TransformDirection(climbTo);
-            canClimb = false;
-            isClimbing = true;
-            rb.isKinematic = true;
-            t_parkour = 0;
-        }
-        while (isVaulting)
-        {
-            cameraAnimator.CrossFade("Vault", 0.1f);
-            t_parkour += Time.deltaTime / timeToVault;
-            if (t_parkour >= 1f)
-            {
-                isVaulting = false;
-                rb.isKinematic = false;
-            }
-            transform.position = Vector3.Lerp(from, to, t_parkour);
-        }
-        while (isClimbing)
-        {
-            cameraAnimator.CrossFade("Climb", 0.1f);
-            t_parkour += Time.deltaTime / timeToClimb;
-            if (t_parkour >= 1f)
-            {
-                isClimbing = false;
-                rb.isKinematic = false;
-            }
-            else
-            {
-                transform.position = Vector3.Lerp(from, to, t_parkour);
-            }
-        }
-    }
     /*
         private void Walk()
         {
@@ -269,22 +317,8 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     */
-    private void Jump()
-    {
-        if (canJump)
-        {
-            canJump = false;
-            rb.AddForce(Vector3.up * jumpHeight);
-            rb.AddForce(slopeNormal * jumpHeight);
-            jumpingAudio.Play();
-            Invoke(nameof(ResetJump), jumpCooldown);
-        }
-    }
 
-    private void ResetJump()
-    {
-        canJump = true;
-    }
+
 
     /*
      private void AirBorne()
@@ -295,68 +329,5 @@ public class PlayerMovement : MonoBehaviour
         velocity.z = Mathf.Min(velocity.z, maxAirSpeed);
     }
     */
-
-    private void CheckSlopes()
-    {
-        if (!isGrounded)
-        {
-            isOnSlope = false;
-            return;
-        }
-        CapsuleCollider collide = GetComponent<CapsuleCollider>();
-        feetPos = transform.position - new Vector3(0, collide.height / 2, 0);
-        if (Physics.Raycast(feetPos, Vector3.down, out RaycastHit slopeHit, slopeCheckHeight, whatIsGround))
-        {
-            slopeNormal = slopeHit.normal;
-            slopeAngle = Vector3.Angle(slopeHit.normal, Vector3.up);
-            if (slopeAngle == 0)
-            {
-                isOnSlope = false;
-                return;
-            }
-            else
-            {
-                isOnSlope = true;
-                Vector3 temp = Vector3.Cross(slopeHit.normal, Vector3.down);
-                slopeDirection = Vector3.Cross(temp, slopeHit.normal);
-            }
-        }
-        else
-        {
-            isOnSlope = false;
-            return;
-        }
-        Debug.DrawLine(feetPos, feetPos + slopeCheckHeight * Vector3.down, Color.red);
-        Debug.DrawLine(feetPos, feetPos + slopeDirection * slopeAngle, Color.magenta);
-    }
-
-    private void CheckParkourRays()
-    {
-        RaycastHit hit;
-        RaycastHit obstructionHit;
-        Vector3 dir = cam.transform.forward;
-        Vector3 pos = climbHeight.position;
-        Vector3 obstruction_pos = new Vector3(pos.x, pos.y + .5f, pos.z);
-        dir.y = 0;
-        Debug.DrawLine(pos, pos + dir * 1f, Color.red);
-        if (Physics.Raycast(pos, dir, out hit, 1f, whatIsGround) && !Physics.Raycast(obstruction_pos, dir, out obstructionHit, 1f, whatIsGround))
-        {
-            if (!isClimbing)
-            {
-                canClimb = true;
-                return;
-            }
-        }
-        pos = vaultHeight.position;
-        obstruction_pos = new Vector3(pos.x, pos.y + .5f, pos.z);
-        if (!canClimb && Physics.Raycast(pos, dir, out hit, 1f, whatIsGround) && !Physics.Raycast(obstruction_pos, dir, out obstructionHit, 1f, whatIsGround))
-        {
-            if (!isVaulting)
-            {
-                canVault = true;
-                return;
-            }
-        }
-    }
 }
 

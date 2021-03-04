@@ -97,9 +97,10 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddRelativeForce(targetVel * airSpeed * Time.deltaTime);
         }
-        
+
         rb.AddForce(new Vector3(0, -gravity * rb.mass, 0));
-        if (Input.GetKey(KeyCode.V)){
+        if (Input.GetKey(KeyCode.V))
+        {
             rb.AddRelativeForce(new Vector3(0, 0, 4000));
         }
     }
@@ -108,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isCrouching && isOnSlope)
         {
-            
+
             rb.AddRelativeForce(Vector3.forward * 4);
             rb.AddForce(new Vector3(0, -10, 0)); // Force player onto ground
             rb.AddForce(slopeDirection * Mathf.Sqrt(slopeAngle) * 50);
@@ -254,80 +255,4 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
-    /*
-        private void CounterMovement(Vector3 axis)
-        {
-            float drag = 200f;
-            if (!isGrounded) drag = 100f;
-            else if (isCrouching) drag = 10f;
-            Vector3 counterForce = rb.velocity * -1 * drag * Time.deltaTime;
-            counterForce.x *= Mathf.Abs(axis.x);
-            counterForce.y *= Mathf.Abs(axis.y);
-            counterForce.z *= Mathf.Abs(axis.z);
-            rb.AddForce(counterForce);
-        }
-    */
-
-    /*
-    private Vector2 FindVelRelativeToCam()
-    {
-        float lookAngle = transform.eulerAngles.y;
-        float moveAngle = Mathf.Atan2(rb.velocity.x, rb.velocity.z) * Mathf.Rad2Deg;
-
-        float u = Mathf.DeltaAngle(lookAngle, moveAngle);
-        float v = 90 - u;
-
-        float magnitude = rb.velocity.magnitude;
-        float yMag = magnitude * Mathf.Cos(u * Mathf.Deg2Rad);
-        float xMag = magnitude * Mathf.Cos(v * Mathf.Deg2Rad);
-
-        return new Vector2(xMag, yMag);
-    }
-    */
-
-
-    /*
-        private void Walk()
-        {
-            velocity += input_movement * speed;
-            velocity = Vector3.ClampMagnitude(velocity, maxWalkSpeed);
-            if (isOnSlope)
-            {
-                velocity.y = -2;
-            }
-        }
-        private void Run()
-        {
-            velocity += input_movement * sprintSpeed;
-            velocity = Vector3.ClampMagnitude(velocity, maxRunSpeed);
-        }
-
-        private void Slide()
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                velocity = slopeNormal * slideJumpHeight;
-                jumpingAudio.Play();
-            }
-            else
-            {
-                velocity += slopeDirection * slopeAngle * 20;
-                velocity = Vector3.ClampMagnitude(velocity, maxSlideSpeed);
-            }
-        }
-    */
-
-
-
-    /*
-     private void AirBorne()
-    {
-        velocity.y += gravity * Time.deltaTime;
-        velocity += input_movement * airbourneSpeed;
-        velocity.x = Mathf.Min(velocity.x, maxAirSpeed);
-        velocity.z = Mathf.Min(velocity.z, maxAirSpeed);
-    }
-    */
 }
-

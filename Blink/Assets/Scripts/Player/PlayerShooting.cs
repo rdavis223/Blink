@@ -154,7 +154,11 @@ public class PlayerShooting : MonoBehaviour
                     GameObject bulletObject = Instantiate(bulletPrefab);
                     bulletObject.transform.position = ShootPosition.transform.position;
                     bulletObject.transform.forward = ShootPosition.transform.forward;
-                    bulletObject.transform.rotation = Quaternion.LookRotation(playerCamera.transform.forward);
+                    float end_x = playerCamera.transform.position.x + 30 * playerCamera.transform.forward.x;
+                    float end_y = playerCamera.transform.position.y + 30 * playerCamera.transform.forward.y;
+                    float end_z = playerCamera.transform.position.z + 30 * playerCamera.transform.forward.z;
+                    Vector3 lookPosition = new Vector3(end_x, end_y, end_z);
+                    bulletObject.transform.LookAt(lookPosition);
                 }
                 currentClip -= 1;
 

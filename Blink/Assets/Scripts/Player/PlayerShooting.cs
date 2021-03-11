@@ -143,10 +143,15 @@ public class PlayerShooting : MonoBehaviour
                     int i = 0;
                     while (i < numBullets){
                         GameObject bulletObject = Instantiate(bulletPrefab);
-                        bulletObject.transform.position = playerCamera.transform.position;
-                        bulletObject.transform.forward = playerCamera.transform.forward;
+                        bulletObject.transform.position = ShootPosition.transform.position;
+                        bulletObject.transform.forward = ShootPosition.transform.forward;
+                        float end_x = playerCamera.transform.position.x + 100 * playerCamera.transform.forward.x;
+                        float end_y = playerCamera.transform.position.y + 100 * playerCamera.transform.forward.y;
+                        float end_z = playerCamera.transform.position.z + 100 * playerCamera.transform.forward.z;
+                        Vector3 lookPosition = new Vector3(end_x, end_y, end_z);
+                        bulletObject.transform.LookAt(lookPosition);
                         Vector3 offset = new Vector3(Random.Range(-accuracy, accuracy), Random.Range(-accuracy, accuracy), Random.Range(-accuracy, accuracy));
-                        Vector3 rotationVector = playerCamera.transform.eulerAngles + offset;
+                        Vector3 rotationVector = bulletObject.transform.eulerAngles + offset;
                         bulletObject.transform.rotation = Quaternion.Euler(rotationVector);
                         i++;
                     }
@@ -154,9 +159,9 @@ public class PlayerShooting : MonoBehaviour
                     GameObject bulletObject = Instantiate(bulletPrefab);
                     bulletObject.transform.position = ShootPosition.transform.position;
                     bulletObject.transform.forward = ShootPosition.transform.forward;
-                    float end_x = playerCamera.transform.position.x + 30 * playerCamera.transform.forward.x;
-                    float end_y = playerCamera.transform.position.y + 30 * playerCamera.transform.forward.y;
-                    float end_z = playerCamera.transform.position.z + 30 * playerCamera.transform.forward.z;
+                    float end_x = playerCamera.transform.position.x + 100 * playerCamera.transform.forward.x;
+                    float end_y = playerCamera.transform.position.y + 100 * playerCamera.transform.forward.y;
+                    float end_z = playerCamera.transform.position.z + 100 * playerCamera.transform.forward.z;
                     Vector3 lookPosition = new Vector3(end_x, end_y, end_z);
                     bulletObject.transform.LookAt(lookPosition);
                 }

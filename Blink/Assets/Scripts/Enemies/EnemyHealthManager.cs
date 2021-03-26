@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class EnemyHealthManager : MonoBehaviour
 {
@@ -44,10 +45,12 @@ public class EnemyHealthManager : MonoBehaviour
     {
         // Hurt the enemy, decrease health
         currentHealth -= damage; // Decrease health
+        this.gameObject.GetComponent<FieldOfView>().SetTakingDamage();
         if (currentHealth <= 0)
         {
             anim.Play(animationName);
             StartCoroutine(DeathAnimationCoroutine(deathAnimTime));
+            DisableMovement();
         }
     }
 
@@ -57,6 +60,7 @@ public class EnemyHealthManager : MonoBehaviour
         anim.Play(animationName);
         // Instant death
         StartCoroutine(DeathAnimationCoroutine(deathAnimTime));
+        DisableMovement();
     }
 
     public void Destroy()
@@ -83,6 +87,15 @@ public class EnemyHealthManager : MonoBehaviour
         } else if (chance > 25f && chance <= 50f){
             GameObject box = Instantiate(ammobox);
             box.transform.position = new Vector3(position.x, ammobox.transform.position.y, position.z);
+        }
+    }
+
+    private void DisableMovement()
+    {
+        GetComponent<NavMeshAgent>().enabled = false;
+        if (GetComponent<EnemyAI>().coverObj != null)
+        {
+            GetComponent<EnemyAI>().coverObj.GetComponent<CoverPoint>().setOccupied(false);
         }
     }
 }

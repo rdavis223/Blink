@@ -7,6 +7,8 @@ TagManager:
   - EnemyBody
   - EnemyHead
   - Enemy
+  - Cover
+  - CoverPoint
   layers:
   - Default
   - TransparentFX

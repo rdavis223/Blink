@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -28,6 +29,12 @@ public class EnemyAI : MonoBehaviour
     public float sightRange, attackRange, meleeRange;
     public bool playerInSightRange, playerInAttackRange, playerInMeleeRange;
 
+    public GameObject coverObj = null;
+
+    private void Start()
+    {
+        
+    }
     private void Awake()
     {
         player = GameObject.Find("PlayerController").transform;
@@ -37,6 +44,10 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            findClosestCover();
+        }
         // Check for sight and attack range
         if (!BlinkMgr.Instance.BlinkActive)
         {
@@ -67,8 +78,8 @@ public class EnemyAI : MonoBehaviour
 
     public void SearchWalkPoint()
     {
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
+        float randomZ = UnityEngine.Random.Range(-walkPointRange, walkPointRange);
+        float randomX = UnityEngine.Random.Range(-walkPointRange, walkPointRange);
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.x + randomZ);
 
@@ -103,6 +114,24 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    public void AttackPlayerMoving()
+    {
+        transform.LookAt(new Vector3(player.position.x, 0, player.position.z));
+        agent.transform.LookAt(new Vector3(player.position.x, 0, player.position.z));
+
+        if (!alreadyAttacked)
+        {
+            // Attack code here
+            Vector3 aim = (player.position - transform.position).normalized;
+            GameObject bulletObject = Instantiate(projectile);
+            bulletObject.transform.rotation = projectile.transform.rotation;
+            bulletObject.transform.position = agent.transform.position + aim;
+            bulletObject.transform.forward = aim;
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
+    }
+
     public void MeleeAttackPlayer()
     {
         if (Time.time > lastAttackTime + attackDelay)
@@ -114,6 +143,10 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    public void moveToCover(Vector3 coverPos)
+    {
+        agent.SetDestination(coverPos);
+    }
     private void ResetAttack()
     {
         alreadyAttacked = false;
@@ -129,4 +162,47 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, meleeRange);
     }
 
+
+    public Vector3 findClosestCover()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 40);
+        IDictionary<float, GameObject> coverObjs = new Dictionary<float, GameObject>();
+        List<float> coverDistances = new List<float>();
+        foreach(Collider hitCollider in hitColliders)
+        {
+            if (hitCollider.gameObject.tag == "CoverPoint")
+            {
+                float dist = Vector3.Distance(hitCollider.gameObject.transform.position, this.transform.position);
+                coverDistances.Add(dist);
+                coverObjs.Add(dist, hitCollider.gameObject);
+            }
+        }
+        coverDistances.Sort();
+        foreach(float d in coverDistances)
+        {
+            float maxDist = Vector3.Distance(coverObjs[d].transform.position, player.position);
+            Vector3 dir = coverObjs[d].transform.position - player.position;
+            Ray r = new Ray(player.position, dir);
+            RaycastHit[] hits = Physics.RaycastAll(r, maxDist);
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.transform.gameObject.tag == "Cover")
+                {
+                    if (coverObjs[d].GetComponent<CoverPoint>().isFree())
+                    {
+                   
+                        coverObj = coverObjs[d];
+                        coverObj.GetComponent<CoverPoint>().setOccupied(true);
+                        Debug.DrawLine(player.position, coverObj.transform.position, Color.red, 5f);
+                        return coverObj.transform.position;
+                    }
+                    
+                }
+            }
+        }
+        return Vector3.zero;
+    }
+
 }
+
+

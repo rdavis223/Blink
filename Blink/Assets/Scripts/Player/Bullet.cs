@@ -66,6 +66,11 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "Cover")
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         // Enemy general body damage
         if (other.tag == "Enemy")
         {
@@ -101,6 +106,7 @@ public class Bullet : MonoBehaviour
             other.transform.parent.parent.GetComponent<EnemyHealthManager>().HurtEnemy(backDamage, "death_from_back", 2.96f);
             Destroy(this.gameObject);
         }
+
 
         // ADD MORE IF STATEMENTS ACCORDINGLY FOR EACH DIFFERENT DAMAGE, TAG COLLIDER WITH A DESCRIPTIVE NAME
         // other.transform.parent.parent gets enemy object in order to find the enemy health manager script

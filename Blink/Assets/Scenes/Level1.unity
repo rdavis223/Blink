@@ -4104,7 +4104,7 @@ Transform:
   - {fileID: 1420129802}
   - {fileID: 719181479}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1407281232
 GameObject:
@@ -5838,7 +5838,7 @@ PrefabInstance:
     - target: {fileID: 1225645587946843801, guid: 56d0d4e3b91ac1046869f636caf4688e,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: PlayerController
       objectReference: {fileID: 0}
     - target: {fileID: 1225645587946843805, guid: 56d0d4e3b91ac1046869f636caf4688e,
         type: 3}
@@ -5899,6 +5899,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225645588091418580, guid: 56d0d4e3b91ac1046869f636caf4688e,
+        type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56d0d4e3b91ac1046869f636caf4688e, type: 3}
@@ -5968,6 +5973,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealthManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003758079851375175, guid: dd732e71e68a24e9faae88e6bdc781fe,
+        type: 3}
+      propertyPath: GodMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6003758079851375175, guid: dd732e71e68a24e9faae88e6bdc781fe,
         type: 3}

@@ -5,12 +5,14 @@ using UnityEngine;
 public class PlayerCrouch : MonoBehaviour
 {
     CapsuleCollider playerCol;
+    CharacterController playerHeight;
     float originalHeight;
     public float reducedHeight;
 
     void Start()
     {
         playerCol = GetComponent<CapsuleCollider>();
+        playerHeight = GetComponent<CharacterController>();
         originalHeight = playerCol.height;
     }
 
@@ -25,12 +27,14 @@ public class PlayerCrouch : MonoBehaviour
     void Crouch()
     {
         playerCol.height = reducedHeight;
+        playerHeight.height = reducedHeight;
 
     }
 
     void GoUp()
     {
         playerCol.height = originalHeight;
+        playerHeight.height = originalHeight;
     }
 
 }

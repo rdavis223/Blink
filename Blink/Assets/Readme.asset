@@ -4,35 +4,44 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcf7219bab7fe46a1ad266029b2fee19, type: 3}
   m_Name: Readme
   m_EditorClassIdentifier: 
-  icon: {fileID: 2800000, guid: cfa6d60f1f958ba46a105ca98716c259, type: 3}
-  title: Particle Pack
+  icon: {fileID: 2800000, guid: f3b461aa3ce4e164e80610d900c9b22d, type: 3}
+  iconMaxWidth: 192
+  title: SNAPS Prototype Pack
+  titlesub: 
   sections:
-  - heading: What is the Particle Pack?
-    text: The Particle Pack is a collection of example effects that you can easily
-      add to your own game or examine to learn more about Unity's Shuriken particle
-      system.  Explore the example first-person scene using W,A,S, and D, and your
-      mouse to look around. Stop to view a particle system and more detailed information
-      on each effect will appear on-screen.
+  - heading: About SNAPS Packs
+    text: 'SNAPS provides Unity developers an exhaustive library of modular content designed to make prototyping and building first playables quick and easy. '
     linkText: 
     url: 
-  - heading: How do I use it?
-    text: To use these examples in your own projects, simply select the folder of
-      effects and use the 'Export Package' command from the 'Assets' menu on the top
-      bar. Depending on the effect, you may need to add the 'Shared' folder or remove
-      some unnecessary scripts from the Export window. Once your effect has succesfully
-      exported, import this package into your own projects using the 'Import Package'
-      - 'Custom Package' option from the 'Assets' menu.
+  - heading: 
+    text: "SNAPS prefabs are built to real-world scale but are designed to \u201Csnap\u201D
+      together when used with ProGrids. \nGrid snap measurements start at 1m and are
+      halved ( eg. 0.5, 0.25, 0.125 etc ) according to refinement needed to place
+      or position smaller objects."
     linkText: 
     url: 
-  - heading: Got feedback?
-    text: 'Let us know what you think or ask any questions you might have on our FORUM. '
-    linkText: Forum Thread
-    url: https://forum.unity.com/threads/new-particle-pack.548347/
+  - heading: 
+    text: SNAP pack models were "modelled" entirely with ProBuilder, and can be further customized or modified with ProBuilder.
+    linkText: 
+    url: 
+  - heading: 
+    text: Each SNAPS Pack caters for a particular theme and while they can be used
+      together in a project, they are not designed to be "snap-able" between packs.
+      Different themes require different size and scale settings.
+    linkText: 
+    url: 
+  - heading: Requirements
+    text: SNAPS packs are meant to be used in unison with ProBuilder and ProGrids,
+      both available via the Package Manager. While the packs can be used without
+      using ProGrids, ProBuilder will need to be installed.
+    linkText: 
+    url: 
   loadedLayout: 1

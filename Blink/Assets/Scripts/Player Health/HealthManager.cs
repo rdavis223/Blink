@@ -30,9 +30,13 @@ public class HealthManager : MonoBehaviour
     public Image damageScreenEffect;
     private bool fadeIn;
     private bool fadeOut;
+    public bool GodMode = false;
 
     void Start()
     {
+        healthBar = GameObject.Find("Health Bar").GetComponent<HealthBar>();
+        gameOverScreen = GameObject.Find("Game Over Screen").GetComponent<CanvasGroup>();
+        gameOverOptions = GameObject.Find("Game Over Menu").GetComponent<CanvasGroup>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(currentHealth); // Set health bar
         gameOverOptions.blocksRaycasts = false; 
@@ -41,6 +45,10 @@ public class HealthManager : MonoBehaviour
 
     void Update()
     {
+        if (GodMode){
+            currentHealth = maxHealth;
+        }
+        healthBar.SetHealth(currentHealth);
         if (playerIsDead) 
         {
             Die();
@@ -93,6 +101,18 @@ public class HealthManager : MonoBehaviour
             if (currentHealth <= 0) // Player dies
             {
                 StartCoroutine(DeathDelayCoroutine()); 
+            }
+        }
+    }
+
+    public void MeleeDamage(int damage)
+    {
+        if (!isInvincible)
+        {
+            currentHealth -= damage;
+            if (currentHealth <= 0)
+            {
+                StartCoroutine(DeathDelayCoroutine());
             }
         }
     }

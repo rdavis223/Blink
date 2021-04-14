@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class EnemyHealthManager : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class EnemyHealthManager : MonoBehaviour
     public GameObject effect;
 
     private Animator anim;
+
+    public GameObject healthbox;
+
+    public GameObject ammobox; 
   
     void Start()
     {
@@ -40,10 +45,12 @@ public class EnemyHealthManager : MonoBehaviour
     {
         // Hurt the enemy, decrease health
         currentHealth -= damage; // Decrease health
+        this.gameObject.GetComponent<FieldOfView>().SetTakingDamage();
         if (currentHealth <= 0)
         {
             anim.Play(animationName);
             StartCoroutine(DeathAnimationCoroutine(deathAnimTime));
+            DisableMovement();
         }
     }
 
@@ -53,12 +60,14 @@ public class EnemyHealthManager : MonoBehaviour
         anim.Play(animationName);
         // Instant death
         StartCoroutine(DeathAnimationCoroutine(deathAnimTime));
+        DisableMovement();
     }
 
     public void Destroy()
     {
         GameObject deathEffect = Instantiate(effect);
         deathEffect.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y + 0.5f, gameObject.transform.position.z);
+        DropItems(gameObject.transform.position);
         Destroy(gameObject);
         //Debug.Log("Death");
         Destroy(deathEffect, 2);
@@ -68,5 +77,25 @@ public class EnemyHealthManager : MonoBehaviour
     {
         yield return new WaitForSeconds(deathAnimTime);
         Destroy();
+    }
+    private void DropItems(Vector3 position){
+        float chance = Random.Range(1f,100f);
+        Debug.Log(chance);
+        if (chance <= 25f){
+            GameObject box = Instantiate(healthbox);
+            box.transform.position = new Vector3(position.x, healthbox.transform.position.y, position.z);
+        } else if (chance > 25f && chance <= 50f){
+            GameObject box = Instantiate(ammobox);
+            box.transform.position = new Vector3(position.x, ammobox.transform.position.y, position.z);
+        }
+    }
+
+    private void DisableMovement()
+    {
+        GetComponent<NavMeshAgent>().enabled = false;
+        if (GetComponent<EnemyAI>().coverObj != null)
+        {
+            GetComponent<EnemyAI>().coverObj.GetComponent<CoverPoint>().setOccupied(false);
+        }
     }
 }

@@ -21,13 +21,15 @@ public class Bullet : MonoBehaviour
     private float InitialBulletTrailTime;
     private bool isBlinkable;
 
+    private bool first_run = true;
+
 
     void Start()
     {
         BulletTrail = GetComponent<TrailRenderer>();
         InitialBulletTrailTime = BulletTrail.time;
         lifetimer = lifetime;
-        transform.position += transform.forward * speed * Time.deltaTime;
+        transform.position += (0.5f * transform.forward);
         isBlinkable = CreatorMask != PlayerMask;
     }
 
@@ -64,6 +66,11 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "Cover")
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         // Enemy general body damage
         if (other.tag == "Enemy")
         {
@@ -73,6 +80,7 @@ public class Bullet : MonoBehaviour
                 return;
             }
             other.GetComponent<EnemyHealthManager>().HurtEnemy(bodyDamage, "death_from_front", 4.33f);
+            Destroy(this.gameObject);
         }
 
         // Enemy HeadShot
@@ -84,6 +92,7 @@ public class Bullet : MonoBehaviour
                 return;
             }
             other.transform.parent.parent.GetComponent<EnemyHealthManager>().InstantDeath("head_shot", 2.83f);
+            Destroy(this.gameObject);
         }
 
         // Enemy Back damage (Not in use, just example of what more we can do...)
@@ -95,7 +104,9 @@ public class Bullet : MonoBehaviour
                 return;
             }
             other.transform.parent.parent.GetComponent<EnemyHealthManager>().HurtEnemy(backDamage, "death_from_back", 2.96f);
+            Destroy(this.gameObject);
         }
+
 
         // ADD MORE IF STATEMENTS ACCORDINGLY FOR EACH DIFFERENT DAMAGE, TAG COLLIDER WITH A DESCRIPTIVE NAME
         // other.transform.parent.parent gets enemy object in order to find the enemy health manager script

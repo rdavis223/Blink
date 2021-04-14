@@ -414,9 +414,15 @@ MonoBehaviour:
   ammo: 40
   clipSize: 8
   ammoText: {fileID: 0}
+  currentAmmo: 0
   reloadSpeed: 3
   reloading: 0
   fireType: manual
+  fireStyle: straight
+  numBullets: 1
+  accuracy: 1
+  dropObject: {fileID: 5052740501131844439, guid: 77c9a382cc3384f5cbc211cb697caaed,
+    type: 3}
 --- !u!82 &4733019013693674827
 AudioSource:
   m_ObjectHideFlags: 0

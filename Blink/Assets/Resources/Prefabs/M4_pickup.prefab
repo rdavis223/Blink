@@ -91,6 +91,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 2975543995807575520, guid: 9f5ab874b09514be29989135d432b5b3,
     type: 3}
+  currentAmmo: -1
+  currentClip: -1
 --- !u!1 &8300886131810434994
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +152,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a55501cc883b14aa983a4212a763a197, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -85,9 +85,13 @@ public class PlayerMovement : MonoBehaviour
         var targetVel = new Vector3(x, 0, z);
         targetVel *= speed;
         targetVel = transform.TransformDirection(targetVel); // Make movement relative to camera (a = left for example) - movement is in world space otherwise
-        if (isSprinting && z > 0) // Only apply sprint when moving forward, not back or strafing
-        {
+        if (isSprinting && StaminaBar.instance.GetCurrentStamina() > 0)
+        {    
+            StaminaBar.instance.UseStamina(true);
             targetVel.z *= sprintMultiplier;
+        }
+        else{
+            StaminaBar.instance.UseStamina(false);
         }
         var deltaVel = targetVel - rb.velocity;  // deltaVel holds the amount to increase/decrease - used in Impulse force mode
         deltaVel.x = Mathf.Clamp(deltaVel.x, -maxVelocityChange, maxVelocityChange);

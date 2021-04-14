@@ -87,7 +87,10 @@ public class FieldOfView : MonoBehaviour
                         enemy.animator.SetBool("Shooting", false);
                         enemy.moveToCover(targetCover);
                         //maybe change this so only if in sight range
-                        enemy.AttackPlayerMoving();
+                        if (isPlayerInSight())
+                        {
+                            enemy.AttackPlayerMoving();
+                        }
                     }
                     return;
                 }

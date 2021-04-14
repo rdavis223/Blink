@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance;
 
+<<<<<<< HEAD
+=======
     [Header("Step settings")]
     [SerializeField] private GameObject stepRayLower;
     [SerializeField] private GameObject stepRayHigher;
@@ -25,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float stepSmooth; // The incremented height increase applied each FixedUpdate - higher climbs faster
 
     [Header("Parkour settings")]
+>>>>>>> movement
     private bool isOnSlope = false;
     private Vector3 feetPos;
     private Vector3 slopeDirection;
@@ -58,19 +61,43 @@ public class PlayerMovement : MonoBehaviour
     private bool movementOverride = false;
 
     private float slopeAngle;
+<<<<<<< HEAD
     [SerializeField] private float slopeSpeed;
+=======
+>>>>>>> movement
 
     void Start()
     {
         // May be possible to delete these lines? - Not relevent to movement
         Time.timeScale = 1;
         BlinkMgr.Instance.BlinkTimer = 3f;
+<<<<<<< HEAD
+
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
+    {
+        x = Input.GetAxis("Horizontal");
+        z = Input.GetAxis("Vertical");
+        isCrouching = Input.GetKey(KeyCode.LeftControl);
+        isSprinting = Input.GetKey(KeyCode.LeftShift);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, whatIsGround);
+        isJumping = Input.GetKey(KeyCode.Space);
+        CheckSlopes();
+        CheckParkourRays();
+        Move();
+        Parkour();
+        Slide();
+        Jump();
+    }
+    private void Move()
+    {
+=======
         rb = GetComponent<Rigidbody>();
 
         Vector3 pos = stepRayHigher.transform.position;
         stepRayHigher.transform.position = new Vector3(pos.x, pos.y + stepHeight, pos.z);  // Offset raycast by height
-
-        rb = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
@@ -91,23 +118,23 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Move()
     {
+>>>>>>> movement
         // Ignore inputs if vaulting, climbing, sliding, or anything else added
         if (movementOverride) return;
 
         var targetVel = new Vector3(x, 0, z);
+<<<<<<< HEAD
         targetVel *= speed;
-
-        if (isSprinting && z > 0 && StaminaBar.instance.GetCurrentStamina() > 0) // Only apply sprint when moving forward, not back or strafing
+        targetVel = transform.TransformDirection(targetVel); // Make movement relative to camera (a = left for example) - movement is in world space otherwise
+=======
+        targetVel = transform.TransformDirection(targetVel);
+        targetVel *= speed;
+>>>>>>> movement
+        if (isSprinting && z > 0) // Only apply sprint when moving forward, not back or strafing
         {
             targetVel.z *= sprintMultiplier;
-            StaminaBar.instance.UseStamina(true);
         }
-        else
-        {
-            StaminaBar.instance.UseStamina(false);
-        }
-
-        targetVel = transform.TransformDirection(targetVel); // Make movement relative to camera (a = left for example) - movement is in world space otherwise
+<<<<<<< HEAD
         var deltaVel = targetVel - rb.velocity;  // deltaVel holds the amount to increase/decrease - used in Impulse force mode
         deltaVel.x = Mathf.Clamp(deltaVel.x, -maxVelocityChange, maxVelocityChange);
         deltaVel.z = Mathf.Clamp(deltaVel.z, -maxVelocityChange, maxVelocityChange);
@@ -125,6 +152,37 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Apply gravity
+        rb.AddForce(new Vector3(0, -gravity * rb.mass, 0));
+    }
+
+    private void Slide()
+    {
+        if (isCrouching && isOnSlope)
+        {
+            rb.AddRelativeForce(Vector3.forward * 4);  // Apply a slight speed boost - needs tweaking - see Titanfall 2 for example
+            rb.AddForce(new Vector3(0, -10, 0)); // Force player onto ground on slopes
+            // Sqrt seemed to help manage steep slopes accelerating too much - needs tweaking
+            rb.AddForce(slopeDirection * Mathf.Sqrt(slopeAngle) * slopeSpeed);
+            movementOverride = true; // Lock player into slide forward (cannot move side to side) - again see Titanfall 2 for example
+        }
+        else
+        {
+            // POSSIBLE BUG? - May overwrite another function's assignment to movement override
+            movementOverride = false;  // Player is no longer sliding
+=======
+        var deltaVel = targetVel - rb.velocity;
+        deltaVel.x = Mathf.Clamp(deltaVel.x, -maxVelocityChange, maxVelocityChange);
+        deltaVel.z = Mathf.Clamp(deltaVel.z, -maxVelocityChange, maxVelocityChange);
+        deltaVel.y = 0;
+        if (isGrounded)
+        {
+            rb.AddForce(deltaVel, ForceMode.VelocityChange);
+        }
+        else
+        {
+            rb.AddForce(targetVel * airSpeed * Time.deltaTime);
+        }
+
         rb.AddForce(new Vector3(0, -gravity * rb.mass, 0));
     }
 
@@ -180,21 +238,24 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, 2, rb.velocity.z);  // Seems to even out movement - seems to jitter up and down otherwise
             rb.position += new Vector3(0f, stepSmooth, 0f);
         }
+
+
     }
+
     private void Slide()
     {
         if (isCrouching && isOnSlope)
         {
-            rb.AddRelativeForce(Vector3.forward * 4);  // Apply a slight speed boost - needs tweaking - see Titanfall 2 for example
-            rb.AddForce(new Vector3(0, -10, 0)); // Force player onto ground on slopes
-            // Sqrt seemed to help manage steep slopes accelerating too much - needs tweaking
-            rb.AddForce(slopeDirection * Mathf.Sqrt(slopeAngle) * slopeSpeed);
-            movementOverride = true; // Lock player into slide forward (cannot move side to side) - again see Titanfall 2 for example
+
+            rb.AddRelativeForce(Vector3.forward * 4);
+            rb.AddForce(new Vector3(0, -10, 0)); // Force player onto ground
+            rb.AddForce(slopeDirection * Mathf.Sqrt(slopeAngle) * 50);
+            movementOverride = true;
         }
         else
         {
-            // POSSIBLE BUG? - May overwrite another function's assignment to movement override
-            movementOverride = false;  // Player is no longer sliding
+            movementOverride = false;
+>>>>>>> movement
         }
     }
 
@@ -202,29 +263,39 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isJumping && isGrounded && canJump)
         {
+<<<<<<< HEAD
+            canJump = false;  // Do not allow double jumps
+            // Remove all negative y acceleration from sliding else all jumps on slopes are small
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); 
+            Vector3 jumpForce = jumpHeight * slopeNormal;  // Jump off ground, possibly at an angle - Newton's 3rd Law
+            rb.AddForce(jumpForce, ForceMode.Impulse);
+            jumpingAudio.Play();
+            Invoke(nameof(ResetJump), jumpCooldown);  // Cooldown stops multiple jump inputs while ground check is still true
+=======
             canJump = false;
             //Vector3 jumpForce = (Mathf.Sqrt(2 * jumpHeight * gravity)) * slopeNormal;
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); // Remove all negative y acceleration from sliding
             Vector3 jumpForce = jumpHeight * slopeNormal;
             rb.AddForce(jumpForce, ForceMode.Acceleration);
-            canJump = false;  // Do not allow double jumps
-            // Remove all negative y acceleration from sliding else all jumps on slopes are small
-            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); 
             jumpingAudio.Play();
-            Invoke(nameof(ResetJump), jumpCooldown);  // Cooldown stops multiple jump inputs while ground check is still true
+            Invoke(nameof(ResetJump), jumpCooldown);
+>>>>>>> movement
         }
     }
+
     private void ResetJump()
     {
         canJump = true;
     }
 
+<<<<<<< HEAD
     // Still under construction
+=======
+>>>>>>> movement
     private void Parkour()
     {
         if (canVault && isJumping)
         {
-
             from = transform.position;
             to = transform.position + transform.TransformDirection(vaultTo);
             canVault = false;
@@ -283,18 +354,28 @@ public class PlayerMovement : MonoBehaviour
             isOnSlope = false;
             return;
         }
+<<<<<<< HEAD
         // Debug.DrawLine(feetPos, feetPos + Vector3.down * groundDistance, Color.yellow);
         // Debug.DrawLine(feetPos, feetPos + slopeDirection * slopeAngle, Color.magenta);
         CapsuleCollider collide = GetComponent<CapsuleCollider>(); // Assumes the capsule collider covers the entire height - may need to be hardcoded in after avatar
         feetPos = transform.position - new Vector3(0, collide.height / 2, 0);  // Get point that is 1/2 height from the midpoint - ie the bottom-most position
         feetPos.y += 0.05f;  // Raise feet pos by a small amount as it can fail on slopes - feetpos can clip through some ground
-
+        
         // Raycast to ground
+=======
+        CapsuleCollider collide = GetComponent<CapsuleCollider>();
+        feetPos = transform.position - new Vector3(0, collide.height / 2, 0);
+        feetPos.y += 0.05f;
+>>>>>>> movement
         if (Physics.Raycast(feetPos, Vector3.down, out RaycastHit slopeHit, groundDistance, whatIsGround))
         {
             slopeNormal = slopeHit.normal;
             slopeAngle = Vector3.Angle(slopeHit.normal, Vector3.up);
+<<<<<<< HEAD
             if (slopeAngle == 0)  // Slope normal and Vector3.up are the same - not a slope
+=======
+            if (slopeAngle == 0)
+>>>>>>> movement
             {
                 isOnSlope = false;
                 return;
@@ -302,24 +383,39 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 isOnSlope = true;
+<<<<<<< HEAD
                 // Gets a line that crosses the slope left to right along it's slope angle
                 Vector3 temp = Vector3.Cross(slopeHit.normal, Vector3.down);
                 // Get perpendicular line between the line cutting across the slope (X) agaisnt the normal (Y) to get the line going down the slope (Z)
                 // Recall the right hand rule, but instead of "in" or "out" of the paper, we are finding the forward vector (ie. your index finger)
+                slopeDirection = Vector3.Cross(temp, slopeHit.normal); 
+=======
+                Vector3 temp = Vector3.Cross(slopeHit.normal, Vector3.down);
                 slopeDirection = Vector3.Cross(temp, slopeHit.normal);
+>>>>>>> movement
             }
+        }
+        else
+        {
+            isOnSlope = false;
+            return;
         }
     }
 
-
+<<<<<<< HEAD
     // Under construction
+=======
+>>>>>>> movement
     private void CheckParkourRays()
     {
         Vector3 dir = cam.transform.forward;
         Vector3 pos = climbHeight.position;
         Vector3 obstruction_pos = new Vector3(pos.x, pos.y + .4f, pos.z);
         dir.y = 0;
+<<<<<<< HEAD
         Debug.DrawLine(pos, pos + dir * 0.65f, Color.red);
+=======
+>>>>>>> movement
         if (Physics.Raycast(pos, dir, out RaycastHit hit, 0.65f, whatIsGround) && !Physics.Raycast(obstruction_pos, dir, out RaycastHit obstructionHit, 0.65f, whatIsGround))
         {
             if (!isClimbing)
@@ -329,7 +425,10 @@ public class PlayerMovement : MonoBehaviour
         }
         pos = vaultHeight.position;
         obstruction_pos = new Vector3(pos.x, pos.y + .4f, pos.z);
+<<<<<<< HEAD
         Debug.DrawLine(pos, pos + dir * 0.65f, Color.red);
+=======
+>>>>>>> movement
         if (!canClimb && Physics.Raycast(pos, dir, out hit, 0.65f, whatIsGround) && !Physics.Raycast(obstruction_pos, dir, out obstructionHit, 0.65f, whatIsGround))
         {
             if (!isVaulting)
@@ -338,7 +437,4 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
-   
-
 }

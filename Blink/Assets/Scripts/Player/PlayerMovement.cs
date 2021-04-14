@@ -18,6 +18,13 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance;
 
+    [Header("Step settings")]
+    [SerializeField] private GameObject stepRayLower;
+    [SerializeField] private GameObject stepRayHigher;
+    [SerializeField] private float stepHeight; // Controls max height player can climb
+    [SerializeField] private float stepSmooth; // The incremented height increase applied each FixedUpdate - higher climbs faster
+
+    [Header("Parkour settings")]
     private bool isOnSlope = false;
     private Vector3 feetPos;
     private Vector3 slopeDirection;
@@ -57,6 +64,9 @@ public class PlayerMovement : MonoBehaviour
         Time.timeScale = 1;
         BlinkMgr.Instance.BlinkTimer = 3f;
         rb = GetComponent<Rigidbody>();
+
+        Vector3 pos = stepRayHigher.transform.position;
+        stepRayHigher.transform.position = new Vector3(pos.x, pos.y + stepHeight, pos.z);  // Offset raycast by height
     }
 
     private void FixedUpdate()
@@ -70,12 +80,14 @@ public class PlayerMovement : MonoBehaviour
         CheckSlopes();
         CheckParkourRays();
         Move();
-        Parkour();
+        StepClimb();
+        //Parkour();
         Slide();
         Jump();
     }
     private void Move()
     {
+        // Ignore inputs if vaulting, climbing, sliding, or anything else added
         if (movementOverride) return;
 
         var targetVel = new Vector3(x, 0, z);
@@ -95,14 +107,66 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            rb.AddRelativeForce(targetVel * airSpeed * Time.deltaTime);
+            rb.AddForce(targetVel * airSpeed * Time.deltaTime);
         }
 
         rb.AddForce(new Vector3(0, -gravity * rb.mass, 0));
-        if (Input.GetKey(KeyCode.V))
+    }
+
+    private void StepClimb()
+    {
+        Vector3 forward_dir = transform.TransformDirection(Vector3.forward);
+        Vector3 left_dir_45 = transform.TransformDirection(1.5f, 0, 1); // Values arrived via pythagorus theorem for a 45 degree triangle
+        Vector3 right_dir_45 = transform.TransformDirection(-1.5f, 0, 1);
+        float topDist = 0.7f;
+        float bottomDist = 0.8f;
+        bool isOnStep = false;
+
+        Debug.DrawLine(stepRayLower.transform.position, stepRayLower.transform.position + forward_dir * topDist, Color.cyan);
+        Debug.DrawLine(stepRayHigher.transform.position, stepRayHigher.transform.position + forward_dir * bottomDist, Color.magenta);
+        if (x == 0 && z == 0)
         {
-            rb.AddRelativeForce(new Vector3(0, 0, 4000));
+            return;
         }
+
+        RaycastHit lowHit;
+        RaycastHit highHit;
+
+
+        // Forward cast
+        if (Physics.Raycast(stepRayLower.transform.position, forward_dir, out lowHit, topDist, whatIsGround))
+        {
+            if (!Physics.Raycast(stepRayHigher.transform.position, forward_dir, out highHit, bottomDist, whatIsGround))
+            {
+                isOnStep = true;
+            }
+        }
+
+        // Left side cast at 45 degrees
+        if (Physics.Raycast(stepRayLower.transform.position, left_dir_45, out lowHit, topDist, whatIsGround))
+        {
+            if (!Physics.Raycast(stepRayHigher.transform.position, left_dir_45, out highHit, bottomDist, whatIsGround))
+            {
+                isOnStep = true;
+            }
+        }
+
+        // Right side cast at 45 degrees
+        if (Physics.Raycast(stepRayLower.transform.position, right_dir_45, out lowHit, topDist, whatIsGround))
+        {
+            if (!Physics.Raycast(stepRayHigher.transform.position, right_dir_45, out highHit, bottomDist, whatIsGround))
+            {
+                isOnStep = true;
+            }
+        }
+
+        if (isOnStep)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 2, rb.velocity.z);  // Seems to even out movement - seems to jitter up and down otherwise
+            rb.position += new Vector3(0f, stepSmooth, 0f);
+        }
+
+
     }
 
     private void Slide()
@@ -202,8 +266,6 @@ public class PlayerMovement : MonoBehaviour
             isOnSlope = false;
             return;
         }
-        Debug.DrawLine(feetPos, feetPos + Vector3.down * groundDistance, Color.yellow);
-        Debug.DrawLine(feetPos, feetPos + slopeDirection * slopeAngle, Color.magenta);
         CapsuleCollider collide = GetComponent<CapsuleCollider>();
         feetPos = transform.position - new Vector3(0, collide.height / 2, 0);
         feetPos.y += 0.05f;
@@ -236,7 +298,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 pos = climbHeight.position;
         Vector3 obstruction_pos = new Vector3(pos.x, pos.y + .4f, pos.z);
         dir.y = 0;
-        Debug.DrawLine(pos, pos + dir * 0.65f, Color.red);
         if (Physics.Raycast(pos, dir, out RaycastHit hit, 0.65f, whatIsGround) && !Physics.Raycast(obstruction_pos, dir, out RaycastHit obstructionHit, 0.65f, whatIsGround))
         {
             if (!isClimbing)
@@ -246,7 +307,6 @@ public class PlayerMovement : MonoBehaviour
         }
         pos = vaultHeight.position;
         obstruction_pos = new Vector3(pos.x, pos.y + .4f, pos.z);
-        Debug.DrawLine(pos, pos + dir * 0.65f, Color.red);
         if (!canClimb && Physics.Raycast(pos, dir, out hit, 0.65f, whatIsGround) && !Physics.Raycast(obstruction_pos, dir, out obstructionHit, 0.65f, whatIsGround))
         {
             if (!isVaulting)

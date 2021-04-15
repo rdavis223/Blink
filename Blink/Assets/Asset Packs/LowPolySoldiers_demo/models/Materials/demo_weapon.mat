@@ -75,7 +75,7 @@ Material:
     - _OcclusionStrength: 1
     - _OutlineDot: 0.25
     - _OutlineExtrusion: 0.06
-    - _OutlineWidth: 0.005
+    - _OutlineWidth: 0.01
     - _Parallax: 0.02
     - _Shininess: 0.1
     - _SrcBlend: 1

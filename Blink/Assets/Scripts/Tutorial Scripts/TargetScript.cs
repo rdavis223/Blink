@@ -13,6 +13,7 @@ public class TargetScript : MonoBehaviour
             GameObject effect = Instantiate(destroyPrefab);
             effect.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y - 3f, gameObject.transform.position.z);
             Destroy(gameObject);
+            Destroy(other.gameObject);
             Destroy(effect, 2);
         }
     }

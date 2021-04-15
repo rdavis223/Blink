@@ -29,7 +29,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Cull: 2
-    - _OutlineWidth: 0.005
+    - _OutlineWidth: 0.01
     - _Shininess: 0.56466395
     m_Colors:
     - _Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}

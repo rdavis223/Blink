@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MARMO3-defaultMat
-  m_Shader: {fileID: 4, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: a9a8211f737bfbd4fb8a469399c59177, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -28,8 +28,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Cull: 2
+    - _OutlineWidth: 0.005
     - _Shininess: 0.56466395
     m_Colors:
     - _Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+    - _OutlineColor: {r: 1, g: 0.18396229, b: 0.62454677, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []

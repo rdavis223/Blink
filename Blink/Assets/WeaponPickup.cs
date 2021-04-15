@@ -24,7 +24,7 @@ public class WeaponPickup : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return) && current != null){
-            if (current.gameObject.name == "PlayerController"){
+            if (current.gameObject.name == "Player"){
                 WeaponHandler.GetComponent<PlayerWeaponMgr>().swapWeapons(transform.position, weaponPrefab, currentAmmo, currentClip);
                 Destroy(this.gameObject);
         }

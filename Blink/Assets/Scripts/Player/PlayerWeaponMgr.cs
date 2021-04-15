@@ -17,6 +17,7 @@ public class PlayerWeaponMgr : MonoBehaviour
 
     public Transform ammoText;
 
+
     void initalizeWeapon(ref GameObject weaponPrefab, ref GameObject weapon, bool active){
         weapon = Instantiate(weaponPrefab);
         weapon.GetComponent<PlayerShooting>().ammoText = ammoText;

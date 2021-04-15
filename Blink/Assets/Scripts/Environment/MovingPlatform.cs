@@ -12,6 +12,8 @@ public class MovingPlatform : MonoBehaviour
     private float TimeWaited;
     private float SnappingDistance;
 
+    private GameObject attachedObject; 
+
     [SerializeField] private float Speed = 3;
     [SerializeField] private float PointWaitingTime = 1.5f;
 
@@ -54,9 +56,15 @@ public class MovingPlatform : MonoBehaviour
     {
         Vector3 direction = (CurrentTarget - transform.position).normalized;
         transform.position += direction * Speed * Time.deltaTime;
+        if (attachedObject != null)
+        {
+            attachedObject.transform.position += direction * Speed * Time.deltaTime;
+        }
+
         if (IsWithinSnappingDistance())
         {
             transform.position = CurrentTarget;
+
         }
     }
 
@@ -81,11 +89,17 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.transform.parent = transform; // Lock object onto platform
+        if (other.gameObject.name == "Player")
+        {
+            attachedObject = other.gameObject; // Lock object onto platform
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        other.transform.parent = null;
+        if (other.gameObject.name == "Player")
+        {
+            attachedObject = null;
+        }
     }
 }

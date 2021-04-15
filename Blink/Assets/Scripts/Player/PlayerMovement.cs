@@ -18,6 +18,13 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance;
 
+    [Header("Step settings")]
+    [SerializeField] private GameObject stepRayLower;
+    [SerializeField] private GameObject stepRayHigher;
+    [SerializeField] private float stepHeight; // Controls max height player can climb
+    [SerializeField] private float stepSmooth; // The incremented height increase applied each FixedUpdate - higher climbs faster
+
+    [Header("Parkour settings")]
     private bool isOnSlope = false;
     private Vector3 feetPos;
     private Vector3 slopeDirection;
@@ -58,6 +65,10 @@ public class PlayerMovement : MonoBehaviour
         // May be possible to delete these lines? - Not relevent to movement
         Time.timeScale = 1;
         BlinkMgr.Instance.BlinkTimer = 3f;
+        rb = GetComponent<Rigidbody>();
+
+        Vector3 pos = stepRayHigher.transform.position;
+        stepRayHigher.transform.position = new Vector3(pos.x, pos.y + stepHeight, pos.z);  // Offset raycast by height
 
         rb = GetComponent<Rigidbody>();
     }
@@ -73,7 +84,8 @@ public class PlayerMovement : MonoBehaviour
         CheckSlopes();
         CheckParkourRays();
         Move();
-        Parkour();
+        StepClimb();
+        //Parkour();
         Slide();
         Jump();
     }
@@ -84,15 +96,18 @@ public class PlayerMovement : MonoBehaviour
 
         var targetVel = new Vector3(x, 0, z);
         targetVel *= speed;
-        targetVel = transform.TransformDirection(targetVel); // Make movement relative to camera (a = left for example) - movement is in world space otherwise
-        if (isSprinting && StaminaBar.instance.GetCurrentStamina() > 0)
-        {    
-            StaminaBar.instance.UseStamina(true);
+
+        if (isSprinting && z > 0 && StaminaBar.instance.GetCurrentStamina() > 0) // Only apply sprint when moving forward, not back or strafing
+        {
             targetVel.z *= sprintMultiplier;
+            StaminaBar.instance.UseStamina(true);
         }
-        else{
+        else
+        {
             StaminaBar.instance.UseStamina(false);
         }
+
+        targetVel = transform.TransformDirection(targetVel); // Make movement relative to camera (a = left for example) - movement is in world space otherwise
         var deltaVel = targetVel - rb.velocity;  // deltaVel holds the amount to increase/decrease - used in Impulse force mode
         deltaVel.x = Mathf.Clamp(deltaVel.x, -maxVelocityChange, maxVelocityChange);
         deltaVel.z = Mathf.Clamp(deltaVel.z, -maxVelocityChange, maxVelocityChange);
@@ -113,6 +128,59 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(new Vector3(0, -gravity * rb.mass, 0));
     }
 
+    private void StepClimb()
+    {
+        Vector3 forward_dir = transform.TransformDirection(Vector3.forward);
+        Vector3 left_dir_45 = transform.TransformDirection(1.5f, 0, 1); // Values arrived via pythagorus theorem for a 45 degree triangle
+        Vector3 right_dir_45 = transform.TransformDirection(-1.5f, 0, 1);
+        float topDist = 0.7f;
+        float bottomDist = 0.8f;
+        bool isOnStep = false;
+
+        Debug.DrawLine(stepRayLower.transform.position, stepRayLower.transform.position + forward_dir * topDist, Color.cyan);
+        Debug.DrawLine(stepRayHigher.transform.position, stepRayHigher.transform.position + forward_dir * bottomDist, Color.magenta);
+        if (x == 0 && z == 0)
+        {
+            return;
+        }
+
+        RaycastHit lowHit;
+        RaycastHit highHit;
+
+
+        // Forward cast
+        if (Physics.Raycast(stepRayLower.transform.position, forward_dir, out lowHit, topDist, whatIsGround))
+        {
+            if (!Physics.Raycast(stepRayHigher.transform.position, forward_dir, out highHit, bottomDist, whatIsGround))
+            {
+                isOnStep = true;
+            }
+        }
+
+        // Left side cast at 45 degrees
+        if (Physics.Raycast(stepRayLower.transform.position, left_dir_45, out lowHit, topDist, whatIsGround))
+        {
+            if (!Physics.Raycast(stepRayHigher.transform.position, left_dir_45, out highHit, bottomDist, whatIsGround))
+            {
+                isOnStep = true;
+            }
+        }
+
+        // Right side cast at 45 degrees
+        if (Physics.Raycast(stepRayLower.transform.position, right_dir_45, out lowHit, topDist, whatIsGround))
+        {
+            if (!Physics.Raycast(stepRayHigher.transform.position, right_dir_45, out highHit, bottomDist, whatIsGround))
+            {
+                isOnStep = true;
+            }
+        }
+
+        if (isOnStep)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 2, rb.velocity.z);  // Seems to even out movement - seems to jitter up and down otherwise
+            rb.position += new Vector3(0f, stepSmooth, 0f);
+        }
+    }
     private void Slide()
     {
         if (isCrouching && isOnSlope)
@@ -134,16 +202,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isJumping && isGrounded && canJump)
         {
+            canJump = false;
+            //Vector3 jumpForce = (Mathf.Sqrt(2 * jumpHeight * gravity)) * slopeNormal;
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); // Remove all negative y acceleration from sliding
+            Vector3 jumpForce = jumpHeight * slopeNormal;
+            rb.AddForce(jumpForce, ForceMode.Acceleration);
             canJump = false;  // Do not allow double jumps
             // Remove all negative y acceleration from sliding else all jumps on slopes are small
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); 
-            Vector3 jumpForce = jumpHeight * slopeNormal;  // Jump off ground, possibly at an angle - Newton's 3rd Law
-            rb.AddForce(jumpForce, ForceMode.Impulse);
             jumpingAudio.Play();
             Invoke(nameof(ResetJump), jumpCooldown);  // Cooldown stops multiple jump inputs while ground check is still true
         }
     }
-
     private void ResetJump()
     {
         canJump = true;
@@ -154,6 +224,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (canVault && isJumping)
         {
+
             from = transform.position;
             to = transform.position + transform.TransformDirection(vaultTo);
             canVault = false;
@@ -217,7 +288,7 @@ public class PlayerMovement : MonoBehaviour
         CapsuleCollider collide = GetComponent<CapsuleCollider>(); // Assumes the capsule collider covers the entire height - may need to be hardcoded in after avatar
         feetPos = transform.position - new Vector3(0, collide.height / 2, 0);  // Get point that is 1/2 height from the midpoint - ie the bottom-most position
         feetPos.y += 0.05f;  // Raise feet pos by a small amount as it can fail on slopes - feetpos can clip through some ground
-        
+
         // Raycast to ground
         if (Physics.Raycast(feetPos, Vector3.down, out RaycastHit slopeHit, groundDistance, whatIsGround))
         {
@@ -235,15 +306,11 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 temp = Vector3.Cross(slopeHit.normal, Vector3.down);
                 // Get perpendicular line between the line cutting across the slope (X) agaisnt the normal (Y) to get the line going down the slope (Z)
                 // Recall the right hand rule, but instead of "in" or "out" of the paper, we are finding the forward vector (ie. your index finger)
-                slopeDirection = Vector3.Cross(temp, slopeHit.normal); 
+                slopeDirection = Vector3.Cross(temp, slopeHit.normal);
             }
         }
-        else
-        {
-            isOnSlope = false;
-            return;
-        }
     }
+
 
     // Under construction
     private void CheckParkourRays()
@@ -271,4 +338,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
+   
+
 }

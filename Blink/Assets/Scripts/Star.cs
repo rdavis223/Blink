@@ -51,7 +51,7 @@ public class Star : MonoBehaviour
             return;
         }
 
-        else if (other.GetComponent<Collider>().gameObject.name != "PlayerController" && other.GetComponent<Collider>().gameObject.name != "Shuriken" && (other.GetComponent<Collider>().gameObject.transform.parent != null && other.GetComponent<Collider>().gameObject.transform.parent.name != "PlayerController"))
+        else if (other.GetComponent<Collider>().gameObject.name != "Player" && other.GetComponent<Collider>().gameObject.name != "Shuriken" && (other.GetComponent<Collider>().gameObject.transform.parent == null || (other.GetComponent<Collider>().gameObject.transform.parent != null && other.GetComponent<Collider>().gameObject.transform.parent.name != "Player")))
         {
             stopped = true;
         }

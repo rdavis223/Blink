@@ -29,7 +29,7 @@ public class MiniMap : MonoBehaviour
                 floor0img.SetActive(true);
                 floor1 = false;
                 floor0 = true;
-                objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 0.5f);
+                objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 1f);
             }
 
             else if (floor0)
@@ -38,7 +38,7 @@ public class MiniMap : MonoBehaviour
                 floor0img.SetActive(false);
                 floor1 = true;
                 floor0 = false;
-                objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 1f);
+                objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 0.5f);
             }
         }
     }

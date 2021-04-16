@@ -72,7 +72,7 @@ public class EnemyAI : MonoBehaviour
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
         // Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f)
+        if (distanceToWalkPoint.magnitude < 2f)
             walkPointSet = false;
     }
 
@@ -80,11 +80,14 @@ public class EnemyAI : MonoBehaviour
     {
         float randomZ = UnityEngine.Random.Range(-walkPointRange, walkPointRange);
         float randomX = UnityEngine.Random.Range(-walkPointRange, walkPointRange);
-
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.x + randomZ);
-
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, 1 << 8))
+        NavMeshPath path = new NavMeshPath();
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, 1 << 8) && NavMesh.CalculatePath(this.transform.position, walkPoint, NavMesh.AllAreas, path) && path.status == NavMeshPathStatus.PathComplete)
+        {
+            for (int i = 0; i < path.corners.Length - 1; i++)
+                Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.blue);
             walkPointSet = true;
+        }
     }
 
     public void ChasePlayer()
@@ -193,7 +196,7 @@ public class EnemyAI : MonoBehaviour
                    
                         coverObj = coverObjs[d];
                         coverObj.GetComponent<CoverPoint>().setOccupied(true);
-                        Debug.DrawLine(player.position, coverObj.transform.position, Color.red, 5f);
+                        Debug.DrawLine(player.position, coverObj.transform.position, Color.green, 5f);
                         return coverObj.transform.position;
                     }
                     

@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 2303049}
   m_Layer: 8
   m_Name: Ground (3)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967263
@@ -5152,7 +5152,7 @@ RectTransform:
   - {fileID: 1947290453}
   - {fileID: 752236209}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5470,7 +5470,7 @@ GameObject:
   - component: {fileID: 418969340}
   m_Layer: 8
   m_Name: Ground (4)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -7572,7 +7572,7 @@ GameObject:
   - component: {fileID: 581306369}
   m_Layer: 8
   m_Name: Ground (3)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -7799,7 +7799,7 @@ GameObject:
   - component: {fileID: 595019741}
   m_Layer: 8
   m_Name: Slope
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -8171,7 +8171,7 @@ GameObject:
   - component: {fileID: 618904066}
   m_Layer: 8
   m_Name: Slope
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -8401,7 +8401,7 @@ GameObject:
   - component: {fileID: 622455486}
   m_Layer: 8
   m_Name: Ground (2)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -10176,7 +10176,7 @@ GameObject:
   - component: {fileID: 743619386}
   m_Layer: 8
   m_Name: Ground (8)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -12480,7 +12480,7 @@ GameObject:
   - component: {fileID: 911119568}
   m_Layer: 8
   m_Name: Ground (2)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967263
@@ -13264,7 +13264,7 @@ GameObject:
   - component: {fileID: 977306536}
   m_Layer: 8
   m_Name: Ground (9)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -14598,7 +14598,7 @@ GameObject:
   - component: {fileID: 1121291547}
   m_Layer: 8
   m_Name: Ground (10)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -17735,7 +17735,7 @@ GameObject:
   - component: {fileID: 1411268710}
   m_Layer: 8
   m_Name: Ground (1)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -18597,7 +18597,7 @@ GameObject:
   - component: {fileID: 1447487941}
   m_Layer: 8
   m_Name: Ground (6)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -18877,7 +18877,7 @@ GameObject:
   - component: {fileID: 1460781193}
   m_Layer: 8
   m_Name: Ground (1)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967263
@@ -23390,7 +23390,7 @@ GameObject:
   - component: {fileID: 1876521903}
   m_Layer: 8
   m_Name: Ground (7)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -26049,7 +26049,7 @@ GameObject:
   - component: {fileID: 2094589919}
   m_Layer: 8
   m_Name: Ground (4)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967263
@@ -26225,7 +26225,7 @@ GameObject:
   - component: {fileID: 2128984430}
   m_Layer: 8
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -29182,7 +29182,7 @@ RectTransform:
   - {fileID: 7091624489551483861}
   - {fileID: 962963508}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

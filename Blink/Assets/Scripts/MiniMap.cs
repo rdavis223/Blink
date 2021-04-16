@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MiniMap : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class MiniMap : MonoBehaviour
     public GameObject floor0img;
     private bool floor1;
     private bool floor0;
+    public Image objective;
 
     void Start()
     {
@@ -27,6 +29,7 @@ public class MiniMap : MonoBehaviour
                 floor0img.SetActive(true);
                 floor1 = false;
                 floor0 = true;
+                objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 0.5f);
             }
 
             else if (floor0)
@@ -35,6 +38,7 @@ public class MiniMap : MonoBehaviour
                 floor0img.SetActive(false);
                 floor1 = true;
                 floor0 = false;
+                objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 1f);
             }
         }
     }

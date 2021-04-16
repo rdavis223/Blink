@@ -139,6 +139,8 @@ public class HealthManager : MonoBehaviour
 
         if (fadeTimer > fadeDuration + displayImageDuration)
         {
+            Time.timeScale = 0;
+            gameOverScreen.alpha = 0f;
             gameOverOptions.blocksRaycasts = true;
             gameOverOptions.alpha = 1; // Show game over menu
         }

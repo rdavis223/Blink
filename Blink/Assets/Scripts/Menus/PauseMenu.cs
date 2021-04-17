@@ -10,16 +10,18 @@ public class PauseMenu : MonoBehaviour
     public GameObject blinkOverlay;
 
     private bool isPaused = false;
+    private bool disablePause; // For tutorial prompts
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)){
+        if (Input.GetKeyDown(KeyCode.Escape) && !disablePause){
             togglePaused();
         }
     }
@@ -46,5 +48,15 @@ public class PauseMenu : MonoBehaviour
 
     public void quitGame(){
         SceneManager.LoadScene(0);
+    }
+
+    public void disablePauseMenu()
+    {
+        disablePause = true;
+    }
+
+    public void enablePauseMenu()
+    {
+        disablePause = false;
     }
 }

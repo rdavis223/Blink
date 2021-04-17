@@ -25,6 +25,8 @@ public class EnemyAI : MonoBehaviour
     private float lastAttackTime;
     public float attackDelay;
 
+    public GameObject enemyLookPoint;
+
     // States
     public float sightRange, attackRange, meleeRange;
     public bool playerInSightRange, playerInAttackRange, playerInMeleeRange;
@@ -37,6 +39,7 @@ public class EnemyAI : MonoBehaviour
     }
     private void Awake()
     {
+        enemyLookPoint = GameObject.Find("EnemyLookPoint");
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
@@ -101,8 +104,8 @@ public class EnemyAI : MonoBehaviour
     {
         agent.SetDestination(transform.position);
 
-        transform.LookAt(new Vector3(player.position.x, 0, player.position.z));
-        agent.transform.LookAt(new Vector3(player.position.x, 0, player.position.z));
+        transform.LookAt(enemyLookPoint.transform.position);
+        agent.transform.LookAt(enemyLookPoint.transform.position);
 
         if (!alreadyAttacked)
         {
@@ -119,8 +122,8 @@ public class EnemyAI : MonoBehaviour
 
     public void AttackPlayerMoving()
     {
-        transform.LookAt(new Vector3(player.position.x, 0, player.position.z));
-        agent.transform.LookAt(new Vector3(player.position.x, 0, player.position.z));
+        transform.LookAt(enemyLookPoint.transform.position);
+        agent.transform.LookAt(enemyLookPoint.transform.position);
 
         if (!alreadyAttacked)
         {

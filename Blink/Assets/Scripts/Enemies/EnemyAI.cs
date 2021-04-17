@@ -83,7 +83,7 @@ public class EnemyAI : MonoBehaviour
     {
         float randomZ = UnityEngine.Random.Range(-walkPointRange, walkPointRange);
         float randomX = UnityEngine.Random.Range(-walkPointRange, walkPointRange);
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.x + randomZ);
+        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
         NavMeshPath path = new NavMeshPath();
         if (Physics.Raycast(walkPoint, -transform.up, 2f, 1 << 8) && NavMesh.CalculatePath(this.transform.position, walkPoint, NavMesh.AllAreas, path) && path.status == NavMeshPathStatus.PathComplete)
         {

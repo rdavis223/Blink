@@ -27,7 +27,14 @@ public class EnemyHealthManager : MonoBehaviour
         // Initialize health bar
         healthBarSlider.value = currentHealth / maxHealth;
         healthBarUI.SetActive(false);
-        anim = gameObject.GetComponent<Animator>();
+        if (this.gameObject.name == "Sniper")
+        {
+            anim = gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
+        }
+        else
+        {
+            anim = gameObject.GetComponent<Animator>();
+        }
     }
 
     void Update()
@@ -52,15 +59,9 @@ public class EnemyHealthManager : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
-            if (this.gameObject.name != "Sniper")
-            {
-                anim.Play(animationName);
-                StartCoroutine(DeathAnimationCoroutine(deathAnimTime));
 
-            } else
-            {
-                StartCoroutine(DeathAnimationCoroutine(1f));
-            }
+            anim.Play(animationName);
+            StartCoroutine(DeathAnimationCoroutine(deathAnimTime));
             DisableMovement();
         }
     }

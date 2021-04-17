@@ -79,7 +79,14 @@ public class Bullet : MonoBehaviour
             {
                 return;
             }
-            other.GetComponent<EnemyHealthManager>().HurtEnemy(bodyDamage, "death_from_front", 4.33f);
+            if (other.name.Contains("Sniper"))
+            {
+                other.GetComponent<EnemyHealthManager>().HurtEnemy(bodyDamage, "Death_from_front", 3.433f);
+            }
+            else
+            {
+                other.GetComponent<EnemyHealthManager>().HurtEnemy(bodyDamage, "death_from_front", 4.33f);
+            }
             Destroy(this.gameObject);
         }
 
@@ -91,8 +98,15 @@ public class Bullet : MonoBehaviour
             {
                 return;
             }
-            other.transform.parent.parent.GetComponent<EnemyHealthManager>().InstantDeath("head_shot", 2.83f);
-            Destroy(this.gameObject);
+            if (other.name.Contains("Sniper"))
+            {
+                other.transform.parent.parent.parent.GetComponent<EnemyHealthManager>().InstantDeath("death_from_front_headshot", 2.83f);
+
+            }
+            else
+            {
+                other.transform.parent.parent.GetComponent<EnemyHealthManager>().InstantDeath("head_shot", 2.83f);
+            }
         }
 
         // Enemy Back damage (Not in use, just example of what more we can do...)
@@ -103,6 +117,7 @@ public class Bullet : MonoBehaviour
             {
                 return;
             }
+
             other.transform.parent.parent.GetComponent<EnemyHealthManager>().HurtEnemy(backDamage, "death_from_back", 2.96f);
             Destroy(this.gameObject);
         }

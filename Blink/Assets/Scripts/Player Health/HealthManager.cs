@@ -41,6 +41,7 @@ public class HealthManager : MonoBehaviour
         healthBar.SetMaxHealth(currentHealth); // Set health bar
         gameOverOptions.blocksRaycasts = false; 
         gameOverScreen.alpha = 0;
+        damageScreenEffect = GameObject.Find("Damage Screen Effect").GetComponent<Image>();
     }
 
     void Update()

@@ -27,7 +27,7 @@ public class EnemyHealthManager : MonoBehaviour
         // Initialize health bar
         healthBarSlider.value = currentHealth / maxHealth;
         healthBarUI.SetActive(false);
-        if (this.gameObject.name == "Sniper")
+        if (this.gameObject.name.Contains("Sniper"))
         {
             anim = gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
         }
@@ -52,7 +52,7 @@ public class EnemyHealthManager : MonoBehaviour
     {
         // Hurt the enemy, decrease health
         currentHealth -= damage; // Decrease health
-        if (this.gameObject.name != "Sniper")
+        if (!this.gameObject.name.Contains("Sniper"))
         {
             this.gameObject.GetComponent<FieldOfView>().SetTakingDamage();
 
@@ -105,7 +105,7 @@ public class EnemyHealthManager : MonoBehaviour
     private void DisableMovement()
     {
         GetComponent<NavMeshAgent>().enabled = false;
-        if (this.gameObject.name != "Sniper" && GetComponent<EnemyAI>().coverObj != null)
+        if (!this.gameObject.name.Contains("Sniper") && GetComponent<EnemyAI>().coverObj != null)
         {
             GetComponent<EnemyAI>().coverObj.GetComponent<CoverPoint>().setOccupied(false);
         }

@@ -6,6 +6,7 @@ public class WeaponPickup : MonoBehaviour
 {
 
     public GameObject weaponPrefab;
+    public GameObject pickupText;
 
     private GameObject WeaponHandler;
 
@@ -32,11 +33,13 @@ public class WeaponPickup : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other){
+        pickupText.SetActive(true);
         current = other;
 
     }
 
     void OnTriggerExit(Collider other){
+        pickupText.SetActive(false);
         current = null;
     }
 }

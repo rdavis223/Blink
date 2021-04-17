@@ -12,6 +12,7 @@ public class PlayerBlinkController : MonoBehaviour
         BlinkMgr.Instance.BlinkTimer = 3f;
         BlinkMgr.Instance.BlinkActive = false;
         BlinkMgr.Instance.pauseMenuActive = false;
+        BlinkMgr.Instance.tutorialPromptActive = false;
     }
 
     // Update is called once per frame
@@ -21,7 +22,7 @@ public class PlayerBlinkController : MonoBehaviour
             BlinkMgr.Instance.BlinkActive = false;
             blinkOverlay.SetActive(false);
         }
-        if (Input.GetKeyDown(KeyCode.Q) && !BlinkMgr.Instance.pauseMenuActive){
+        if (Input.GetKeyDown(KeyCode.Q) && !BlinkMgr.Instance.pauseMenuActive && !BlinkMgr.Instance.tutorialPromptActive){
             blinkOverlay.SetActive(!BlinkMgr.Instance.BlinkActive);
             BlinkMgr.Instance.BlinkActive = !BlinkMgr.Instance.BlinkActive;
         }

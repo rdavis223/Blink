@@ -2027,6 +2027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prompt: {fileID: 752236208}
   blurBG: {fileID: 46229490}
+  blinkOverlay: {fileID: 7091624489051795139}
 --- !u!65 &121467311
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3938,7 +3939,7 @@ GameObject:
   - component: {fileID: 233955474}
   - component: {fileID: 233955473}
   m_Layer: 5
-  m_Name: Pickup Weapons
+  m_Name: Pick up Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3983,7 +3984,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pickup Weapons
+  m_text: Pick Up Weapons
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 909c2ba6faa504a2bbdc1909582d48cd, type: 2}
   m_sharedMaterial: {fileID: 7252636126908382498, guid: 909c2ba6faa504a2bbdc1909582d48cd,
@@ -4637,6 +4638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prompt: {fileID: 2055071333}
   blurBG: {fileID: 46229490}
+  blinkOverlay: {fileID: 7091624489051795139}
 --- !u!65 &266580387
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7405,6 +7407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prompt: {fileID: 2059188628}
   blurBG: {fileID: 46229490}
+  blinkOverlay: {fileID: 7091624489051795139}
 --- !u!65 &508110153
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7607,6 +7610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prompt: {fileID: 687171029}
   blurBG: {fileID: 46229490}
+  blinkOverlay: {fileID: 7091624489051795139}
 --- !u!65 &512806834
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8475,6 +8479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prompt: {fileID: 209741230}
   blurBG: {fileID: 46229490}
+  blinkOverlay: {fileID: 7091624489051795139}
 --- !u!65 &593707479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10353,7 +10358,7 @@ GameObject:
   - component: {fileID: 687171032}
   - component: {fileID: 687171031}
   m_Layer: 5
-  m_Name: Pickup Weapons Prompt
+  m_Name: Pick up Weapons Prompt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10737,6 +10742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prompt: {fileID: 219281188}
   blurBG: {fileID: 46229490}
+  blinkOverlay: {fileID: 7091624489051795139}
 --- !u!65 &718149009
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14079,6 +14085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prompt: {fileID: 1799400580}
   blurBG: {fileID: 46229490}
+  blinkOverlay: {fileID: 7091624489051795139}
 --- !u!65 &950341352
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19878,6 +19885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prompt: {fileID: 1947290452}
   blurBG: {fileID: 46229490}
+  blinkOverlay: {fileID: 7091624489051795139}
 --- !u!65 &1439193419
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24686,6 +24694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prompt: {fileID: 2097408215}
   blurBG: {fileID: 46229490}
+  blinkOverlay: {fileID: 7091624489051795139}
 --- !u!65 &1829871179
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26808,6 +26817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prompt: {fileID: 1982304990}
   blurBG: {fileID: 46229490}
+  blinkOverlay: {fileID: 7091624489051795139}
 --- !u!65 &1973467362
 BoxCollider:
   m_ObjectHideFlags: 0

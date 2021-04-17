@@ -18,7 +18,7 @@ public class HealthPickup : MonoBehaviour
         
     }
     void OnTriggerEnter(Collider other){
-        if (other.gameObject.name == "PlayerController"){
+        if (other.tag == "Player"){
             HealthManager.GetComponent<HealthManager>().currentHealth += healthToAdd;
             if (HealthManager.GetComponent<HealthManager>().currentHealth > HealthManager.GetComponent<HealthManager>().maxHealth) {
                 HealthManager.GetComponent<HealthManager>().currentHealth = HealthManager.GetComponent<HealthManager>().maxHealth;

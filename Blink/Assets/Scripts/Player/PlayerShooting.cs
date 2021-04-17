@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -55,7 +56,7 @@ public class PlayerShooting : MonoBehaviour
 
 
     void updateAmmoText(string textToUpdate){
-        ammoText.GetComponent<Text>().text = textToUpdate;
+        ammoText.GetComponent<TMP_Text>().text = textToUpdate;
     }
 
     void reload(){

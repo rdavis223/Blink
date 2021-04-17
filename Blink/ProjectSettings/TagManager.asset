@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Cover
   - CoverPoint
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -22,8 +23,8 @@ TagManager:
   - Player
   - Enemy
   - Obstacle
-  - 
-  - 
+  - Post-Processing
+  - MiniMap
   - 
   - 
   - 

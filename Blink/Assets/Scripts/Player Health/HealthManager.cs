@@ -34,7 +34,7 @@ public class HealthManager : MonoBehaviour
 
     void Start()
     {
-        healthBar = GameObject.Find("Health Bar").GetComponent<HealthBar>();
+        healthBar = FindObjectOfType<HealthBar>();
         gameOverScreen = GameObject.Find("Game Over Screen").GetComponent<CanvasGroup>();
         gameOverOptions = GameObject.Find("Game Over Menu").GetComponent<CanvasGroup>();
         currentHealth = maxHealth;
@@ -139,6 +139,8 @@ public class HealthManager : MonoBehaviour
 
         if (fadeTimer > fadeDuration + displayImageDuration)
         {
+            Time.timeScale = 0;
+            gameOverScreen.alpha = 0f;
             gameOverOptions.blocksRaycasts = true;
             gameOverOptions.alpha = 1; // Show game over menu
         }

@@ -57,12 +57,15 @@ MonoBehaviour:
   clipSize: 30
   ammoText: {fileID: 0}
   currentAmmo: 0
+  currentClip: 0
   reloadSpeed: 3
   reloading: 0
   fireType: auto
   fireStyle: straight
   numBullets: 1
   accuracy: 1
+  manuallySetAmmo: -1
+  manuallySetClip: -1
   dropObject: {fileID: 8300886131810434992, guid: 716452d7f4ff440d6acb46659237f9aa,
     type: 3}
 --- !u!82 &6055766769859423166
@@ -316,7 +319,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a55501cc883b14aa983a4212a763a197, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

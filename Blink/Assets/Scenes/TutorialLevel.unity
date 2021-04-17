@@ -12623,6 +12623,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 9046096373031686257, guid: 0fd4c0f1984c7d4438dfdfc7817e30b8,
+        type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 9046096373160528182, guid: 0fd4c0f1984c7d4438dfdfc7817e30b8,
         type: 3}
       propertyPath: m_Height

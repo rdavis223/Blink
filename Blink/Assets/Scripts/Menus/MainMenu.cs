@@ -16,15 +16,47 @@ public class MainMenu : MonoBehaviour
         {
             level_index = 1;
         }
-        SceneManager.LoadScene(level_index);
+        StartCoroutine(LoadYourAsyncScene(level_index));
 
 
         //PlayerPrefs.SetInt("current_level", nextLevelIndex); Put this at in objective script
+    }
+
+    public void Tut()
+    {
+        SceneManager.LoadScene(1);
+    }   
+
+    public void Lvl1()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void Lvl2()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void Lvl3()
+    {
+        SceneManager.LoadScene(4);
     }
 
     // Quit
     public void Quit()
     {
         Application.Quit();
+    }
+
+    IEnumerator LoadYourAsyncScene(int scene)
+    {
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 }

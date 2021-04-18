@@ -880,7 +880,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8331590005564339192}
   - component: {fileID: 8331590005550768870}
-  - component: {fileID: 1915629192102418478}
   m_Layer: 10
   m_Name: Soldier_mesh
   m_TagString: Untagged
@@ -975,18 +974,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.006183207, y: 0.14674488, z: -0.18911481}
     m_Extent: {x: 1.2868366, y: 0.52503693, z: 1.2117211}
   m_DirtyAABB: 0
---- !u!114 &1915629192102418478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8331590005564436376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 957b359f8aaa54c75b069e7da6b20fd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8331590005564436378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,12 +1061,14 @@ MonoBehaviour:
     type: 3}
   meleeDamage: 30
   attackDelay: 2.167
+  enemyLookPoint: {fileID: 0}
   sightRange: 0
   attackRange: 20
   meleeRange: 3
   playerInSightRange: 0
   playerInAttackRange: 0
   playerInMeleeRange: 0
+  coverObj: {fileID: 0}
 --- !u!195 &8331590005029714369
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1157,6 +1146,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 2048
+  player: {fileID: 0}
   enemy: {fileID: 8331590005029714370}
   enemyHealth: {fileID: 466121120873315521}
 --- !u!1 &8331590005564436380

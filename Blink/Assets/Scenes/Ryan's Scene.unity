@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 97637a2a763b7f24b8da4e139e4144ca, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1906,9 +1906,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 18081931}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WallRightParent
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -16630,9 +16630,9 @@ GameObject:
   - component: {fileID: 448068602}
   - component: {fileID: 448068601}
   - component: {fileID: 448068600}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstFloorWall (6)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -18623,9 +18623,9 @@ GameObject:
   - component: {fileID: 516314364}
   - component: {fileID: 516314363}
   - component: {fileID: 516314362}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstFloorWall (7)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -20655,9 +20655,9 @@ GameObject:
   - component: {fileID: 558170955}
   - component: {fileID: 558170954}
   - component: {fileID: 558170953}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstFloorWall
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -21376,7 +21376,7 @@ PrefabInstance:
     - target: {fileID: 5095468103104113300, guid: 3b733fb617d8a409498051d5a4d8c74d,
         type: 3}
       propertyPath: m_BackGroundColor.a
-      value: 0.7176471
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b733fb617d8a409498051d5a4d8c74d, type: 3}
@@ -21553,9 +21553,9 @@ GameObject:
   - component: {fileID: 580103879}
   - component: {fileID: 580103878}
   - component: {fileID: 580103877}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstFloorWall (1)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -26888,9 +26888,9 @@ GameObject:
   - component: {fileID: 675795359}
   - component: {fileID: 675795358}
   - component: {fileID: 675795357}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstFloorWall (3)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -33491,9 +33491,9 @@ GameObject:
   - component: {fileID: 900260770}
   - component: {fileID: 900260769}
   - component: {fileID: 900260768}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstFloorWall (4)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -35742,9 +35742,9 @@ GameObject:
   - component: {fileID: 933418898}
   - component: {fileID: 933418897}
   - component: {fileID: 933418896}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstFloorWall (5)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -38142,9 +38142,9 @@ GameObject:
   - component: {fileID: 989045688}
   - component: {fileID: 989045687}
   - component: {fileID: 989045686}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstFloorWall (4)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -39175,9 +39175,9 @@ GameObject:
   - component: {fileID: 1023844414}
   - component: {fileID: 1023844413}
   - component: {fileID: 1023844412}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstFloorWall (3)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -40310,9 +40310,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1054773038}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WallLeftParent
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -48113,9 +48113,9 @@ GameObject:
   - component: {fileID: 1143153288}
   - component: {fileID: 1143153287}
   - component: {fileID: 1143153286}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstFloorWall
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -77968,9 +77968,9 @@ GameObject:
   - component: {fileID: 1299339620}
   - component: {fileID: 1299339619}
   - component: {fileID: 1299339618}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstFloorWall (2)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -82379,9 +82379,9 @@ GameObject:
   - component: {fileID: 1418174308}
   - component: {fileID: 1418174307}
   - component: {fileID: 1418174306}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstFloorWall (1)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -92451,9 +92451,9 @@ GameObject:
   - component: {fileID: 1690498752}
   - component: {fileID: 1690498751}
   - component: {fileID: 1690498750}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstFloorWall (5)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -100870,9 +100870,9 @@ GameObject:
   - component: {fileID: 1984145559}
   - component: {fileID: 1984145558}
   - component: {fileID: 1984145557}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstFloorWall (7)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -105014,9 +105014,9 @@ GameObject:
   - component: {fileID: 2053801336}
   - component: {fileID: 2053801335}
   - component: {fileID: 2053801334}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstFloorWall (6)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -105099,17 +105099,9 @@ MonoBehaviour:
   assetGuid: 
   m_Mesh: {fileID: 1030241844}
   m_IsSelectable: 1
-  m_SelectedFaces: 00000000
-  m_SelectedEdges:
-  - a: 0
-    b: 1
-  - a: 1
-    b: 2
-  - a: 2
-    b: 3
-  - a: 3
-    b: 0
-  m_SelectedVertices: 00000000010000000200000003000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!65 &2053801335
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -105349,9 +105341,9 @@ GameObject:
   - component: {fileID: 2063235667}
   - component: {fileID: 2063235666}
   - component: {fileID: 2063235665}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstFloorWall (2)
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

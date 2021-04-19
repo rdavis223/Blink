@@ -162,6 +162,7 @@ public class SniperAI : MonoBehaviour
     {
         if (!alreadyAttacked)
         {
+            GetComponent<AudioSource>().Play();
             // Attack code here
             alreadyAttacked = true;
             Vector3 aim = (player.transform.position - LaserPos.transform.position).normalized;

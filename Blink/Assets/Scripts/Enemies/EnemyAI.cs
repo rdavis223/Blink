@@ -110,6 +110,7 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked)
         {
             // Attack code here
+            GetComponent<AudioSource>().Play();
             Vector3 aim = (player.position - transform.position).normalized;
             GameObject bulletObject = Instantiate(projectile);
             bulletObject.transform.rotation = projectile.transform.rotation;

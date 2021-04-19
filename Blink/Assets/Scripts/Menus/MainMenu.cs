@@ -17,9 +17,6 @@ public class MainMenu : MonoBehaviour
             level_index = 1;
         }
         StartCoroutine(LoadYourAsyncScene(level_index));
-
-
-        //PlayerPrefs.SetInt("current_level", nextLevelIndex); Put this at in objective script
     }
 
     public void Tut()

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: f7cef74829fb74acb9f237681c812a83
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Videopac
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 930f172133004477c92ffad4ff71aa84, type: 3}
+  - {fileID: 12800000, guid: 954978a49adfb409e97f351ed0d71e57, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -153,4 +153,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a80c527de34466dacf0841a842a5fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRespawnPosition: {fileID: 0}
+  playerRespawnPosition: {fileID: 7787733392664001266}

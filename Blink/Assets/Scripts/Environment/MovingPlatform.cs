@@ -12,7 +12,9 @@ public class MovingPlatform : MonoBehaviour
     private float TimeWaited;
     private float SnappingDistance;
 
-    private GameObject attachedObject; 
+    private GameObject attachedObject;
+
+    public bool enterCalled = false;
 
     [SerializeField] private float Speed = 3;
     [SerializeField] private float PointWaitingTime = 1.5f;
@@ -91,7 +93,25 @@ public class MovingPlatform : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
-            attachedObject = other.gameObject; // Lock object onto platform
+            attach(other.gameObject); // Lock object onto platform
+        }
+    }
+
+    public void attach(GameObject other)
+    {
+        attachedObject = other;
+    }
+
+    public void detach()
+    {
+        attachedObject = null;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.name == "Player" && attachedObject == null)
+        {
+            attach(other.gameObject);
         }
     }
 
@@ -99,7 +119,7 @@ public class MovingPlatform : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
-            attachedObject = null;
+            detach();
         }
     }
 }

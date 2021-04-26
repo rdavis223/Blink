@@ -5,14 +5,16 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public Transform playerRespawnPosition;
-    public int floorNumber;
+    public int objectiveFloor;
 
     public void SetSpawnPosition()
     {
         PlayerPrefs.SetFloat("xpos", playerRespawnPosition.position.x);
         PlayerPrefs.SetFloat("ypos", playerRespawnPosition.position.y);
         PlayerPrefs.SetFloat("zpos", playerRespawnPosition.position.z);
-        PlayerPrefs.SetInt("floor", floorNumber);
+        PlayerPrefs.SetInt("objectiveFloor", objectiveFloor);
+        PlayerPrefs.Save();
+        Debug.Log(PlayerPrefs.GetInt("objectiveFloor"));
     }
 
     private void OnTriggerEnter(Collider other)

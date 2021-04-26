@@ -7,6 +7,7 @@ public class WinScript : MonoBehaviour
 {
     public int nextLevelIndex;
     public int nextLevelStartFloor;
+    public int nextLevelObjectiveFloor;
 
     public void Win()
     {
@@ -14,8 +15,7 @@ public class WinScript : MonoBehaviour
         PlayerPrefs.SetFloat("ypos", 0f);
         PlayerPrefs.SetFloat("zpos", 0f);
         PlayerPrefs.SetInt("current_level", nextLevelIndex);
-        PlayerPrefs.SetInt("floor", nextLevelStartFloor);
-
-
+        PlayerPrefs.SetInt("checkpointFloor", nextLevelStartFloor);
+        PlayerPrefs.SetInt("objectiveFloor", nextLevelObjectiveFloor);
     }
 }

@@ -15,7 +15,6 @@ public class WinScript : MonoBehaviour
         PlayerPrefs.SetFloat("ypos", 0f);
         PlayerPrefs.SetFloat("zpos", 0f);
         PlayerPrefs.SetInt("current_level", nextLevelIndex);
-        PlayerPrefs.SetInt("checkpointFloor", nextLevelStartFloor);
-        PlayerPrefs.SetInt("objectiveFloor", nextLevelObjectiveFloor);
+        PlayerPrefs.SetInt("checkpointObjectiveFloor", nextLevelObjectiveFloor);
     }
 }

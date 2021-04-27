@@ -56,13 +56,7 @@ public class PlayerShooting : MonoBehaviour
 
 
     void updateAmmoText(string textToUpdate){
-        if (SceneManager.GetActiveScene().name.Contains("Tutorial"))
-        {
-            ammoText.GetComponent<TMP_Text>().text = textToUpdate;
-        }else
-        {
-            ammoText.GetComponent<Text>().text = textToUpdate;
-        }
+        ammoText.GetComponent<TMP_Text>().text = textToUpdate;
     }
 
     void reload(){

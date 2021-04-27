@@ -6,15 +6,18 @@ using UnityEngine.UI;
 public class MiniMapTrigger : MonoBehaviour
 {
     public List<GameObject> floorImgs;
-    public Image objective;
+    public List<Image> objectives;
     private int objectiveFloor;
     public GameObject player;
     public GameObject lastHit;
     public Vector3 collision = Vector3.zero;
+    private Image objective;
 
     void Start()
     {
-
+       PlayerPrefs.SetInt("objectiveFloor", PlayerPrefs.GetInt("checkpointObjectiveFloor"));
+       PlayerPrefs.SetInt("currentObjective", PlayerPrefs.GetInt("checkpointObjectiveNum"));
+       PlayerPrefs.Save();
     }
 
     void Update()
@@ -26,6 +29,12 @@ public class MiniMapTrigger : MonoBehaviour
             lastHit = hit.transform.gameObject;
             collision = hit.point;
             objectiveFloor = PlayerPrefs.GetInt("objectiveFloor");
+            objective = objectives[PlayerPrefs.GetInt("currentObjective")];
+
+            for (int i = 0; i < objectives.Count; i++)
+            {
+                objectives[i].color = new Color(objective.color.r, objective.color.g, objective.color.b, 0f);
+            }
 
             if (lastHit.transform.root.name == "Floor0")
             {
@@ -93,6 +102,25 @@ public class MiniMapTrigger : MonoBehaviour
                 
                 floorImgs[3].SetActive(true);
                 if (objectiveFloor == 3)
+                {
+                    objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 1f);
+                }
+
+                else
+                {
+                    objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 0.5f);
+                }
+            }
+
+            if (lastHit.transform.root.name == "Floor4")
+            {
+                for (int i = 0; i < floorImgs.Count; i++)
+                {
+                    floorImgs[i].SetActive(false);
+                }
+                
+                floorImgs[4].SetActive(true);
+                if (objectiveFloor == 4)
                 {
                     objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 1f);
                 }

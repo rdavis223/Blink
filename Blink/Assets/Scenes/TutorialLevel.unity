@@ -17347,7 +17347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 659800831}
   m_Layer: 14
-  m_Name: Grounds
+  m_Name: Floor1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21711,7 +21711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 887804609}
   m_Layer: 13
-  m_Name: Grounds
+  m_Name: Floor0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

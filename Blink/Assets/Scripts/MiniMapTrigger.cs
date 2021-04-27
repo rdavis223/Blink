@@ -36,7 +36,7 @@ public class MiniMapTrigger : MonoBehaviour
                 objectives[i].color = new Color(objective.color.r, objective.color.g, objective.color.b, 0f);
             }
 
-            if (lastHit.transform.root.name == "Floor0")
+            if (lastHit.transform.parent.name == "Floor0")
             {
                 for (int i = 0; i < floorImgs.Count; i++)
                 {
@@ -55,7 +55,7 @@ public class MiniMapTrigger : MonoBehaviour
                 }
             }
 
-            if (lastHit.transform.root.name == "Floor1")
+            if (lastHit.transform.parent.name == "Floor1")
             {
                 for (int i = 0; i < floorImgs.Count; i++)
                 {
@@ -74,7 +74,7 @@ public class MiniMapTrigger : MonoBehaviour
                 }
             }
 
-            if (lastHit.transform.root.name == "Floor2")
+            if (lastHit.transform.parent.name == "Floor2")
             {
                 for (int i = 0; i < floorImgs.Count; i++)
                 {
@@ -93,7 +93,7 @@ public class MiniMapTrigger : MonoBehaviour
                 }
             }
 
-            if (lastHit.transform.root.name == "Floor3")
+            if (lastHit.transform.parent.name == "Floor3")
             {
                 for (int i = 0; i < floorImgs.Count; i++)
                 {
@@ -112,7 +112,7 @@ public class MiniMapTrigger : MonoBehaviour
                 }
             }
 
-            if (lastHit.transform.root.name == "Floor4")
+            if (lastHit.transform.parent.name == "Floor4")
             {
                 for (int i = 0; i < floorImgs.Count; i++)
                 {

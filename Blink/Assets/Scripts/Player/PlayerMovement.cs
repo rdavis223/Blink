@@ -56,13 +56,30 @@ public class PlayerMovement : MonoBehaviour
     private bool canClimb = false;
     private bool canJump = true;
     private bool movementOverride = false;
+    private bool jumpSuccessful = false;
 
     private float slopeAngle;
     [SerializeField] private float slopeSpeed;
 
+    private float xpos;
+    private float ypos;
+    private float zpos;
+
     void Start()
     {
-        // May be possible to delete these lines? - Not relevent to movement
+        // Checkpoint system
+        xpos = PlayerPrefs.GetFloat("xpos");
+        ypos = PlayerPrefs.GetFloat("ypos");
+        zpos = PlayerPrefs.GetFloat("zpos");
+        if (xpos == 0 && ypos == 0 && zpos == 0)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        }
+        else
+        {
+            transform.position = new Vector3(xpos, ypos, zpos);
+        }
+        // May be possible to delete these lines? - Not relevent to movement - agreed we should have a game manager or smthing
         Time.timeScale = 1;
         BlinkMgr.Instance.BlinkTimer = 3f;
         rb = GetComponent<Rigidbody>();
@@ -97,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
         var targetVel = new Vector3(x, 0, z);
         targetVel *= speed;
 
-        if (isSprinting && z > 0 && StaminaBar.instance.GetCurrentStamina() > 0) // Only apply sprint when moving forward, not back or strafing
+        if (isSprinting && z > 0 && StaminaBar.instance.GetCurrentStamina() > 0 && !jumpSuccessful) // Only apply sprint when moving forward, not back or strafing or jumping
         {
             targetVel.z *= sprintMultiplier;
             StaminaBar.instance.UseStamina(true);
@@ -202,6 +219,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isJumping && isGrounded && canJump)
         {
+            jumpSuccessful = true;
             canJump = false;
             //Vector3 jumpForce = (Mathf.Sqrt(2 * jumpHeight * gravity)) * slopeNormal;
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); // Remove all negative y acceleration from sliding
@@ -216,6 +234,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void ResetJump()
     {
+        jumpSuccessful = false;
         canJump = true;
     }
 

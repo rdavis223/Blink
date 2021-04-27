@@ -7,13 +7,15 @@ public class PromptTrigger : MonoBehaviour
     public GameObject prompt;
     public GameObject blurBG;
     private bool isOpened;
+    public GameObject blinkOverlay;
 
     public void openPrompt()
     {
-        if (FindObjectOfType<PauseMenu>() != null)
-        {
-            FindObjectOfType<PauseMenu>().disablePauseMenu();
+        BlinkMgr.Instance.tutorialPromptActive = true;
+        if (BlinkMgr.Instance.BlinkActive){
+            blinkOverlay.SetActive(false);
         }
+        FindObjectOfType<PauseMenu>().disablePauseMenu();
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         prompt.SetActive(true);
@@ -22,10 +24,11 @@ public class PromptTrigger : MonoBehaviour
 
     public void closePrompt()
     {
-        if (FindObjectOfType<PauseMenu>() != null)
-        {
-            FindObjectOfType<PauseMenu>().enablePauseMenu();
+        BlinkMgr.Instance.tutorialPromptActive = false;
+        if (BlinkMgr.Instance.BlinkActive){
+            blinkOverlay.SetActive(true);
         }
+        FindObjectOfType<PauseMenu>().enablePauseMenu();
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         prompt.SetActive(false);

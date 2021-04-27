@@ -66,7 +66,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0.005
+    - _OutlineWidth: 0.007
     - _Parallax: 0.02
     - _Shininess: 0.5
     - _SrcBlend: 1
@@ -76,6 +76,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 1, g: 0.3537736, b: 0.65304965, a: 1}
+    - _OutlineColor: {r: 1, g: 0.9527314, b: 0, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

@@ -9,6 +9,8 @@ public class EscapeController : MonoBehaviour
 
     public GameObject car;
 
+    public GameObject enemyParent;
+
     public bool objectiveRetrieved = false;
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,7 @@ public class EscapeController : MonoBehaviour
         insideDoor.SetActive(false);
         outsideDoor.SetActive(false);
         objectiveRetrieved = true;
+        enemyParent.SetActive(true);
         //displayUI here
     }
 

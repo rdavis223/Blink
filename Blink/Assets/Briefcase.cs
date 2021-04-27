@@ -21,7 +21,6 @@ public class Briefcase : MonoBehaviour
         if (other.gameObject.name == "Player")
         {
             this.transform.parent.gameObject.GetComponent<EscapeController>().ObjectiveCollected();
-            Destroy(this.gameObject);
         }
     }
 }

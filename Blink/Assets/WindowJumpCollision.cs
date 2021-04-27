@@ -22,7 +22,7 @@ public class WindowJumpCollision : MonoBehaviour
             if (this.transform.parent.gameObject.GetComponent<EscapeController>().objectiveRetrieved)
             {
                 this.transform.parent.gameObject.GetComponent<EscapeController>().StartCar();
-                Destroy(this.gameObject);
+                
             }
         }
     }

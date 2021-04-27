@@ -42,6 +42,8 @@ public class SniperAI : MonoBehaviour
 
     public LineRenderer Laser;
     public GameObject LaserPos;
+
+    public GameObject enemyLookPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +51,7 @@ public class SniperAI : MonoBehaviour
         player = GameObject.Find("Player");
         agent = this.gameObject.GetComponent<NavMeshAgent>();
         anim = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
-
+        enemyLookPoint = GameObject.Find("EnemyLookPoint");
         currentPoint = 0;
         stage = "moving";
     }
@@ -100,8 +102,8 @@ public class SniperAI : MonoBehaviour
                     Vector3[] pos = { LaserPos.transform.position, player.transform.position };
                     Laser.SetPositions(pos);
                     anim.SetTrigger("Idle");
-                    transform.LookAt(new Vector3(player.transform.position.x, 0, player.transform.position.z));
-                    agent.transform.LookAt(new Vector3(player.transform.position.x, 0, player.transform.position.z));
+                    transform.LookAt(enemyLookPoint.transform.position);
+                    agent.transform.LookAt(enemyLookPoint.transform.position);
                     StartCoroutine("attack");
                 } else
                 {
@@ -128,6 +130,12 @@ public class SniperAI : MonoBehaviour
                 }
 
             }
+        } else
+
+        {
+            Laser.enabled = false;
+            rotationSet = false;
+            stage = "scanning";
         }
     }
 
@@ -174,5 +182,17 @@ public class SniperAI : MonoBehaviour
             alreadyAttacked = false;
             
         }
+    }
+
+    public void HearGunshots(Vector3 shotPos)
+    {
+        float distanceToShotPos = Vector3.Distance(shotPos, this.transform.position);
+        if (distanceToShotPos < sightRange && stage != "attack")
+        {
+            transform.LookAt(shotPos);
+            agent.transform.LookAt(shotPos);
+            stage = "scanning";
+        }
+
     }
 }

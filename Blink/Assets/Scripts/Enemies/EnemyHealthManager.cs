@@ -93,10 +93,10 @@ public class EnemyHealthManager : MonoBehaviour
     private void DropItems(Vector3 position){
         float chance = Random.Range(1f,100f);
         Debug.Log(chance);
-        if (chance <= 25f){
+        if (chance <= 15f){
             GameObject box = Instantiate(healthbox);
             box.transform.position = this.transform.position;
-        } else if (chance > 25f && chance <= 50f){
+        } else if (chance > 15f && chance <= 30f){
             GameObject box = Instantiate(ammobox);
             box.transform.position = this.transform.position;
         }

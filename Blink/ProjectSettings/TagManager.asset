@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - EnemyBody
+  - EnemyHead
+  - Enemy
+  - Cover
+  - CoverPoint
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -13,13 +19,14 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Player
+  - Enemy
+  - Obstacle
+  - Post-Processing
+  - MiniMap
+  - Coverpoint
+  - BG
   - 
   - 
   - 

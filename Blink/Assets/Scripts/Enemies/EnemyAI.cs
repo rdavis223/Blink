@@ -33,6 +33,8 @@ public class EnemyAI : MonoBehaviour
 
     public GameObject coverObj = null;
 
+    public GameObject shootPoint;
+
     private void Start()
     {
         
@@ -108,10 +110,10 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked)
         {
             // Attack code here
-            Vector3 aim = (player.position - transform.position).normalized;
+            Vector3 aim = (player.position - shootPoint.transform.position).normalized;
             GameObject bulletObject = Instantiate(projectile);
             bulletObject.transform.rotation = projectile.transform.rotation;
-            bulletObject.transform.position = agent.transform.position + aim;
+            bulletObject.transform.position = shootPoint.transform.position; 
             bulletObject.transform.forward = aim;          
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -129,7 +131,7 @@ public class EnemyAI : MonoBehaviour
             Vector3 aim = (player.position - transform.position).normalized;
             GameObject bulletObject = Instantiate(projectile);
             bulletObject.transform.rotation = projectile.transform.rotation;
-            bulletObject.transform.position = agent.transform.position + aim;
+            bulletObject.transform.position = shootPoint.transform.position;
             bulletObject.transform.forward = aim;
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

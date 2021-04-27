@@ -95,10 +95,10 @@ public class EnemyHealthManager : MonoBehaviour
         Debug.Log(chance);
         if (chance <= 25f){
             GameObject box = Instantiate(healthbox);
-            box.transform.position = new Vector3(position.x, healthbox.transform.position.y, position.z);
+            box.transform.position = this.transform.position;
         } else if (chance > 25f && chance <= 50f){
             GameObject box = Instantiate(ammobox);
-            box.transform.position = new Vector3(position.x, ammobox.transform.position.y, position.z);
+            box.transform.position = this.transform.position;
         }
     }
 

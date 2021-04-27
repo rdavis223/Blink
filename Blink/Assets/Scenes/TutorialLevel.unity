@@ -5299,7 +5299,8 @@ MonoBehaviour:
   floorImgs:
   - {fileID: 69848001}
   - {fileID: 1785703080}
-  objectives: []
+  objectives:
+  - {fileID: 491441023}
   player: {fileID: 903746318}
   lastHit: {fileID: 0}
   collision: {x: 0, y: 0, z: 0}

@@ -23,7 +23,7 @@ public class FieldOfView : MonoBehaviour
 
     private float takingDamangeTimer = 0f;
 
-    private bool playerSpotted = false;
+    public bool playerSpotted = false;
 
     void Start()
     {

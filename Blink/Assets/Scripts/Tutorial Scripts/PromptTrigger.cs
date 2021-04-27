@@ -10,7 +10,10 @@ public class PromptTrigger : MonoBehaviour
 
     public void openPrompt()
     {
-        FindObjectOfType<PauseMenu>().disablePauseMenu();
+        if (FindObjectOfType<PauseMenu>() != null)
+        {
+            FindObjectOfType<PauseMenu>().disablePauseMenu();
+        }
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         prompt.SetActive(true);
@@ -19,7 +22,10 @@ public class PromptTrigger : MonoBehaviour
 
     public void closePrompt()
     {
-        FindObjectOfType<PauseMenu>().enablePauseMenu();
+        if (FindObjectOfType<PauseMenu>() != null)
+        {
+            FindObjectOfType<PauseMenu>().enablePauseMenu();
+        }
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         prompt.SetActive(false);

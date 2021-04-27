@@ -87,8 +87,6 @@ public class EnemyAI : MonoBehaviour
         NavMeshPath path = new NavMeshPath();
         if (Physics.Raycast(walkPoint, -transform.up, 2f, 1 << 8) && NavMesh.CalculatePath(this.transform.position, walkPoint, NavMesh.AllAreas, path) && path.status == NavMeshPathStatus.PathComplete)
         {
-            for (int i = 0; i < path.corners.Length - 1; i++)
-                Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.blue);
             walkPointSet = true;
         }
     }

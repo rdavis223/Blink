@@ -13,7 +13,7 @@ public class EnemyAI : MonoBehaviour
 
     // Patrolling
     public Vector3 walkPoint;
-    bool walkPointSet;
+    public bool walkPointSet;
     public float walkPointRange;
 
     // Attacking
@@ -26,6 +26,8 @@ public class EnemyAI : MonoBehaviour
     public float attackDelay;
 
     public GameObject enemyLookPoint;
+
+    public GameObject Level;
 
     // States
     public float sightRange, attackRange, meleeRange;
@@ -45,14 +47,11 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        Level = GameObject.Find("Level");
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            findClosestCover();
-        }
         // Check for sight and attack range
         if (!BlinkMgr.Instance.BlinkActive)
         {
@@ -93,6 +92,16 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    public void SetWalkPoint(Vector3 newPos)
+    {
+        walkPoint = newPos;
+        NavMeshPath path = new NavMeshPath();
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, 1 << 8) && NavMesh.CalculatePath(this.transform.position, walkPoint, NavMesh.AllAreas, path) && path.status == NavMeshPathStatus.PathComplete)
+        {
+            walkPointSet = true;
+        }
+    }
+
     public void ChasePlayer()
     {
         agent.SetDestination(enemyLookPoint.transform.position);
@@ -117,6 +126,7 @@ public class EnemyAI : MonoBehaviour
             bulletObject.transform.position = shootPoint.transform.position; 
             bulletObject.transform.forward = aim;          
             alreadyAttacked = true;
+            //Level.BroadcastMessage("HearGunshots", this.transform.position);
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
@@ -135,6 +145,7 @@ public class EnemyAI : MonoBehaviour
             bulletObject.transform.position = shootPoint.transform.position;
             bulletObject.transform.forward = aim;
             alreadyAttacked = true;
+            //Level.BroadcastMessage("HearGunshots", this.transform.position);
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
@@ -197,11 +208,14 @@ public class EnemyAI : MonoBehaviour
                 {
                     if (coverObjs[d].GetComponent<CoverPoint>().isFree())
                     {
-                   
-                        coverObj = coverObjs[d];
-                        coverObj.GetComponent<CoverPoint>().setOccupied(true);
-                        Debug.DrawLine(player.position, coverObj.transform.position, Color.green, 5f);
-                        return coverObj.transform.position;
+                        NavMeshPath path = new NavMeshPath();
+                        if (NavMesh.CalculatePath(this.transform.position, coverObjs[d].transform.position, NavMesh.AllAreas, path) && path.status == NavMeshPathStatus.PathComplete)
+                        {
+                            coverObj = coverObjs[d];
+                            coverObj.GetComponent<CoverPoint>().setOccupied(true);
+                            Debug.DrawLine(player.position, coverObj.transform.position, Color.green, 5f);
+                            return coverObj.transform.position;
+                        } 
                     }
                     
                 }

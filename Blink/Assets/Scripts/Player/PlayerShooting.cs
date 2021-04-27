@@ -50,6 +50,8 @@ public class PlayerShooting : MonoBehaviour
 
     public GameObject dropObject;
 
+    public GameObject Level;
+
 
     private AudioSource shootSound;
     private AudioSource reloadSound;
@@ -94,6 +96,7 @@ public class PlayerShooting : MonoBehaviour
         if (ammoText != null){
             updateAmmoText(currentClip.ToString() + "/" + currentAmmo.ToString());
         }
+        Level = GameObject.Find("Level");
     }
     
     void OnGUI(){
@@ -146,6 +149,7 @@ public class PlayerShooting : MonoBehaviour
                     fireTimer = fireRate;
                 }
                 shootSound.Play();
+                Level.BroadcastMessage("HearGunshots", this.transform.position);
                 if (fireStyle == "spread"){
                     int i = 0;
                     while (i < numBullets){

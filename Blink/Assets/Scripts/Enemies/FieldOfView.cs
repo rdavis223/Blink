@@ -174,6 +174,14 @@ public class FieldOfView : MonoBehaviour
                     }
                 }
             }
+        } else
+        {
+            enemy.walkPointSet = false;
+            playerSpotted = false;
+            enemy.animator.SetBool("Chasing", false);
+            enemy.animator.SetBool("Shooting", false);
+            enemy.Patrolling();
+
         }
     }
 
@@ -207,6 +215,36 @@ public class FieldOfView : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public bool isLocationInSight(Vector3 location)
+    {
+        float maxDist = Vector3.Distance(this.transform.position, location);
+        Vector3 dir = location - this.transform.position;
+        Ray r = new Ray(this.transform.position, dir);
+        RaycastHit[] hits = Physics.RaycastAll(r, maxDist);
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.transform.gameObject.tag == "Cover")
+            {
+                return false;
+
+            }
+        }
+        return true;
+    }
+
+    public void HearGunshots(Vector3 shotPos)
+    {
+        float distanceToShotPos = Vector3.Distance(shotPos, this.transform.position);
+        if (distanceToShotPos < enemy.sightRange && isLocationInSight(shotPos) && !playerSpotted)
+        {
+            enemy.SetWalkPoint(shotPos);
+            enemy.animator.SetBool("Chasing", false);
+
+            enemy.Patrolling();
+        }
+
     }
 
 }

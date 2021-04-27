@@ -24,6 +24,7 @@ public class FieldOfView : MonoBehaviour
     private float takingDamangeTimer = 0f;
 
     public bool playerSpotted = false;
+    public bool forcePatrol = false;
 
     void Start()
     {
@@ -42,6 +43,13 @@ public class FieldOfView : MonoBehaviour
             enemy.playerInMeleeRange = Physics.CheckSphere(transform.position, enemy.meleeRange, enemy.whatIsPlayer);
 
             Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+            if (forcePatrol)
+            {
+
+                forcePatrol = false;
+                enemy.Patrolling();
+            }
+
             if (!enemy.playerInSightRange)
             {
                 playerSpotted = false;
@@ -180,7 +188,7 @@ public class FieldOfView : MonoBehaviour
             playerSpotted = false;
             enemy.animator.SetBool("Chasing", false);
             enemy.animator.SetBool("Shooting", false);
-            enemy.Patrolling();
+            forcePatrol = true;
 
         }
     }

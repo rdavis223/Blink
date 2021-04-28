@@ -11,12 +11,21 @@ public class Star : MonoBehaviour
 
     public int damage = 200;
 
+    public AudioSource moveSound;
+    private AudioSource hitSound;
+
     private bool pulling = false;
+
+    private bool soundInProgress = false;
     // Start is called before the first frame update
     void Start()
     {
         transform.GetChild(0).transform.Rotate(0, 0, -45);
+        AudioSource[] sources = GetComponents<AudioSource>();
+        moveSound = sources[0];
+        hitSound = sources[1];
 
+        moveSound.Play();
     }
 
     // Update is called once per frame
@@ -42,12 +51,14 @@ public class Star : MonoBehaviour
         if (other.tag == "Enemy")
         {
             other.GetComponent<EnemyHealthManager>().HurtEnemy(damage, "death_from_front", 4.33f);
+            hitSound.Play();
             return;
         } else
 
         if (other.tag =="EnemyHead")
         {
             other.transform.parent.parent.GetComponent<EnemyHealthManager>().HurtEnemy(damage, "head_shot", 2.83f);
+            hitSound.Play();
             return;
         }
         else if (other.tag == "EnemyBullet" || other.tag == "Bullet")
@@ -58,8 +69,10 @@ public class Star : MonoBehaviour
 
         else if (other.GetComponent<Collider>().gameObject.name != "Player" && other.GetComponent<Collider>().gameObject.name != "Shuriken" && (other.GetComponent<Collider>().gameObject.transform.parent == null || (other.GetComponent<Collider>().gameObject.transform.parent != null && other.GetComponent<Collider>().gameObject.transform.parent.name != "Player")))
         {
+            hitSound.Play();
             stopped = true;
         }
         
     }
+
 }

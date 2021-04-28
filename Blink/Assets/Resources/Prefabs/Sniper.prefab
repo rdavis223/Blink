@@ -1298,6 +1298,7 @@ MonoBehaviour:
     type: 3}
   Laser: {fileID: 1009701373700573073}
   LaserPos: {fileID: 1352400531970213392}
+  enemyLookPoint: {fileID: 0}
 --- !u!195 &2139210234568909867
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1366,7 +1367,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dcec2c8e72d504e4788b172ad4962e27, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.957
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -40,7 +40,8 @@ public class PlayerWeaponMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)){
+        if (Input.GetKeyDown(KeyCode.E) && !currentSelectedWeapon.GetComponent<PlayerShooting>().isScoped)
+        {
             Debug.Log("switch");
             //switch weapons
             if (currentSelectedWeapon.GetComponent<PlayerShooting>().reloading){

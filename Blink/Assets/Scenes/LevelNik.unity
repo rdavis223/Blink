@@ -267,11 +267,7 @@ GameObject:
   - component: {fileID: 25264422}
   m_Layer: 8
   m_Name: Cube (5)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -662,11 +658,7 @@ GameObject:
   - component: {fileID: 137461396}
   m_Layer: 8
   m_Name: Cube (3)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1436,11 +1428,7 @@ GameObject:
   - component: {fileID: 236475437}
   m_Layer: 8
   m_Name: Cube (9)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1549,11 +1537,7 @@ GameObject:
   - component: {fileID: 247226211}
   m_Layer: 8
   m_Name: Cube (8)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1566,11 +1550,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 247226209}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< Updated upstream
-  m_LocalPosition: {x: -19.92, y: 2.04, z: -59.7}
-=======
   m_LocalPosition: {x: 65.08, y: 2.04, z: -28.7}
->>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 1398754969}
@@ -2187,11 +2167,7 @@ GameObject:
   - component: {fileID: 397513568}
   m_Layer: 8
   m_Name: Cube (8)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2298,14 +2274,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Platform (1)
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-=======
     - target: {fileID: 3210129840461697340, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
       propertyPath: m_TagString
       value: Cover
       objectReference: {fileID: 0}
->>>>>>> Stashed changes
     - target: {fileID: 3210129840461697341, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
       propertyPath: Speed
@@ -2364,11 +2337,7 @@ PrefabInstance:
     - target: {fileID: 3210129840461697345, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
       propertyPath: m_LocalPosition.z
-<<<<<<< Updated upstream
-      value: 11.599998
-=======
       value: 11.6
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 3210129840461697345, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
@@ -2405,12 +2374,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-    m_RemovedComponents: []
-=======
     m_RemovedComponents:
     - {fileID: 3210129840461697341, guid: aacae7ea84bb52a46911d7fb2f5db49a, type: 3}
->>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: aacae7ea84bb52a46911d7fb2f5db49a, type: 3}
 --- !u!4 &444300459 stripped
 Transform:
@@ -3509,11 +3474,7 @@ GameObject:
   - component: {fileID: 678825058}
   m_Layer: 8
   m_Name: Cube (14)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3772,11 +3733,7 @@ GameObject:
   - component: {fileID: 719181480}
   m_Layer: 8
   m_Name: Cube (16)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3857,8 +3814,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719181478}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &724264556 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3210129840461697340, guid: aacae7ea84bb52a46911d7fb2f5db49a,
@@ -3884,7 +3839,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
->>>>>>> Stashed changes
 --- !u!1 &735253527
 GameObject:
   m_ObjectHideFlags: 0
@@ -4035,15 +3989,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 796486768}
-<<<<<<< Updated upstream
-  m_Layer: 0
-  m_Name: Obstacles
-  m_TagString: Untagged
-=======
   m_Layer: 8
   m_Name: Obstacles
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4077,11 +4025,7 @@ GameObject:
   - component: {fileID: 831971853}
   m_Layer: 8
   m_Name: Cube (10)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4481,8 +4425,6 @@ Transform:
   m_Father: {fileID: 938480167}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &908014630 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3210129840461697340, guid: aacae7ea84bb52a46911d7fb2f5db49a,
@@ -4508,7 +4450,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
->>>>>>> Stashed changes
 --- !u!1 &928033581
 GameObject:
   m_ObjectHideFlags: 0
@@ -4935,11 +4876,7 @@ GameObject:
   - component: {fileID: 959393413}
   m_Layer: 8
   m_Name: Cube (2)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6038,11 +5975,7 @@ GameObject:
   - component: {fileID: 1096273331}
   m_Layer: 8
   m_Name: Cube (11)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6204,11 +6137,7 @@ GameObject:
   - component: {fileID: 1122140248}
   m_Layer: 8
   m_Name: Cube
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6405,11 +6334,7 @@ GameObject:
   - component: {fileID: 1131844305}
   m_Layer: 8
   m_Name: Cube (1)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6422,11 +6347,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131844303}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< Updated upstream
-  m_LocalPosition: {x: 3.07, y: 1.14, z: -27.23}
-=======
   m_LocalPosition: {x: 3.07, y: 1.14, z: -52.98}
->>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1398754969}
@@ -6505,11 +6426,7 @@ GameObject:
   - component: {fileID: 1167690461}
   m_Layer: 8
   m_Name: Walls
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6590,14 +6507,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Platform (2)
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-=======
     - target: {fileID: 3210129840461697340, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
       propertyPath: m_TagString
       value: Cover
       objectReference: {fileID: 0}
->>>>>>> Stashed changes
     - target: {fileID: 3210129840461697341, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
       propertyPath: Speed
@@ -6646,29 +6560,17 @@ PrefabInstance:
     - target: {fileID: 3210129840461697345, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< Updated upstream
-      value: -3.2999992
-=======
       value: -3.299999
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 3210129840461697345, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
       propertyPath: m_LocalPosition.y
-<<<<<<< Updated upstream
-      value: 1.28
-=======
       value: 0.77999973
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 3210129840461697345, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
       propertyPath: m_LocalPosition.z
-<<<<<<< Updated upstream
-      value: 16.099998
-=======
       value: 16.1
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 3210129840461697345, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
@@ -6705,12 +6607,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-    m_RemovedComponents: []
-=======
     m_RemovedComponents:
     - {fileID: 3210129840461697341, guid: aacae7ea84bb52a46911d7fb2f5db49a, type: 3}
->>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: aacae7ea84bb52a46911d7fb2f5db49a, type: 3}
 --- !u!4 &1207397992 stripped
 Transform:
@@ -6822,14 +6720,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Platform
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-=======
     - target: {fileID: 3210129840461697340, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
       propertyPath: m_TagString
       value: Cover
       objectReference: {fileID: 0}
->>>>>>> Stashed changes
     - target: {fileID: 3210129840461697341, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
       propertyPath: Speed
@@ -6878,11 +6773,7 @@ PrefabInstance:
     - target: {fileID: 3210129840461697345, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< Updated upstream
-      value: 1.5200005
-=======
       value: 1.52
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 3210129840461697345, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
@@ -6892,11 +6783,7 @@ PrefabInstance:
     - target: {fileID: 3210129840461697345, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
       propertyPath: m_LocalPosition.z
-<<<<<<< Updated upstream
-      value: 15.3923435
-=======
       value: 15.39234
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 3210129840461697345, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
@@ -6933,12 +6820,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-    m_RemovedComponents: []
-=======
     m_RemovedComponents:
     - {fileID: 3210129840461697341, guid: aacae7ea84bb52a46911d7fb2f5db49a, type: 3}
->>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: aacae7ea84bb52a46911d7fb2f5db49a, type: 3}
 --- !u!1 &1243738724
 GameObject:
@@ -6955,11 +6838,7 @@ GameObject:
   - component: {fileID: 1243738726}
   m_Layer: 8
   m_Name: Cube (6)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7068,11 +6947,7 @@ GameObject:
   - component: {fileID: 1247802069}
   m_Layer: 8
   m_Name: Cube (4)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7085,11 +6960,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247802067}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< Updated upstream
-  m_LocalPosition: {x: -6.49, y: 7.49, z: -29.79}
-=======
   m_LocalPosition: {x: 35.510002, y: 1.2399998, z: -46.29}
->>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1398754969}
@@ -7171,11 +7042,7 @@ GameObject:
   - component: {fileID: 1273102561}
   m_Layer: 8
   m_Name: Cube (9)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7482,11 +7349,7 @@ GameObject:
   - component: {fileID: 1306329794}
   m_Layer: 8
   m_Name: Cube (4)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7595,11 +7458,7 @@ GameObject:
   - component: {fileID: 1340645770}
   m_Layer: 8
   m_Name: Cube (13)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7680,8 +7539,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340645768}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1371228395 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3210129840461697340, guid: aacae7ea84bb52a46911d7fb2f5db49a,
@@ -7707,7 +7564,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
->>>>>>> Stashed changes
 --- !u!1 &1373127239
 GameObject:
   m_ObjectHideFlags: 0
@@ -7853,15 +7709,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1398754969}
-<<<<<<< Updated upstream
-  m_Layer: 0
-  m_Name: Cubes
-  m_TagString: Untagged
-=======
   m_Layer: 8
   m_Name: Cubes
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7962,11 +7812,7 @@ GameObject:
   - component: {fileID: 1420129803}
   m_Layer: 8
   m_Name: Cube (15)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8270,11 +8116,7 @@ GameObject:
   - component: {fileID: 1516677398}
   m_Layer: 8
   m_Name: Cube (7)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8608,11 +8450,7 @@ GameObject:
   - component: {fileID: 1561089241}
   m_Layer: 8
   m_Name: Cube (6)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9437,14 +9275,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Platform (3)
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-=======
     - target: {fileID: 3210129840461697340, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
       propertyPath: m_TagString
       value: Cover
       objectReference: {fileID: 0}
->>>>>>> Stashed changes
     - target: {fileID: 3210129840461697341, guid: aacae7ea84bb52a46911d7fb2f5db49a,
         type: 3}
       propertyPath: Speed
@@ -9540,12 +9375,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-    m_RemovedComponents: []
-=======
     m_RemovedComponents:
     - {fileID: 3210129840461697341, guid: aacae7ea84bb52a46911d7fb2f5db49a, type: 3}
->>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: aacae7ea84bb52a46911d7fb2f5db49a, type: 3}
 --- !u!1 &1878679307
 GameObject:
@@ -9561,11 +9392,7 @@ GameObject:
   - component: {fileID: 1878679309}
   m_Layer: 8
   m_Name: Cube (12)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9861,15 +9688,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1914817372}
-<<<<<<< Updated upstream
-  m_Layer: 0
-  m_Name: Moving Platforms
-  m_TagString: Untagged
-=======
   m_Layer: 8
   m_Name: Moving Platforms
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9892,8 +9713,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1961312810 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3210129840461697340, guid: aacae7ea84bb52a46911d7fb2f5db49a,
@@ -9919,7 +9738,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
->>>>>>> Stashed changes
 --- !u!1 &2008963258
 GameObject:
   m_ObjectHideFlags: 0
@@ -9935,11 +9753,7 @@ GameObject:
   - component: {fileID: 2008963260}
   m_Layer: 8
   m_Name: Cube (7)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -10222,11 +10036,7 @@ GameObject:
   - component: {fileID: 2121297458}
   m_Layer: 8
   m_Name: Cube (5)
-<<<<<<< Updated upstream
-  m_TagString: Untagged
-=======
   m_TagString: Cover
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10239,11 +10049,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121297456}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< Updated upstream
-  m_LocalPosition: {x: 17.79, y: 4, z: -33.15}
-=======
   m_LocalPosition: {x: 17.79, y: 1, z: -33.15}
->>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1398754969}

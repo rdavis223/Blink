@@ -5280,7 +5280,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 129921683}
-  - {fileID: 1935186830}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6867,7 +6866,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0.052335896, z: 0, w: 0.9986295}
   m_LocalPosition: {x: -0.64027, y: -5.68, z: -47}
   m_LocalScale: {x: 1.8127, y: 1.8127, z: 1.8127}
-  m_Children: []
+  m_Children:
+  - {fileID: 1935186830}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 163.36302, z: 0}
@@ -6912,7 +6912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelIndex: 2
-  nextLevelObjectiveFloor: 2
+  nextLevelObjectiveFloor: 3
   loadScreen: {fileID: 1660944547}
 --- !u!1 &236585691
 GameObject:
@@ -32171,7 +32171,7 @@ PrefabInstance:
     - target: {fileID: 7787733392664001266, guid: ffb5869365581427db44ddad9f678535,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.156641
+      value: 34.7
       objectReference: {fileID: 0}
     - target: {fileID: 7787733392664001266, guid: ffb5869365581427db44ddad9f678535,
         type: 3}
@@ -32222,6 +32222,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Checkpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787733392664001267, guid: ffb5869365581427db44ddad9f678535,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffb5869365581427db44ddad9f678535, type: 3}
@@ -36549,7 +36554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1786761943}
   m_Layer: 13
-  m_Name: Stairs
+  m_Name: Floor0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40082,17 +40087,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935186829}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -40.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.7061377, y: -0.037007067, z: 0.037007067, w: 0.7061377}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5516633, y: 0.5516633, z: 0.5516633}
   m_Children:
   - {fileID: 491441022}
-  m_Father: {fileID: 205175946}
-  m_RootOrder: 1
+  m_Father: {fileID: 234273129}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 100.8, y: -50.1}
+  m_AnchoredPosition: {x: 0, y: -2.934845}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1935186831

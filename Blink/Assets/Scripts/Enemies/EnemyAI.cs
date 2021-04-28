@@ -130,10 +130,6 @@ public class EnemyAI : MonoBehaviour
             //Level.BroadcastMessage("HearGunshots", this.transform.position);
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
-        else
-        {
-            animator.SetBool("Shooting", false);
-        }
     }
 
     public void AttackPlayerMoving()

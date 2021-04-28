@@ -119,6 +119,16 @@ public class Bullet : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+        if (other.tag == "Shield")
+        {
+            LayerMask OtherMask = 1 << other.gameObject.layer;
+            if ((CreatorMask & OtherMask) == CreatorMask)
+            {
+                return;
+            }
+            Destroy(this.gameObject);
+        }
+
 
         // ADD MORE IF STATEMENTS ACCORDINGLY FOR EACH DIFFERENT DAMAGE, TAG COLLIDER WITH A DESCRIPTIVE NAME
         // other.transform.parent.parent gets enemy object in order to find the enemy health manager script

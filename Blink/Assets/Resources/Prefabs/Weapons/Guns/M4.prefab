@@ -52,9 +52,9 @@ MonoBehaviour:
   ShootPosition: {fileID: 4495182959704799917}
   crosshairTexture: {fileID: 2800000, guid: e81c1b06f224c284fb7b35c2bac9542f, type: 3}
   crosshairScale: 1
-  fireRate: 0.2
+  fireRate: 0.15
   ammo: 200
-  clipSize: 30
+  clipSize: 40
   ammoText: {fileID: 0}
   currentAmmo: 0
   currentClip: 0
@@ -68,6 +68,10 @@ MonoBehaviour:
   manuallySetClip: -1
   dropObject: {fileID: 8300886131810434992, guid: 716452d7f4ff440d6acb46659237f9aa,
     type: 3}
+  Level: {fileID: 0}
+  hasScope: 0
+  isScoped: 0
+  scope: {fileID: 0}
 --- !u!82 &6055766769859423166
 AudioSource:
   m_ObjectHideFlags: 0

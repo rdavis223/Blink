@@ -13,7 +13,7 @@ public class PlayerMelee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1)){
+        if (Input.GetKeyDown(KeyCode.Tab)){
             Collider[] hitColliders = Physics.OverlapSphere((gameObject.transform.position + gameObject.transform.forward), 1f);
             foreach (Collider hitCollider in hitColliders)
             {

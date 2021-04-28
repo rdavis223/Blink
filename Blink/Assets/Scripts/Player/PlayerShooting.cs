@@ -52,6 +52,12 @@ public class PlayerShooting : MonoBehaviour
 
     public GameObject Level;
 
+    public bool hasScope = false;
+
+    public bool isScoped = false;
+
+    public GameObject scope;
+
 
     private AudioSource shootSound;
     private AudioSource reloadSound;
@@ -91,10 +97,11 @@ public class PlayerShooting : MonoBehaviour
             updateAmmoText(currentClip.ToString() + "/" + currentAmmo.ToString());
         }
         Level = GameObject.Find("Level");
+        scope = GameObject.Find("NEWUI").transform.GetChild(0).gameObject;
     }
     
     void OnGUI(){
-        if (Cursor.lockState == CursorLockMode.Locked){
+        if (Cursor.lockState == CursorLockMode.Locked && !isScoped){
             GUI.DrawTexture(new Rect((Screen.width-crosshairTexture.width*crosshairScale)/2 ,(Screen.height-crosshairTexture.height*crosshairScale)/2, crosshairTexture.width*crosshairScale, crosshairTexture.height*crosshairScale),crosshairTexture);
         }
     }
@@ -115,6 +122,7 @@ public class PlayerShooting : MonoBehaviour
             updateAmmoText(currentClip.ToString() + "/" + currentAmmo.ToString());
         }
         if (Cursor.lockState == CursorLockMode.Locked){
+
             if (fireTimer > 0f && fireType == "auto"){
                 fireTimer -= Time.deltaTime;
             }
@@ -132,6 +140,22 @@ public class PlayerShooting : MonoBehaviour
             if (reloadTimer <= 0f && reloading){
                 reload();
             }
+
+            if (Input.GetMouseButtonDown(1) && hasScope)
+            {
+                if (isScoped)
+                {
+                    scope.SetActive(false);
+                    Camera.main.fieldOfView = 60f;
+                    isScoped = false;
+                } else
+                {
+                    isScoped = true;
+                    scope.SetActive(true);
+                    Camera.main.fieldOfView = 10f;
+                }
+            }
+
             bool fireCondition = false;
             if (fireType == "auto"){
                 fireCondition = Input.GetMouseButton(0);
@@ -162,8 +186,15 @@ public class PlayerShooting : MonoBehaviour
                     }
                 } else {
                     GameObject bulletObject = Instantiate(bulletPrefab);
-                    bulletObject.transform.position = ShootPosition.transform.position;
-                    bulletObject.transform.forward = ShootPosition.transform.forward;
+                    if (hasScope && isScoped)
+                    {
+                        bulletObject.transform.position = playerCamera.transform.position;
+                        bulletObject.transform.forward = playerCamera.transform.forward;
+                    } else
+                    {
+                        bulletObject.transform.position = ShootPosition.transform.position;
+                        bulletObject.transform.forward = ShootPosition.transform.forward;
+                    }
                     float end_x = playerCamera.transform.position.x + 100 * playerCamera.transform.forward.x;
                     float end_y = playerCamera.transform.position.y + 100 * playerCamera.transform.forward.y;
                     float end_z = playerCamera.transform.position.z + 100 * playerCamera.transform.forward.z;

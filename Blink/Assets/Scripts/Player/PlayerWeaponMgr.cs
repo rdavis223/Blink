@@ -40,7 +40,8 @@ public class PlayerWeaponMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)){
+        if (Input.GetKeyDown(KeyCode.E) && !currentSelectedWeapon.GetComponent<PlayerShooting>().isScoped)
+        {
             Debug.Log("switch");
             //switch weapons
             if (currentSelectedWeapon.GetComponent<PlayerShooting>().reloading){
@@ -87,7 +88,7 @@ public class PlayerWeaponMgr : MonoBehaviour
         GameObject drop = Instantiate(newDropWeapon);
         drop.GetComponent<WeaponPickup>().currentAmmo = oldAmmo;
         drop.GetComponent<WeaponPickup>().currentClip = oldClip;
-        drop.transform.position = new Vector3(dropPos.x, drop.transform.position.y, dropPos.z);
+        drop.transform.position = new Vector3(dropPos.x, dropPos.y, dropPos.z);
 
     }
 }

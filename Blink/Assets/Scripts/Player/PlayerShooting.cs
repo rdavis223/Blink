@@ -101,7 +101,7 @@ public class PlayerShooting : MonoBehaviour
     }
     
     void OnGUI(){
-        if (Cursor.lockState == CursorLockMode.Locked){
+        if (Cursor.lockState == CursorLockMode.Locked && !isScoped){
             GUI.DrawTexture(new Rect((Screen.width-crosshairTexture.width*crosshairScale)/2 ,(Screen.height-crosshairTexture.height*crosshairScale)/2, crosshairTexture.width*crosshairScale, crosshairTexture.height*crosshairScale),crosshairTexture);
         }
     }

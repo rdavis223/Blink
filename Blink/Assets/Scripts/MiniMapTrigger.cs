@@ -52,7 +52,7 @@ public class MiniMapTrigger : MonoBehaviour
 
                 else
                 {
-                    objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 0.5f);
+                    objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 0.3f);
                 }
             }
 
@@ -71,7 +71,7 @@ public class MiniMapTrigger : MonoBehaviour
 
                 else
                 {
-                    objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 0.5f);
+                    objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 0.3f);
                 }
             }
 
@@ -90,7 +90,7 @@ public class MiniMapTrigger : MonoBehaviour
 
                 else
                 {
-                    objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 0.5f);
+                    objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 0.3f);
                 }
             }
 
@@ -109,7 +109,7 @@ public class MiniMapTrigger : MonoBehaviour
 
                 else
                 {
-                    objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 0.5f);
+                    objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 0.3f);
                 }
             }
 
@@ -128,7 +128,7 @@ public class MiniMapTrigger : MonoBehaviour
 
                 else
                 {
-                    objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 0.5f);
+                    objective.color = new Color(objective.color.r, objective.color.g, objective.color.b, 0.3f);
                 }
             }
         }

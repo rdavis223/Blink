@@ -20,9 +20,11 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("trigger");
         if (other.tag == "Player")
         {
             SetSpawnPosition();
+            Debug.Log("checkpoint set");
         }
     }
 }

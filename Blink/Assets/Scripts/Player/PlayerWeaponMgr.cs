@@ -87,7 +87,7 @@ public class PlayerWeaponMgr : MonoBehaviour
         GameObject drop = Instantiate(newDropWeapon);
         drop.GetComponent<WeaponPickup>().currentAmmo = oldAmmo;
         drop.GetComponent<WeaponPickup>().currentClip = oldClip;
-        drop.transform.position = new Vector3(dropPos.x, dropPos.y, dropPos.z);
+        drop.transform.position = new Vector3(dropPos.x, drop.transform.position.y, dropPos.z);
 
     }
 }

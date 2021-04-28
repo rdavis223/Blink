@@ -181,7 +181,13 @@ public class FieldOfView : MonoBehaviour
                         enemy.Patrolling();
                     }
                 }
+                if (targetsInViewRadius.Length == 0)
+                {
+                    enemy.animator.SetBool("Chasing", false);
+                    enemy.Patrolling();
+                }
             }
+        
         } else
         {
             enemy.walkPointSet = false;

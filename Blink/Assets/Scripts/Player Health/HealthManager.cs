@@ -48,6 +48,7 @@ public class HealthManager : MonoBehaviour
     {
         if (GodMode){
             currentHealth = maxHealth;
+            isInvincible = true;
         }
         healthBar.SetHealth(currentHealth);
         if (playerIsDead) 

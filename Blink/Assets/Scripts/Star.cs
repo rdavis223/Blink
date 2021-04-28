@@ -50,6 +50,11 @@ public class Star : MonoBehaviour
             other.transform.parent.parent.GetComponent<EnemyHealthManager>().HurtEnemy(damage, "head_shot", 2.83f);
             return;
         }
+        else if (other.tag == "EnemyBullet" || other.tag == "Bullet")
+        {
+            Destroy(other.gameObject);
+            return;
+        }
 
         else if (other.GetComponent<Collider>().gameObject.name != "Player" && other.GetComponent<Collider>().gameObject.name != "Shuriken" && (other.GetComponent<Collider>().gameObject.transform.parent == null || (other.GetComponent<Collider>().gameObject.transform.parent != null && other.GetComponent<Collider>().gameObject.transform.parent.name != "Player")))
         {

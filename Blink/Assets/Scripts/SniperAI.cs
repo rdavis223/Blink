@@ -59,7 +59,7 @@ public class SniperAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!BlinkMgr.Instance.BlinkActive)
+        if (!BlinkMgr.Instance.BlinkActive && agent.enabled)
         {
             if (stage == "moving")
             {

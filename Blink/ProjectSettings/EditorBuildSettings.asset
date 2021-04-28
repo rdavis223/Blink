@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TutorialLevel.unity
     guid: 4021baaef70ec471e95f0dc05b2b9b97
+  - enabled: 1
+    path: Assets/Scenes/Ryan's Scene.unity
+    guid: 033bfe5774ec643b1a684b49777e63a3
   m_configObjects: {}

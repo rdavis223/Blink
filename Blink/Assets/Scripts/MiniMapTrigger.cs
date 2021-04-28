@@ -12,6 +12,7 @@ public class MiniMapTrigger : MonoBehaviour
     public GameObject lastHit;
     public Vector3 collision = Vector3.zero;
     private Image objective;
+    public LayerMask layer;
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class MiniMapTrigger : MonoBehaviour
     {
         var ray = new Ray(player.transform.position, -player.transform.up);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 30))
+        if (Physics.Raycast(ray, out hit, 30, layer.value))
         {
             lastHit = hit.transform.gameObject;
             collision = hit.point;

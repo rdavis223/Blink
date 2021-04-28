@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class WinScript : MonoBehaviour
 {
     public int nextLevelIndex;
-    public int nextLevelStartFloor;
     public int nextLevelObjectiveFloor;
+    public GameObject loadScreen;
 
     public void Win()
     {
@@ -16,5 +16,18 @@ public class WinScript : MonoBehaviour
         PlayerPrefs.SetFloat("zpos", 0f);
         PlayerPrefs.SetInt("current_level", nextLevelIndex);
         PlayerPrefs.SetInt("checkpointObjectiveFloor", nextLevelObjectiveFloor);
+        loadScreen.SetActive(true);
+        StartCoroutine(LoadYourAsyncScene(nextLevelIndex));
+    }
+
+    IEnumerator LoadYourAsyncScene(int scene)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 }

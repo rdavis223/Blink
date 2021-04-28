@@ -16,7 +16,7 @@ public class GetawayCar : MonoBehaviour
     {
         if (this.transform.position.z <= 10 && mv.attachedObject.name == "Player")
         {
-            Debug.Log("Win");
+            GetComponent<WinScript>().Win();
         }
     }
 }

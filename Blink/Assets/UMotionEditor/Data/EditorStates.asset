@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1252790098, guid: 448d62fcada76fd4ab5702190add98fd, type: 3}
+  m_Name: EditorStates
+  m_EditorClassIdentifier: 
+  GeneralStates:
+    LoadedProjectGUID:
+      valueInternal: 132e522b73b59d6468fd4c7c81bd5708
+    RecentlyOpenedProjectPath:
+      valueInternal: Assets\Models\Player
+    RecentlyOpenedProjectGUIDsList:
+    - valueInternal: 132e522b73b59d6468fd4c7c81bd5708
+    - valueInternal: ea4175e6a89df5b4cab455bce0c7b2f4

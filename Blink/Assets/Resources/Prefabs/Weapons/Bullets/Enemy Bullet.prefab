@@ -81,6 +81,7 @@ MonoBehaviour:
   lifetime: 3
   bodyDamage: 0
   backDamage: 0
+  shieldCriticalDamage: 3000
   CreatorMask:
     serializedVersion: 2
     m_Bits: 1024

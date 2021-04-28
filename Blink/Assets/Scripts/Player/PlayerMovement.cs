@@ -114,14 +114,14 @@ public class PlayerMovement : MonoBehaviour
         var targetVel = new Vector3(x, 0, z);
         targetVel *= speed;
 
-        if (isSprinting && z > 0 && StaminaBar.instance.GetCurrentStamina() > 0 && !jumpSuccessful) // Only apply sprint when moving forward, not back or strafing or jumping
+        if (isSprinting && z > 0 && StaminaBar.instance?.GetCurrentStamina() > 0 && !jumpSuccessful) // Only apply sprint when moving forward, not back or strafing or jumping
         {
             targetVel.z *= sprintMultiplier;
-            StaminaBar.instance.UseStamina(true);
+            StaminaBar.instance?.UseStamina(true);
         }
         else
         {
-            StaminaBar.instance.UseStamina(false);
+            StaminaBar.instance?.UseStamina(false);
         }
 
         targetVel = transform.TransformDirection(targetVel); // Make movement relative to camera (a = left for example) - movement is in world space otherwise

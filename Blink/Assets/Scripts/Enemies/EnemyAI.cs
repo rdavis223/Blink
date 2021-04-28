@@ -112,6 +112,10 @@ public class EnemyAI : MonoBehaviour
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
+        else
+        {
+            animator.SetBool("Shooting", false);
+        }
     }
 
     public void AttackPlayerMoving()

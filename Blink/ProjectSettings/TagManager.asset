@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Cover
   - CoverPoint
+  - Fire
+  - ShieldBack
   layers:
   - Default
   - TransparentFX

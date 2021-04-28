@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     // Damage (add more variables accordingly for weakspots)
     public int bodyDamage;
     public int backDamage;
+    public int shieldCriticalDamage;
 
     public LayerMask CreatorMask; // Disallow self-collisions
     public LayerMask PlayerMask;
@@ -104,6 +105,17 @@ public class Bullet : MonoBehaviour
                 return;
             }
             other.transform.parent.parent.GetComponent<EnemyHealthManager>().HurtEnemy(backDamage, "death_from_back", 2.96f);
+            Destroy(this.gameObject);
+        }
+
+        if (other.tag == "ShieldBack")
+        {
+            LayerMask OtherMask = 1 << other.gameObject.layer;
+            if ((CreatorMask & OtherMask) == CreatorMask)
+            {
+                return;
+            }
+            other.transform.parent.parent.GetComponent<EnemyHealthManager>().HurtEnemy(shieldCriticalDamage, "death", 2.96f);
             Destroy(this.gameObject);
         }
 

@@ -775,6 +775,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Shield
       objectReference: {fileID: 0}
+    - target: {fileID: 1375281357789514168, guid: a7faa2d06e22c674c97144a6da1edef9,
+        type: 3}
+      propertyPath: maxHealth
+      value: 750
+      objectReference: {fileID: 0}
     - target: {fileID: 4713878570357206890, guid: a7faa2d06e22c674c97144a6da1edef9,
         type: 3}
       propertyPath: m_RootOrder

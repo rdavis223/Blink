@@ -14,13 +14,6 @@ public class MiniMapTrigger : MonoBehaviour
     private Image objective;
     public LayerMask layer;
 
-    void Start()
-    {
-       PlayerPrefs.SetInt("objectiveFloor", PlayerPrefs.GetInt("checkpointObjectiveFloor"));
-       PlayerPrefs.SetInt("currentObjective", PlayerPrefs.GetInt("checkpointObjectiveNum"));
-       PlayerPrefs.Save();
-    }
-
     void Update()
     {
         var ray = new Ray(player.transform.position, -player.transform.up);
@@ -30,7 +23,7 @@ public class MiniMapTrigger : MonoBehaviour
             lastHit = hit.transform.gameObject;
             collision = hit.point;
             objectiveFloor = PlayerPrefs.GetInt("objectiveFloor");
-            objective = objectives[PlayerPrefs.GetInt("currentObjective")];
+            objective = objectives[PlayerPrefs.GetInt("objectiveNum")];
 
             for (int i = 0; i < objectives.Count; i++)
             {

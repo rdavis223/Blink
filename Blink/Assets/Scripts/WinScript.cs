@@ -15,9 +15,10 @@ public class WinScript : MonoBehaviour
         PlayerPrefs.SetFloat("ypos", 0f);
         PlayerPrefs.SetFloat("zpos", 0f);
         PlayerPrefs.SetInt("current_level", nextLevelIndex);
-        PlayerPrefs.SetInt("checkpointObjectiveFloor", nextLevelObjectiveFloor);
-        PlayerPrefs.SetInt("checkpointObjectiveNum", 0);
+        PlayerPrefs.SetInt("objectiveFloor", nextLevelObjectiveFloor);
+        PlayerPrefs.SetInt("objectiveNum", 0);
         loadScreen.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
         StartCoroutine(LoadYourAsyncScene(nextLevelIndex));
     }
 

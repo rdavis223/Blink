@@ -175,6 +175,7 @@ public class SniperAI : MonoBehaviour
             alreadyAttacked = true;
             Vector3 aim = (player.transform.position - LaserPos.transform.position).normalized;
             GameObject bulletObject = Instantiate(projectile);
+            GetComponent<AudioSource>().Play();
             bulletObject.transform.rotation = projectile.transform.rotation;
             bulletObject.transform.position = LaserPos.transform.position + aim;
             bulletObject.transform.forward = aim;

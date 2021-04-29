@@ -17,6 +17,8 @@ public class GetawayCar : MonoBehaviour
         if (this.transform.position.z <= 10 && mv.attachedObject.name == "Player")
         {
             GetComponent<WinScript>().Win();
+        } else if (this.transform.position.z <=10f && mv.attachedObject == null){
+            FindObjectOfType<HealthManager>().InstantDeath(); 
         }
     }
 }

@@ -18,7 +18,7 @@ public class InteractRaycast : MonoBehaviour
             if (interactObj)
             {
                 interactObj.Hover();
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Mouse1))
                 {
                     interactObj.Interact();
                 }

@@ -496,7 +496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -116.61, y: -11.8}
+  m_AnchoredPosition: {x: -116.61, y: 19.985981}
   m_SizeDelta: {x: 233.21442, y: 365.35046}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &120577728
@@ -1361,20 +1361,24 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'shoot
 
+    scope (on sniper)
+
     reload
 
     change weapons
 
-    pick up weapons
+    pick
+    up weapons
 
-    throw
-    shuriken
+    throw shuriken
 
     return shuriken
 
     sprint
 
     slide
+
+    melee
 
 
 
@@ -1777,8 +1781,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 265, y: -14}
-  m_SizeDelta: {x: 482.41565, y: 402.34668}
+  m_AnchoredPosition: {x: 267.9, y: -29.6}
+  m_SizeDelta: {x: 488.20398, y: 433.69653}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &589255221
 MonoBehaviour:
@@ -2088,7 +2092,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 108.43, y: -11.786}
+  m_AnchoredPosition: {x: 108.43, y: 20}
   m_SizeDelta: {x: 216.8613, y: 365.3219}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &839150669
@@ -2333,6 +2337,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'left mouse click
 
+    right mouse click
+
     r
 
     e
@@ -2343,10 +2349,12 @@ MonoBehaviour:
 
     f
 
-    left shift
-
     left
-    control
+    shift
+
+    left control
+
+    tab
 
 '
   m_isRightToLeft: 0

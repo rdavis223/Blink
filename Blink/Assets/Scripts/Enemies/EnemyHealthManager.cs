@@ -113,7 +113,12 @@ public class EnemyHealthManager : MonoBehaviour
         {
             GetComponent<FieldOfView>().enabled = false;
         }
-            GetComponent<NavMeshAgent>().enabled = false;
+        if (GetComponent<SniperAI>() != null)
+        {
+            GetComponent<SniperAI>().enabled = false;
+        }
+
+        GetComponent<NavMeshAgent>().enabled = false;
         if (!this.gameObject.name.Contains("Sniper") && GetComponent<EnemyAI>().coverObj != null)
         {
             GetComponent<EnemyAI>().coverObj.GetComponent<CoverPoint>().setOccupied(false);

@@ -14,6 +14,8 @@ public class WinScript : MonoBehaviour
         PlayerPrefs.SetFloat("xpos", 0f);
         PlayerPrefs.SetFloat("ypos", 0f);
         PlayerPrefs.SetFloat("zpos", 0f);
+        PlayerPrefs.SetString("PrimaryWeapon", "");
+        PlayerPrefs.SetString("SecondaryWeapon", "");
         PlayerPrefs.SetInt("current_level", nextLevelIndex);
         PlayerPrefs.SetInt("objectiveFloor", nextLevelObjectiveFloor);
         PlayerPrefs.SetInt("objectiveNum", 0);

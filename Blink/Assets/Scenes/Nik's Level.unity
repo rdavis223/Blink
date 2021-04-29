@@ -1283,6 +1283,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -2169,6 +2174,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -3305,6 +3315,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -5187,6 +5202,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -6080,6 +6100,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -6966,6 +6991,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -8246,6 +8276,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -9227,6 +9262,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -11811,6 +11851,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sniper (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139210234568909869, guid: f7b28be1c322d4ef8809818108e4aaea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2193497007588708626, guid: f7b28be1c322d4ef8809818108e4aaea,
         type: 3}
@@ -14592,6 +14637,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -15574,6 +15624,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -16520,6 +16575,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -17406,6 +17466,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -19403,6 +19468,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -20289,6 +20359,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (42)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -21331,6 +21406,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -22016,6 +22096,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sniper (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139210234568909869, guid: f7b28be1c322d4ef8809818108e4aaea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2193497007588708626, guid: f7b28be1c322d4ef8809818108e4aaea,
         type: 3}
@@ -24378,6 +24463,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -24564,6 +24654,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sniper (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139210234568909869, guid: f7b28be1c322d4ef8809818108e4aaea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b28be1c322d4ef8809818108e4aaea, type: 3}
@@ -25543,6 +25638,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -26430,6 +26530,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -26814,6 +26919,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sniper (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139210234568909869, guid: f7b28be1c322d4ef8809818108e4aaea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2193497007588708626, guid: f7b28be1c322d4ef8809818108e4aaea,
         type: 3}
@@ -30319,6 +30429,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -32605,6 +32720,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 975036054}
+  - component: {fileID: 975036056}
+  - component: {fileID: 975036055}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -32683,6 +32800,33 @@ Transform:
   m_Father: {fileID: 1860562089}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &975036055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975036053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd7429af2dd04d3eb647114cea044d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevelIndex: 4
+  nextLevelObjectiveFloor: 0
+  loadScreen: {fileID: 1683700428}
+--- !u!114 &975036056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975036053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847444461772e4322b7828b4ab19d9ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &976143083
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -34653,6 +34797,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -36159,6 +36308,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -37141,6 +37295,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -38027,6 +38186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -38974,6 +39138,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -39201,6 +39370,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sniper (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139210234568909869, guid: f7b28be1c322d4ef8809818108e4aaea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b28be1c322d4ef8809818108e4aaea, type: 3}
@@ -40938,6 +41112,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -41883,6 +42062,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -43852,6 +44036,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -45003,6 +45192,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -45925,6 +46119,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -48648,6 +48847,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -49535,6 +49739,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -49679,6 +49888,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sniper (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139210234568909869, guid: f7b28be1c322d4ef8809818108e4aaea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b28be1c322d4ef8809818108e4aaea, type: 3}
@@ -49947,6 +50161,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 777835c48d6524c408c7aefb29d8bd71, type: 3}
+--- !u!1 &1683700428 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1470590288015408780, guid: 777835c48d6524c408c7aefb29d8bd71,
+    type: 3}
+  m_PrefabInstance: {fileID: 1683700427}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1685878494
 GameObject:
   m_ObjectHideFlags: 0
@@ -51058,6 +51278,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -51987,6 +52212,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -52873,6 +53103,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -54129,6 +54364,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -55113,6 +55353,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -57650,6 +57895,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -58804,6 +59054,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -59786,6 +60041,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -60731,6 +60991,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -61780,6 +62045,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -62666,6 +62936,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
@@ -64405,6 +64680,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 8331590005564436378, guid: 47d24e2008a864f1faef45975cd51cd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749290114473733901, guid: 47d24e2008a864f1faef45975cd51cd9,
         type: 3}
       propertyPath: sight
@@ -64875,6 +65155,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sniper
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139210234568909869, guid: f7b28be1c322d4ef8809818108e4aaea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2193497007588708626, guid: f7b28be1c322d4ef8809818108e4aaea,
         type: 3}

@@ -18,18 +18,18 @@ public class WinScript : MonoBehaviour
         PlayerPrefs.SetFloat("zpos", 0f);
         PlayerPrefs.SetString("PrimaryWeapon", "");
         PlayerPrefs.SetString("SecondaryWeapon", "");
-        
+
         if (lastLevel)
         {
-            PlayerPrefs.SetInt("current_level", 1);
-            PlayerPrefs.SetInt("objectiveFloor", 0);
-            PlayerPrefs.SetInt("objectiveNum", 0);
+            PlayerPrefs.DeleteAll();
             SceneManager.LoadScene(0);
         }
-
-        PlayerPrefs.SetInt("current_level", nextLevelIndex);
-        PlayerPrefs.SetInt("objectiveFloor", nextLevelObjectiveFloor);
-        PlayerPrefs.SetInt("objectiveNum", 0);
+        else
+        {
+            PlayerPrefs.SetInt("current_level", nextLevelIndex);
+            PlayerPrefs.SetInt("objectiveFloor", nextLevelObjectiveFloor);
+            PlayerPrefs.SetInt("objectiveNum", 0);
+        }
         loadScreen.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         StartCoroutine(LoadYourAsyncScene(nextLevelIndex));

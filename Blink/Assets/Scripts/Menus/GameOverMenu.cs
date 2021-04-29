@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameOverMenu : MonoBehaviour
 {
+    public int sceneIndex;
     // Restart the game if the player presses restart
     public void Continue() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneIndex);
     }
 
     // Go to main menu

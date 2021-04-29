@@ -20139,6 +20139,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1646709744, guid: 0fd4c0f1984c7d4438dfdfc7817e30b8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.836
+      objectReference: {fileID: 0}
     - target: {fileID: 9046096373160528184, guid: 0fd4c0f1984c7d4438dfdfc7817e30b8,
         type: 3}
       propertyPath: blinkOverlay

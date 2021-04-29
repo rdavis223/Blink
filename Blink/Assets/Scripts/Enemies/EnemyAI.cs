@@ -37,6 +37,8 @@ public class EnemyAI : MonoBehaviour
 
     public GameObject shootPoint;
 
+    public bool isHit;
+
     private void Start()
     {
         
@@ -71,13 +73,13 @@ public class EnemyAI : MonoBehaviour
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
-            agent.SetDestination(walkPoint);
+                agent.SetDestination(walkPoint);
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        // Walkpoint reached
+            // Walkpoint reached
         if (distanceToWalkPoint.magnitude < 2f)
-            walkPointSet = false;
+                walkPointSet = false;
     }
 
     public void SearchWalkPoint()
@@ -104,31 +106,36 @@ public class EnemyAI : MonoBehaviour
 
     public void ChasePlayer()
     {
-        agent.SetDestination(enemyLookPoint.transform.position);
-        transform.LookAt(enemyLookPoint.transform.position);
-        agent.transform.LookAt(enemyLookPoint.transform.position);
+        if (!isHit)
+        {
+            agent.SetDestination(enemyLookPoint.transform.position);
+            transform.LookAt(enemyLookPoint.transform.position);
+            agent.transform.LookAt(enemyLookPoint.transform.position);
+        }
     }
 
     public void AttackPlayer()
     {
-        agent.SetDestination(transform.position);
-
-        transform.LookAt(enemyLookPoint.transform.position);
-        agent.transform.LookAt(enemyLookPoint.transform.position);
-
-        if (!alreadyAttacked)
+        if (!isHit)
         {
-            // Attack code here
-            GetComponent<AudioSource>().Play();
-            animator.Play("Shooting");
-            Vector3 aim = (player.position - shootPoint.transform.position).normalized;
-            GameObject bulletObject = Instantiate(projectile);
-            bulletObject.transform.rotation = projectile.transform.rotation;
-            bulletObject.transform.position = shootPoint.transform.position; 
-            bulletObject.transform.forward = aim;          
-            alreadyAttacked = true;
-            //Level.BroadcastMessage("HearGunshots", this.transform.position);
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            agent.SetDestination(transform.position);
+
+            transform.LookAt(enemyLookPoint.transform.position);
+            agent.transform.LookAt(enemyLookPoint.transform.position);
+
+            if (!alreadyAttacked)
+            {
+                // Attack code here
+                GetComponent<AudioSource>().Play();
+                Vector3 aim = (player.position - shootPoint.transform.position).normalized;
+                GameObject bulletObject = Instantiate(projectile);
+                bulletObject.transform.rotation = projectile.transform.rotation;
+                bulletObject.transform.position = shootPoint.transform.position;
+                bulletObject.transform.forward = aim;
+                alreadyAttacked = true;
+                //Level.BroadcastMessage("HearGunshots", this.transform.position);
+                Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            }
         }
     }
 

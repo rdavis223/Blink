@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ryan's Scene.unity
     guid: 033bfe5774ec643b1a684b49777e63a3
+  - enabled: 1
+    path: Assets/Scenes/Nik's Level.unity
+    guid: 1ee01060548e7d949867d4f0c376900e
   m_configObjects: {}

@@ -112,7 +112,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2907861992260864236}
-  m_Text: Enter to interact
+  m_Text: Right Click to interact
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1

@@ -9,6 +9,8 @@ public class WinScript : MonoBehaviour
     public int nextLevelObjectiveFloor;
     public GameObject loadScreen;
 
+    public bool lastLevel;
+
     public void Win()
     {
         PlayerPrefs.SetFloat("xpos", 0f);
@@ -16,6 +18,15 @@ public class WinScript : MonoBehaviour
         PlayerPrefs.SetFloat("zpos", 0f);
         PlayerPrefs.SetString("PrimaryWeapon", "");
         PlayerPrefs.SetString("SecondaryWeapon", "");
+        
+        if (lastLevel)
+        {
+            PlayerPrefs.SetInt("current_level", 1);
+            PlayerPrefs.SetInt("objectiveFloor", 0);
+            PlayerPrefs.SetInt("objectiveNum", 0);
+            SceneManager.LoadScene(0);
+        }
+
         PlayerPrefs.SetInt("current_level", nextLevelIndex);
         PlayerPrefs.SetInt("objectiveFloor", nextLevelObjectiveFloor);
         PlayerPrefs.SetInt("objectiveNum", 0);

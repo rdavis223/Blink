@@ -18,7 +18,7 @@ LightingSettings:
   m_UsingShadowmask: 0
   m_BakeBackend: 2
   m_LightmapMaxSize: 512
-  m_BakeResolution: 2
+  m_BakeResolution: 0.5
   m_Padding: 10
   m_TextureCompression: 1
   m_AO: 1
@@ -32,7 +32,7 @@ LightingSettings:
   m_LightmapParameters: {fileID: 0}
   m_ExportTrainingData: 0
   m_TrainingDataDestination: TrainingData
-  m_RealtimeResolution: 2
+  m_RealtimeResolution: 0.5
   m_ForceWhiteAlbedo: 0
   m_ForceUpdates: 0
   m_FinalGather: 0
@@ -40,9 +40,9 @@ LightingSettings:
   m_FinalGatherFiltering: 1
   m_PVRCulling: 0
   m_PVRSampling: 1
-  m_PVRDirectSampleCount: 32
-  m_PVRSampleCount: 512
-  m_PVREnvironmentSampleCount: 122
+  m_PVRDirectSampleCount: 5
+  m_PVRSampleCount: 29
+  m_PVREnvironmentSampleCount: 33
   m_PVREnvironmentReferencePointCount: 2048
   m_LightProbeSampleCountMultiplier: 4
   m_PVRBounces: 2

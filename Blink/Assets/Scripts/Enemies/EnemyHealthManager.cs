@@ -19,8 +19,6 @@ public class EnemyHealthManager : MonoBehaviour
 
     public GameObject healthbox;
 
-    public GameObject blood;
-
     public GameObject ammobox;
 
     public static int deathCounter = 0;
@@ -71,8 +69,7 @@ public class EnemyHealthManager : MonoBehaviour
         else
         {
             anim.Play("Hit");
-            blood.SetActive(true);
-            StartCoroutine(HitAnimationCoroutine(2.053f));
+            StartCoroutine(HitAnimationCoroutine(2.283f));
         }
         
     }
@@ -99,8 +96,6 @@ public class EnemyHealthManager : MonoBehaviour
 
     private IEnumerator HitAnimationCoroutine(float hitAnimTime)
     {
-        yield return new WaitForSeconds(0.25f);
-        blood.SetActive(false);
         yield return new WaitForSeconds(hitAnimTime);
         anim.SetBool("Hit", false);
     }

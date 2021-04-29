@@ -11,6 +11,8 @@ public class Interactable : MonoBehaviour
     private bool isEnabled = false;
     private bool canInteract = true;
     private float interactCooldown = 1.5f;
+    private float hoverCooldown = 5f;
+    public GameObject hoverEnable;
 
     public void Start()
     {
@@ -22,6 +24,19 @@ public class Interactable : MonoBehaviour
         if (onDisable == null)
         {
             onDisable = new UnityEvent();
+        }
+        if (hoverEnable != null)
+        {
+            hoverEnable.SetActive(false);
+        }
+    }
+
+    public void Hover()
+    {
+        if (hoverEnable != null)
+        {
+            hoverEnable.SetActive(true);
+            Invoke(nameof(ResetPopup), hoverCooldown);
         }
     }
 
@@ -63,5 +78,13 @@ public class Interactable : MonoBehaviour
     private void ResetInteract()
     {
         canInteract = true;
+    }
+
+    private void ResetPopup()
+    {
+        if (hoverEnable != null)
+        {
+            hoverEnable.SetActive(false);
+        }
     }
 }

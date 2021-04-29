@@ -12,6 +12,9 @@ TagManager:
   - Bullet
   - Fire
   - ShieldBack
+  - Bullet
+  - EnemyBullet
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -29,6 +32,9 @@ TagManager:
   - MiniMap
   - Coverpoint
   - BG
+  - Interact
+  - 
+  - 
   - 
   - 
   - 

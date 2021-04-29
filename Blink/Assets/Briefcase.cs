@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Briefcase : MonoBehaviour
 {
-    public int nextObjectiveFloor;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +22,6 @@ public class Briefcase : MonoBehaviour
         {
             this.transform.parent.gameObject.GetComponent<EscapeController>().ObjectiveCollected();
             PlayerPrefs.SetInt("currentObjective", 1);
-            PlayerPrefs.SetInt("objectiveFloor", nextObjectiveFloor);
         }
     }
 }

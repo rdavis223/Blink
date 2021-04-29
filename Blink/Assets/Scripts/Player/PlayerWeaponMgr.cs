@@ -30,6 +30,14 @@ public class PlayerWeaponMgr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        string primaryName = PlayerPrefs.GetString("PrimaryWeapon");
+        string secondaryName = PlayerPrefs.GetString("SecondaryWeapon");
+
+        if (primaryName != "" && secondaryName != ""){
+            primaryPrefab = Resources.Load<GameObject>("Prefabs/Weapons/Guns/" + primaryName);
+            secondaryPrefab = Resources.Load<GameObject>("Prefabs/Weapons/Guns/" + secondaryName);
+        }
+
         initalizeWeapon(ref primaryPrefab, ref primary, true); 
         currentSelectedWeapon = primary;     
         if (secondaryPrefab != null){

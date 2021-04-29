@@ -104,10 +104,6 @@ public class EnemyHealthManager : MonoBehaviour
 
     private void DisableMovement()
     {
-        if (GetComponent<EnemyAI>() != null)
-        {
-            GetComponent<EnemyAI>().enabled = false;
-        }
 
         if (GetComponent<FieldOfView>() != null)
         {

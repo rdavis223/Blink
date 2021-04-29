@@ -336,6 +336,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 dir = cam.transform.forward;
         Vector3 pos = climbHeight.position;
+        pos = new Vector3(pos.x - 0.2f, pos.y, pos.z); // For if the player is clipping in the wall
         Vector3 obstruction_pos = new Vector3(pos.x, pos.y + .4f, pos.z);
         dir.y = 0;
         Debug.DrawLine(pos, pos + dir * 0.65f, Color.red);

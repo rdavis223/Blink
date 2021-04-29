@@ -12,7 +12,7 @@ public class MovingPlatform : MonoBehaviour
     private float TimeWaited;
     private float SnappingDistance;
 
-    private GameObject attachedObject;
+    public GameObject attachedObject;
 
     public bool enterCalled = false;
 

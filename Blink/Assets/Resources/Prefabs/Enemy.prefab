@@ -1087,6 +1087,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   walkPoint: {x: 0, y: 0, z: 0}
+  walkPointSet: 0
   walkPointRange: 5
   timeBetweenAttacks: 1
   projectile: {fileID: 55615933790556961, guid: be32fa1c1e8e1408fb049c84faaad1d9,
@@ -1094,6 +1095,7 @@ MonoBehaviour:
   meleeDamage: 30
   attackDelay: 2.167
   enemyLookPoint: {fileID: 0}
+  Level: {fileID: 0}
   sightRange: 40
   attackRange: 30
   meleeRange: 3
@@ -1183,6 +1185,7 @@ MonoBehaviour:
   enemy: {fileID: 8331590005029714370}
   enemyHealth: {fileID: 466121120873315521}
   playerSpotted: 0
+  forcePatrol: 0
 --- !u!82 &-2907848929049051177
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1195,7 +1198,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9078ad118530a48de899cde25a4a77d0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0

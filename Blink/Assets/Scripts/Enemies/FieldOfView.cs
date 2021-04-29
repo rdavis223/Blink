@@ -251,7 +251,7 @@ public class FieldOfView : MonoBehaviour
     public void HearGunshots(Vector3 shotPos)
     {
         float distanceToShotPos = Vector3.Distance(shotPos, this.transform.position);
-        if (distanceToShotPos < enemy.sightRange && isLocationInSight(shotPos) && !playerSpotted)
+        if (distanceToShotPos < enemy.sightRange && isLocationInSight(shotPos) && !playerSpotted && enemy.agent.enabled && !BlinkMgr.Instance.BlinkActive)
         {
             enemy.SetWalkPoint(shotPos);
             enemy.animator.SetBool("Chasing", false);

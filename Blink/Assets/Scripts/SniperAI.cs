@@ -59,10 +59,23 @@ public class SniperAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (!BlinkMgr.Instance.BlinkActive)
+        {
+            agent.enabled = true;
+            anim.enabled = true;
+        }
+        else
+        {
+            agent.enabled = false;
+            anim.enabled = false;
+        }
+
         if (!BlinkMgr.Instance.BlinkActive && agent.enabled)
         {
             if (stage == "moving")
             {
+                Laser.enabled = false;
                 anim.SetTrigger("Walk");
                 if (Mathf.Approximately(this.transform.position.x, Points[currentPoint].x) && Mathf.Approximately(this.transform.position.z, Points[currentPoint].z) && (this.transform.position.y - Points[currentPoint].y < 1 || this.transform.position.y - Points[currentPoint].y > -1))
                 {
@@ -77,6 +90,7 @@ public class SniperAI : MonoBehaviour
             else if (stage == "scanning")
             {
                 anim.SetTrigger("Idle");
+                Laser.enabled = false;
                 if (!rotationSet)
                 {
                     rotationCompleted = 0f;
@@ -188,7 +202,7 @@ public class SniperAI : MonoBehaviour
     public void HearGunshots(Vector3 shotPos)
     {
         float distanceToShotPos = Vector3.Distance(shotPos, this.transform.position);
-        if (distanceToShotPos < sightRange && stage != "attack")
+        if (distanceToShotPos < sightRange && stage != "attack" && agent.enabled && !BlinkMgr.Instance.BlinkActive)
         {
             transform.LookAt(shotPos);
             agent.transform.LookAt(shotPos);

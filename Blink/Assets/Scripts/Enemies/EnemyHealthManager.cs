@@ -104,6 +104,16 @@ public class EnemyHealthManager : MonoBehaviour
 
     private void DisableMovement()
     {
+
+        if (GetComponent<FieldOfView>() != null)
+        {
+            GetComponent<FieldOfView>().enabled = false;
+        }
+        if (GetComponent<SniperAI>() != null)
+        {
+            GetComponent<SniperAI>().enabled = false;
+        }
+
         GetComponent<NavMeshAgent>().enabled = false;
         if (!this.gameObject.name.Contains("Sniper") && GetComponent<EnemyAI>().coverObj != null)
         {

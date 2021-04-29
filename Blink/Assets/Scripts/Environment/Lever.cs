@@ -9,6 +9,7 @@ public class Lever : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
+        anim.Play("Disable");
     }
 
     public void Enable()

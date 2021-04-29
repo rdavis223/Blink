@@ -5,16 +5,24 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public Transform playerRespawnPosition;
-    public int checkpointObjectiveFloor;
-    public int checkpointObjectiveNum;
 
-    public void SetSpawnPosition()
+    public GameObject WeaponHandler;
+    private void Start()
     {
-        PlayerPrefs.SetFloat("xpos", playerRespawnPosition.position.x);
-        PlayerPrefs.SetFloat("ypos", playerRespawnPosition.position.y);
-        PlayerPrefs.SetFloat("zpos", playerRespawnPosition.position.z);
-        PlayerPrefs.SetInt("checkpointObjectiveFloor", checkpointObjectiveFloor);
-        PlayerPrefs.SetInt("checkpointObjectiveNum", checkpointObjectiveNum);
+        WeaponHandler = GameObject.Find("WeaponHandler");
+    }
+
+    public void SetSpawnPosition(Vector3 playerPos)
+    {
+        //PlayerPrefs.SetFloat("xpos", playerRespawnPosition.position.x);
+        //PlayerPrefs.SetFloat("ypos", playerRespawnPosition.position.y);
+        //PlayerPrefs.SetFloat("zpos", playerRespawnPosition.position.z);
+
+        PlayerPrefs.SetFloat("xpos", playerPos.x);
+        PlayerPrefs.SetFloat("ypos", playerPos.y);
+        PlayerPrefs.SetFloat("zpos", playerPos.z);
+        PlayerPrefs.SetString("PrimaryWeapon", WeaponHandler.transform.GetChild(0).gameObject.name.Replace("(Clone)", ""));
+        PlayerPrefs.SetString("SecondaryWeapon", WeaponHandler.transform.GetChild(1).gameObject.name.Replace("(Clone)", ""));
         PlayerPrefs.Save();
     }
 
@@ -23,7 +31,7 @@ public class Checkpoint : MonoBehaviour
         Debug.Log("trigger");
         if (other.tag == "Player")
         {
-            SetSpawnPosition();
+            SetSpawnPosition(other.gameObject.transform.position);
             Debug.Log("checkpoint set");
         }
     }

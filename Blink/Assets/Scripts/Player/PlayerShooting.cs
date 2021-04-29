@@ -167,7 +167,7 @@ public class PlayerShooting : MonoBehaviour
                     fireTimer = fireRate;
                 }
                 shootSound.Play();
-                Level.BroadcastMessage("HearGunshots", this.transform.position);
+                Level?.BroadcastMessage("HearGunshots", this.transform.position);
                 if (fireStyle == "spread"){
                     int i = 0;
                     while (i < numBullets){

@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
         CheckParkourRays();
         Move();
         StepClimb();
-        //Parkour();
+        Parkour();
         Slide();
         Jump();
     }
@@ -253,7 +253,7 @@ public class PlayerMovement : MonoBehaviour
             t_parkour = 0;
         }
 
-        if (canClimb && x > 0)
+        if (canClimb && isJumping)
         {
             from = transform.position;
             to = transform.position + transform.TransformDirection(climbTo);
@@ -263,7 +263,7 @@ public class PlayerMovement : MonoBehaviour
             movementOverride = true;
             t_parkour = 0;
         }
-        while (isVaulting)
+        if (isVaulting)
         {
             //animator.CrossFade("Vault", 0.1f);
             t_parkour += Time.deltaTime / timeToVault;
@@ -276,7 +276,7 @@ public class PlayerMovement : MonoBehaviour
             }
             transform.position = Vector3.Lerp(from, to, t_parkour);
         }
-        while (isClimbing)
+        if (isClimbing)
         {
             print("climbing");
             //animator.CrossFade("Climb", 0.1f);

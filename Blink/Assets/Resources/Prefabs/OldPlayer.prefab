@@ -692,8 +692,8 @@ MonoBehaviour:
   stepRayHigher: {fileID: 7207772427404968937}
   stepHeight: 0.4
   stepSmooth: 0.1
-  timeToVault: 2
-  timeToClimb: 4
+  timeToVault: 0.4
+  timeToClimb: 1.2
   runningAudio: {fileID: 9046096373401496779}
   jumpingAudio: {fileID: 9046096373872481152}
   whatIsGround:
@@ -702,8 +702,8 @@ MonoBehaviour:
   cam: {fileID: 9046096373031686253}
   vaultHeight: {fileID: 1401520724816578945}
   climbHeight: {fileID: 50598378641330915}
-  vaultTo: {x: 0, y: 0.11, z: 1}
-  climbTo: {x: 0, y: 2.5, z: 0.2}
+  vaultTo: {x: 0, y: 0.4, z: 2.5}
+  climbTo: {x: 0, y: 3.6, z: 1.3}
   slopeSpeed: 50
 --- !u!136 &9046096373160528182
 CapsuleCollider:

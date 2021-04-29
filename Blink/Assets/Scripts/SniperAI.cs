@@ -202,7 +202,7 @@ public class SniperAI : MonoBehaviour
     public void HearGunshots(Vector3 shotPos)
     {
         float distanceToShotPos = Vector3.Distance(shotPos, this.transform.position);
-        if (distanceToShotPos < sightRange && stage != "attack")
+        if (distanceToShotPos < sightRange && stage != "attack" && agent.enabled && !BlinkMgr.Instance.BlinkActive)
         {
             transform.LookAt(shotPos);
             agent.transform.LookAt(shotPos);

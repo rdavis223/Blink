@@ -1104,6 +1104,7 @@ MonoBehaviour:
   playerInMeleeRange: 0
   coverObj: {fileID: 0}
   shootPoint: {fileID: 6892717725271871826}
+  isHit: 0
 --- !u!195 &8331590005029714369
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1159,6 +1160,7 @@ MonoBehaviour:
   effect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
   healthbox: {fileID: 1130069014666292499, guid: 4d1ce7da682834fb78ca269f83fb2a35,
     type: 3}
+  blood: {fileID: 0}
   ammobox: {fileID: 5048250108046825381, guid: 5ae8e5ff29f08427e9ec404cf33a7b5f, type: 3}
 --- !u!114 &8749290114473733901
 MonoBehaviour:

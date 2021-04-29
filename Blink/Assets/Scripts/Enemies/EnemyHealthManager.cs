@@ -62,15 +62,17 @@ public class EnemyHealthManager : MonoBehaviour
 
         }
 
-        anim.Play("Hit");
-        blood.SetActive(true);
-        StartCoroutine(HitAnimationCoroutine(2.053f));
-   
         if (currentHealth <= 0)
         {
             anim.Play(animationName);
             StartCoroutine(DeathAnimationCoroutine(deathAnimTime));
             DisableMovement();
+        }
+        else
+        {
+            anim.Play("Hit");
+            blood.SetActive(true);
+            StartCoroutine(HitAnimationCoroutine(2.053f));
         }
         
     }
@@ -93,7 +95,6 @@ public class EnemyHealthManager : MonoBehaviour
         //Debug.Log("Death");
         Destroy(deathEffect, 2);
         deathCounter++;
-        Debug.Log(deathCounter);
     }
 
     private IEnumerator HitAnimationCoroutine(float hitAnimTime)

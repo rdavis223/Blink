@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6528374294232450110}
-  m_Layer: 12
+  m_Layer: 16
   m_Name: DEFBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6525057924749357332}
-  m_Layer: 12
+  m_Layer: 16
   m_Name: Lever5Bones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 6120030991619314400}
   - component: {fileID: 6120030991619314402}
   - component: {fileID: 6120030991619314401}
-  m_Layer: 12
+  m_Layer: 16
   m_Name: Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6354541772727971724}
-  m_LocalRotation: {x: -0.49997282, y: 0.5000258, z: -0.49997425, w: 0.50002724}
+  m_LocalRotation: {x: -0.4999738, y: 0.5000262, z: -0.4999738, w: 0.5000262}
   m_LocalPosition: {x: -3.5, y: 1, z: 37.000023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -218,7 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1108827649098248120}
-  m_Layer: 12
+  m_Layer: 16
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4559056983604415813}
   - component: {fileID: 6851862911805191880}
-  m_Layer: 12
+  m_Layer: 16
   m_Name: Lever5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8455706538002211547}
   m_LocalRotation: {x: -4.32978e-17, y: 0.7071067, z: 0.7071068, w: -4.3297806e-17}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.000000029802322, y: -0.0000009553173, z: -0.33390763}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6008944018659259702}
@@ -335,7 +335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1648252555824371824}
-  m_Layer: 12
+  m_Layer: 16
   m_Name: DEFLever
   m_TagString: Untagged
   m_Icon: {fileID: 0}

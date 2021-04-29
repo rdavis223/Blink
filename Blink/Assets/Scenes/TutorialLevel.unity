@@ -30723,7 +30723,7 @@ GameObject:
   - component: {fileID: 1424620049}
   - component: {fileID: 1424620048}
   - component: {fileID: 1424620047}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall (14)
   m_TagString: Cover
   m_Icon: {fileID: 0}
@@ -31989,7 +31989,7 @@ GameObject:
   - component: {fileID: 1477412818}
   - component: {fileID: 1477412817}
   - component: {fileID: 1477412816}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall (11)
   m_TagString: Cover
   m_Icon: {fileID: 0}

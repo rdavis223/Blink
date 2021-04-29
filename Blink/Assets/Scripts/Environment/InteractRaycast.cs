@@ -15,9 +15,13 @@ public class InteractRaycast : MonoBehaviour
         if(Physics.Raycast(transform.position, forward, out RaycastHit hit, raycastLength, whatIsInteract))
         {
             Interactable interactObj = hit.transform.gameObject.GetComponent<Interactable>();
-            if (Input.GetKeyDown(KeyCode.Return) && interactObj)
+            if (interactObj)
             {
-                interactObj.Interact();
+                interactObj.Hover();
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    interactObj.Interact();
+                }
             }
         }
     }

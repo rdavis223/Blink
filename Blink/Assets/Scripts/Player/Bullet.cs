@@ -130,7 +130,7 @@ public class Bullet : MonoBehaviour
             {
                 return;
             }
-            other.transform.parent.parent.GetComponent<EnemyHealthManager>().HurtEnemy(shieldCriticalDamage, "death", 2.96f);
+            other.transform.parent.parent.GetComponent<EnemyHealthManager>()?.HurtEnemy(shieldCriticalDamage, "death", 2.96f);
             Destroy(this.gameObject);
         }
 

@@ -39,6 +39,8 @@ public class EnemyAI : MonoBehaviour
 
     public bool isHit;
 
+    private EnemyHealthManager healthManager;
+
     private void Start()
     {
         
@@ -50,6 +52,7 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         Level = GameObject.Find("Level");
+        healthManager = GetComponent<EnemyHealthManager>();
     }
 
     private void Update()
@@ -64,6 +67,11 @@ public class EnemyAI : MonoBehaviour
         {
             agent.enabled = false;
             animator.enabled = false;
+        }
+
+        if (healthManager.currentHealth <= 0)
+        {
+            agent.enabled = false;
         }
     }
         

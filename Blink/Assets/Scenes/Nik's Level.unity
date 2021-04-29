@@ -31981,6 +31981,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6cbb8edf0248d54caf547cd968dc169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &843307113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3653254340378960991, guid: 777835c48d6524c408c7aefb29d8bd71,
+    type: 3}
+  m_PrefabInstance: {fileID: 1683700427}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &843794821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72011,7 +72017,7 @@ PrefabInstance:
         type: 3}
       propertyPath: blinkOverlay
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 843307113}
     - target: {fileID: 5095468102963213250, guid: 3b733fb617d8a409498051d5a4d8c74d,
         type: 3}
       propertyPath: m_RootOrder

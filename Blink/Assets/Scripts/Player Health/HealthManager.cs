@@ -46,11 +46,11 @@ public class HealthManager : MonoBehaviour
 
     void Update()
     {
-        /*if (GodMode)
+        if (GodMode)
         {
             currentHealth = maxHealth;
             isInvincible = true;
-        }*/
+        }
         healthBar.SetHealth(currentHealth);
         if (playerIsDead) 
         {

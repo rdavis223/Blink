@@ -75,6 +75,7 @@ public class SniperAI : MonoBehaviour
         {
             if (stage == "moving")
             {
+                Laser.enabled = false;
                 anim.SetTrigger("Walk");
                 if (Mathf.Approximately(this.transform.position.x, Points[currentPoint].x) && Mathf.Approximately(this.transform.position.z, Points[currentPoint].z) && (this.transform.position.y - Points[currentPoint].y < 1 || this.transform.position.y - Points[currentPoint].y > -1))
                 {
@@ -89,6 +90,7 @@ public class SniperAI : MonoBehaviour
             else if (stage == "scanning")
             {
                 anim.SetTrigger("Idle");
+                Laser.enabled = false;
                 if (!rotationSet)
                 {
                     rotationCompleted = 0f;

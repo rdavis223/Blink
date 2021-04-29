@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3210129840461697341}
   - component: {fileID: 3210129840461697350}
   m_Layer: 8
-  m_Name: Moving Platform
+  m_Name: Moving Platform No Killbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,6 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Points: []
   WillWait: 1
+  attachedObject: {fileID: 0}
+  enterCalled: 0
   Speed: 15
   PointWaitingTime: 1
 --- !u!65 &3210129840461697350

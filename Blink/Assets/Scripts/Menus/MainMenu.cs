@@ -5,8 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
+    
     private int level_index;
     private float x;
+
+
+    private void Start()
+    {
+        if (PlayerPrefs.GetInt("current_level") == 0)
+        {
+            GameObject.Find("Continue").SetActive(false);
+        }
+    }
     // Play
     public void Play() {
 
@@ -15,7 +26,18 @@ public class MainMenu : MonoBehaviour
         if (level_index == 0)
         {
             level_index = 1;
+            PlayerPrefs.SetInt("current_level", 1);
+
         }
+        StartCoroutine(LoadYourAsyncScene(level_index));
+    }
+
+
+    public void NewGame()
+    {
+        PlayerPrefs.DeleteAll();
+        level_index = 1;
+        PlayerPrefs.SetInt("current_level", 1);
         StartCoroutine(LoadYourAsyncScene(level_index));
     }
 

@@ -48,6 +48,11 @@ public class Star : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         Damageable damageable = other.gameObject.GetComponent<Damageable>();
+        if (other.tag == "Shield")
+        {
+            return;
+        }
+
         if (other.tag == "Enemy")
         {
             if (other.name.Contains("Sniper"))

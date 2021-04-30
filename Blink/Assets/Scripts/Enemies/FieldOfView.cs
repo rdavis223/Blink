@@ -58,7 +58,7 @@ public class FieldOfView : MonoBehaviour
                 }
                 if (!(enemyHealth.currentHealth <= 0))
                 {
-                    if (takingDamage)
+                    if (takingDamage && !this.gameObject.name.Contains("Shield"))
                     {
                         playerSpotted = true;
                         if (!targetCoverSet)

@@ -80,6 +80,12 @@ public class Bullet : MonoBehaviour
             {
                 return;
             }
+            if (other.name.Contains("Shield"))
+            {
+                Destroy(this.gameObject);
+                return;
+            }
+
             if (other.name.Contains("Sniper"))
             {
                 other.GetComponent<EnemyHealthManager>().HurtEnemy(bodyDamage, "Death_from_front", 3.433f);

@@ -48,18 +48,41 @@ public class Star : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         Damageable damageable = other.gameObject.GetComponent<Damageable>();
+        if (other.tag == "Shield")
+        {
+            return;
+        }
+
         if (other.tag == "Enemy")
         {
-            other.GetComponent<EnemyHealthManager>().HurtEnemy(damage, "death_from_front", 4.33f);
+            if (other.name.Contains("Sniper"))
+            {
+                other.GetComponent<EnemyHealthManager>().HurtEnemy(damage, "Death_from_front", 3.433f);
+            }
+            else
+            {
+                other.GetComponent<EnemyHealthManager>().HurtEnemy(damage, "death_from_front", 4.33f);
+            }
             hitSound.Play();
             return;
         } else
 
         if (other.tag =="EnemyHead")
         {
-            other.transform.parent.parent.GetComponent<EnemyHealthManager>().HurtEnemy(damage, "head_shot", 2.83f);
+            if (other.name.Contains("Sniper"))
+            {
+                other.transform.parent.parent.parent.GetComponent<EnemyHealthManager>().InstantDeath("death_from_front_headshot", 2.83f);
+
+            }
+            else
+            {
+                other.transform.parent.parent.GetComponent<EnemyHealthManager>().InstantDeath("head_shot", 2.83f);
+            }
             hitSound.Play();
             return;
+        } else if (other.tag == "ShieldBack")
+        {
+            other.transform.parent.parent.GetComponent<EnemyHealthManager>()?.HurtEnemy(3000, "death", 2.96f);
         }
         else if (other.tag == "EnemyBullet" || other.tag == "Bullet")
         {

@@ -14,9 +14,11 @@ public class GetawayCar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.position.z <= 10 && mv.attachedObject.name == "Player")
+        if (this.transform.position.z <= 10 && mv.attachedObject != null && mv.attachedObject.name == "Player")
         {
             GetComponent<WinScript>().Win();
+        } else if (this.transform.position.z <=10f && mv.attachedObject == null){
+            FindObjectOfType<HealthManager>().InstantDeath(); 
         }
     }
 }

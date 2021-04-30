@@ -46,6 +46,9 @@ public class HealthManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.I) && Input.GetKeyDown(KeyCode.O) && Input.GetKeyDown(KeyCode.P)){
+            GodMode = !GodMode;
+        }
         if (GodMode){
             currentHealth = maxHealth;
             isInvincible = true;

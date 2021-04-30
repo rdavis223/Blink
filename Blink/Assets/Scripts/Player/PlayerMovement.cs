@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
         CheckParkourRays();
         Move();
         StepClimb();
-        //Parkour();
+        Parkour();
         Slide();
         Jump();
     }
@@ -253,7 +253,7 @@ public class PlayerMovement : MonoBehaviour
             t_parkour = 0;
         }
 
-        if (canClimb && x > 0)
+        if (canClimb && isJumping)
         {
             from = transform.position;
             to = transform.position + transform.TransformDirection(climbTo);
@@ -263,7 +263,7 @@ public class PlayerMovement : MonoBehaviour
             movementOverride = true;
             t_parkour = 0;
         }
-        while (isVaulting)
+        if (isVaulting)
         {
             //animator.CrossFade("Vault", 0.1f);
             t_parkour += Time.deltaTime / timeToVault;
@@ -276,7 +276,7 @@ public class PlayerMovement : MonoBehaviour
             }
             transform.position = Vector3.Lerp(from, to, t_parkour);
         }
-        while (isClimbing)
+        if (isClimbing)
         {
             print("climbing");
             //animator.CrossFade("Climb", 0.1f);
@@ -336,6 +336,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 dir = cam.transform.forward;
         Vector3 pos = climbHeight.position;
+        pos = new Vector3(pos.x - 0.2f, pos.y, pos.z); // For if the player is clipping in the wall
         Vector3 obstruction_pos = new Vector3(pos.x, pos.y + .4f, pos.z);
         dir.y = 0;
         Debug.DrawLine(pos, pos + dir * 0.65f, Color.red);

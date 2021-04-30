@@ -19,7 +19,9 @@ public class EnemyHealthManager : MonoBehaviour
 
     public GameObject healthbox;
 
-    public GameObject ammobox; 
+    public GameObject ammobox;
+
+    public static int deathCounter = 0;
   
     void Start()
     {
@@ -57,13 +59,19 @@ public class EnemyHealthManager : MonoBehaviour
             this.gameObject.GetComponent<FieldOfView>().SetTakingDamage();
 
         }
+
         if (currentHealth <= 0)
         {
-
             anim.Play(animationName);
             StartCoroutine(DeathAnimationCoroutine(deathAnimTime));
             DisableMovement();
         }
+        else
+        {
+            anim.Play("Hit");
+            StartCoroutine(HitAnimationCoroutine(2.283f));
+        }
+        
     }
 
     public void InstantDeath(string animationName, float deathAnimTime)
@@ -83,6 +91,13 @@ public class EnemyHealthManager : MonoBehaviour
         Destroy(gameObject);
         //Debug.Log("Death");
         Destroy(deathEffect, 2);
+        deathCounter++;
+    }
+
+    private IEnumerator HitAnimationCoroutine(float hitAnimTime)
+    {
+        yield return new WaitForSeconds(hitAnimTime);
+        anim.SetBool("Hit", false);
     }
 
     private IEnumerator DeathAnimationCoroutine(float deathAnimTime)

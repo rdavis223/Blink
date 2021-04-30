@@ -33,7 +33,7 @@ public class FieldOfView : MonoBehaviour
     }
     void Update()
     {
-        if (!BlinkMgr.Instance.BlinkActive)
+        if (!BlinkMgr.Instance.BlinkActive && !enemy.isHit)
         {
             enemy.agent.enabled = true;
             enemy.animator.enabled = true;
@@ -43,105 +43,113 @@ public class FieldOfView : MonoBehaviour
             enemy.playerInMeleeRange = Physics.CheckSphere(transform.position, enemy.meleeRange, enemy.whatIsPlayer);
 
             Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
-            if (forcePatrol)
-            {
-
-                forcePatrol = false;
-                enemy.Patrolling();
-            }
-
-            if (!enemy.playerInSightRange)
-            {
-                playerSpotted = false;
-            }
-            if (!(enemyHealth.currentHealth <= 0))
-            {
-                if (takingDamage)
+                
+            
+                if (forcePatrol)
                 {
-                    playerSpotted = true;
-                    if (!targetCoverSet)
-                    {
-                        targetCover = enemy.findClosestCover();
-                        if (targetCover != Vector3.zero)
-                        {
-                            targetCoverSet = true;
 
-                        } else
-                        {
-                            takingDamage = false;
-                        }
-                    }
-                    if (Mathf.Approximately(this.transform.position.x, targetCover.x) && Mathf.Approximately(this.transform.position.z, targetCover.z) && targetCoverSet)
-                    {
-                        enemy.animator.SetBool("Shooting", true);
-                        takingDamangeTimer -= Time.deltaTime;
-                        if (takingDamangeTimer <= 0f)
-                        {
-                            takingDamage = false;
-                            targetCoverSet = false;
-                            enemy.coverObj.GetComponent<CoverPoint>().setOccupied(false);
-                            enemy.coverObj = null;
-                            enemy.animator.SetBool("Shooting", false);
-
-                        }
-                        if (isPlayerInSight())
-                        {
-                            enemy.AttackPlayerMoving();
-                        }
-                    }
-                    else if (targetCoverSet)
-                    {
-                        enemy.animator.SetBool("Chasing", false);
-                        enemy.animator.SetBool("Shooting", false);
-                        enemy.moveToCover(targetCover);
-                        //maybe change this so only if in sight range
-                        if (isPlayerInSight())
-                        {
-                            enemy.AttackPlayerMoving();
-                        }
-                    }
-                    return;
-                }
-
-                if (!enemy.playerInSightRange && !enemy.playerInAttackRange)
-                {
-                    enemy.animator.SetBool("Chasing", false);
-
+                    forcePatrol = false;
                     enemy.Patrolling();
                 }
 
-                for (int i = 0; i < targetsInViewRadius.Length; i++)
+                if (!enemy.playerInSightRange)
                 {
-                    Transform target = targetsInViewRadius[i].transform;
-                    Vector3 dirToTarget = (target.position - transform.position).normalized;
-                    if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2 || playerSpotted)
+                    playerSpotted = false;
+                }
+                if (!(enemyHealth.currentHealth <= 0))
+                {
+                    if (takingDamage && !this.gameObject.name.Contains("Shield"))
                     {
-                        float dToTarget = Vector3.Distance(transform.position, target.position);
-                        
-                        // Player spotted
-                        if (!Physics.Raycast(transform.position, dirToTarget, dToTarget, obstacleMask) || playerSpotted)
+                        playerSpotted = true;
+                        if (!targetCoverSet)
                         {
-                            playerSpotted = true;
-                            viewRadius = 50;
-                            viewAngle = 90;
-                            
-                            if (!(enemy.playerInAttackRange))
+                            targetCover = enemy.findClosestCover();
+                            if (targetCover != Vector3.zero)
                             {
-                                enemy.animator.SetBool("Chasing", true);
-                                enemy.animator.SetBool("Shooting", false);
-                                enemy.ChasePlayer();
-                            }
+                                targetCoverSet = true;
 
-                            if (enemy.playerInAttackRange && !(enemy.playerInMeleeRange))
+                            } else
                             {
-                                if (playerSpotted)
+                                takingDamage = false;
+                            }
+                        }
+                        if (Mathf.Approximately(this.transform.position.x, targetCover.x) && Mathf.Approximately(this.transform.position.z, targetCover.z) && targetCoverSet)
+                        {
+                            enemy.animator.SetBool("Shooting", true);
+                            takingDamangeTimer -= Time.deltaTime;
+                            if (takingDamangeTimer <= 0f)
+                            {
+                                takingDamage = false;
+                                targetCoverSet = false;
+                                enemy.coverObj.GetComponent<CoverPoint>().setOccupied(false);
+                                enemy.coverObj = null;
+                                enemy.animator.SetBool("Shooting", false);
+
+                            }
+                            if (isPlayerInSight())
+                            {
+                                enemy.AttackPlayerMoving();
+                            }
+                        }
+                        else if (targetCoverSet)
+                        {
+                            enemy.animator.SetBool("Chasing", false);
+                            enemy.animator.SetBool("Shooting", false);
+                            enemy.moveToCover(targetCover);
+                            //maybe change this so only if in sight range
+                            if (isPlayerInSight())
+                            {
+                                enemy.AttackPlayerMoving();
+                            }
+                        }
+                        return;
+                    }
+
+                    if (!enemy.playerInSightRange && !enemy.playerInAttackRange)
+                    {
+                        enemy.animator.SetBool("Chasing", false);
+
+                        enemy.Patrolling();
+                    }
+
+                    for (int i = 0; i < targetsInViewRadius.Length; i++)
+                    {
+                        Transform target = targetsInViewRadius[i].transform;
+                        Vector3 dirToTarget = (target.position - transform.position).normalized;
+                        if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2 || playerSpotted)
+                        {
+                            float dToTarget = Vector3.Distance(transform.position, target.position);
+                        
+                            // Player spotted
+                            if (!Physics.Raycast(transform.position, dirToTarget, dToTarget, obstacleMask) || playerSpotted)
+                            {
+                                playerSpotted = true;
+                                viewRadius = 50;
+                                viewAngle = 90;
+                            
+                                if (!(enemy.playerInAttackRange))
                                 {
-                                    bool viewObstructed = !isPlayerInSight();
-                                    if (viewObstructed || !enemy.playerInAttackRange)
+                                    enemy.animator.SetBool("Chasing", true);
+                                    enemy.animator.SetBool("Shooting", false);
+                                    enemy.ChasePlayer();
+                                }
+
+                                if (enemy.playerInAttackRange && !(enemy.playerInMeleeRange))
+                                {
+                                    if (playerSpotted)
                                     {
-                                        enemy.animator.SetBool("Chasing", true);
-                                        enemy.animator.SetBool("Shooting", false);
-                                        enemy.ChasePlayer();
+                                        bool viewObstructed = !isPlayerInSight();
+                                        if (viewObstructed || !enemy.playerInAttackRange)
+                                        {
+                                            enemy.animator.SetBool("Chasing", true);
+                                            enemy.animator.SetBool("Shooting", false);
+                                            enemy.ChasePlayer();
+                                        }
+                                        else
+                                        {
+                                            enemy.animator.SetBool("Shooting", true);
+                                            enemy.AttackPlayer();
+                                        }
                                     }
                                     else
                                     {
@@ -149,44 +157,38 @@ public class FieldOfView : MonoBehaviour
                                         enemy.AttackPlayer();
                                     }
                                 }
+
+                                // Player in melee distance
+                                if (enemy.playerInMeleeRange)
+                                {
+                                    enemy.playerInAttackRange = false;
+                                    enemy.MeleeAttackPlayer();
+                                }
                                 else
                                 {
-                                    enemy.animator.SetBool("Shooting", true);
-                                    enemy.AttackPlayer();
+                                    enemy.animator.SetBool("Striking", false);
                                 }
+                            } else
+                            {
+                                enemy.animator.SetBool("Chasing", false);
+
+                                enemy.Patrolling();
                             }
 
-                            // Player in melee distance
-                            if (enemy.playerInMeleeRange)
-                            {
-                                enemy.playerInAttackRange = false;
-                                enemy.MeleeAttackPlayer();
-                            }
-                            else
-                            {
-                                enemy.animator.SetBool("Striking", false);
-                            }
+
                         } else
                         {
                             enemy.animator.SetBool("Chasing", false);
 
                             enemy.Patrolling();
                         }
-
-
-                    } else
+                    }
+                    if (targetsInViewRadius.Length == 0)
                     {
                         enemy.animator.SetBool("Chasing", false);
-
                         enemy.Patrolling();
                     }
                 }
-                if (targetsInViewRadius.Length == 0)
-                {
-                    enemy.animator.SetBool("Chasing", false);
-                    enemy.Patrolling();
-                }
-            }
         
         } else
         {

@@ -42,11 +42,13 @@ public class Door : MonoBehaviour
     public void Open()
     {
         isOpening = true;
+        Debug.Log("opening");
     }
 
     public void Close()
     {
         isClosing = true;
+        Debug.Log("closing");
     }
 
     private void Update()
